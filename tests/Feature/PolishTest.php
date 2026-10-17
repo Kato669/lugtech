@@ -136,7 +136,7 @@ class PolishTest extends TestCase
     {
         config(['luganda.guests_per_hour' => 2]);
         foreach (range(1, 2) as $visitor) {
-            $this->get('/learn')->assertOk();
+            $this->get('/learn')->assertRedirect(route('welcome')); // a new guest account, welcomed
             auth()->logout();
             $this->flushSession();
         }

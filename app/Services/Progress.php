@@ -23,7 +23,7 @@ class Progress
 
         return DB::transaction(function () use ($user, $lesson, $score) {
             $completion = LessonCompletion::firstOrNew(['user_id' => $user->id, 'lesson_id' => $lesson->id]);
-            $firstTime = ! $completion->exists;
+            $firstTime = ! $completion->exists || ! $completion->times_completed; // a lesson the placement check marked still earns its full cowries
             $completion->best_score = max($completion->best_score ?? 0, $score);
             $completion->times_completed = ($completion->times_completed ?? 0) + 1;
             $completion->last_completed_at = now();

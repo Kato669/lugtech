@@ -88,6 +88,8 @@ class CourseContentTest extends TestCase
 
     public function test_new_lessons_appear_on_the_path_and_play(): void
     {
+        $this->get('/welcome')->assertOk(); // a new guest: past the welcome first
+        $this->post('/welcome', ['start' => 'beginning'])->assertRedirect('/learn');
         $this->get('/learn')->assertOk()
             ->assertSee('Emmere · Food')->assertSee('Ku mmeeza · At the table')
             ->assertSee('Okugula · Buying')->assertDontSee('Lessons coming soon · Mu ffumbiro');

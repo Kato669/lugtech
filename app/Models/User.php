@@ -18,6 +18,18 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    /** Why people learn (asked in the welcome, Phase 10): key => [icon, label]. */
+    public const REASONS = [
+        'family' => ['👪', 'My family'],
+        'culture' => ['🥁', 'Ganda culture and heritage'],
+        'conversation' => ['💬', 'Talking with friends and colleagues'],
+        'travel' => ['🧭', 'Travelling in Uganda'],
+        'curious' => ['✨', 'Just curious'],
+    ];
+
+    /** Daily goals in minutes => name. */
+    public const GOALS = [5 => 'Casual', 10 => 'Regular', 15 => 'Serious', 20 => 'Intense'];
+
     /** Match the database defaults so new (guest) accounts show 0, not blank. */
     protected $attributes = [
         'is_admin' => false,
@@ -42,6 +54,8 @@ class User extends Authenticatable
             'is_guest' => 'boolean',
             'is_reviewer' => 'boolean',
             'last_active_on' => 'date',
+            'onboarded_at' => 'datetime',
+            'daily_goal' => 'integer',
         ];
     }
 
@@ -59,6 +73,12 @@ class User extends Authenticatable
     public function reviewItems(): HasMany
     {
         return $this->hasMany(ReviewItem::class);
+    }
+
+    /** A new learner who hasn't seen the welcome yet (and hasn't started on the path either). */
+    public function needsWelcome(): bool
+    {
+        return ! $this->onboarded_at && ! $this->completions()->exists();
     }
 
     /** Streak counts as alive if the learner practised today or yesterday. */

@@ -215,7 +215,7 @@ class ClassroomLessonsTest extends TestCase
         $this->actingAs($learner)->get('/learn')->assertOk()->assertSee('A first conversation')->assertSee('Actions · Come, sit, eat')->assertSee('🎬 Interactive');
 
         auth()->logout();
-        $this->get('/learn')->assertOk(); // becomes a guest
+        $this->get('/learn')->assertRedirect(route('welcome')); // becomes a guest, and is welcomed
         $this->get(route('lessons.show', 'emmere'))->assertOk();
         $this->postJson(route('lessons.complete', Lesson::where('slug', 'emmere')->first()), ['score' => 80])->assertOk();
     }

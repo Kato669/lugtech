@@ -46,6 +46,7 @@
                 @if ($me)
                     <span class="badge bg-gold-300/60 px-3 py-1 text-sm text-bark-800" title="Cowries"><x-art.cowrie class="h-4 w-5" /> <span data-cowries>{{ $me->cowries }}</span></span>
                     <span class="badge bg-bark-50 px-3 py-1 text-sm text-bark-600" title="Day streak">🔥 <span data-streak>{{ $me->liveStreak() }}</span></span>
+                    <a href="{{ route('settings') }}" class="rounded-full p-1.5 text-lg leading-none transition hover:bg-bark-50 {{ request()->routeIs('settings') ? 'bg-bark-50' : '' }}" title="Settings" aria-label="Settings">⚙️</a>
                     @if ($me->is_guest)
                         <a href="{{ route('register') }}" class="btn-leaf !px-3 !py-1.5 text-sm">Save progress</a>
                     @else

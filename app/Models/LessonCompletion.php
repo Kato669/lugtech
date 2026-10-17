@@ -11,7 +11,13 @@ class LessonCompletion extends Model
 
     protected function casts(): array
     {
-        return ['last_completed_at' => 'datetime'];
+        return ['last_completed_at' => 'datetime', 'placed_at' => 'datetime'];
+    }
+
+    /** Marked known by the placement check, and not played since. */
+    public function isPlacedOnly(): bool
+    {
+        return $this->placed_at !== null && ! $this->times_completed;
     }
 
     public function lesson(): BelongsTo

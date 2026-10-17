@@ -11,6 +11,14 @@
                 <div>
                     <h1 class="text-4xl font-bold">{{ $me->is_guest ? 'Oli otya!' : 'Oli otya, '.\Illuminate\Support\Str::of($me->name)->before(' ').'!' }}</h1>
                     <p class="text-bark-800">{{ $next ? 'Ngoma is waiting on your next lesson.' : 'You have finished every lesson so far. Kulika!' }}</p>
+                    @if ($me->learning_reason || $me->daily_goal)
+                        <p class="mt-1 text-sm text-bark-500">
+                            @if ($me->learning_reason){{ \App\Models\User::REASONS[$me->learning_reason][0] }} Learning for {{ \Illuminate\Support\Str::lcfirst(\App\Models\User::REASONS[$me->learning_reason][1]) }}@endif
+                            @if ($me->learning_reason && $me->daily_goal) · @endif
+                            @if ($me->daily_goal)Daily goal: {{ $me->daily_goal }} min @endif
+                            · <a href="{{ route('settings') }}" class="underline hover:text-bark-800">Change</a>
+                        </p>
+                    @endif
                 </div>
             </div>
 
@@ -58,6 +66,7 @@
                                     @php
                                         $score = $completed->get($lesson->id);
                                         $isNext = $next?->is($lesson);
+                                        $isKnown = $placed->has($lesson->id); // marked by the placement check, not played
                                     @endphp
                                     <li class="relative {{ $offsets[$l % count($offsets)] }}">
                                         @if ($isNext)
@@ -70,11 +79,12 @@
                                                 'anim-beat border-bark-800 bg-bark-600 text-white shadow-[0_6px_0_#3b1f12]' => $isNext,
                                                 'border-bark-100 bg-white text-bark-500 shadow-[0_6px_0_#efd9c8]' => $score === null && ! $isNext,
                                             ])>
-                                                {{ $score !== null ? '★' : ($isNext ? '▶' : $l + 1) }}
+                                                {{ $isKnown ? '✓' : ($score !== null ? '★' : ($isNext ? '▶' : $l + 1)) }}
                                             </span>
                                             <span class="mt-2 max-w-40 text-center text-sm font-bold leading-tight {{ $isNext ? 'text-bark-900' : 'text-bark-800' }}">{{ $lesson->title }}</span>
                                             @if ($lesson->isScripted())<span class="badge mt-1 bg-leaf-100 text-leaf-600" title="Taught by Mukasa and Nakato, with sound and games">🎬 Interactive</span>@endif
-                                            @if ($score !== null)<span class="text-xs text-bark-500">Best {{ $score }}%</span>@endif
+                                            @if ($isKnown)<span class="text-xs text-bark-500">Known already</span>
+                                            @elseif ($score !== null)<span class="text-xs text-bark-500">Best {{ $score }}%</span>@endif
                                         </a>
                                     </li>
                                 @endforeach

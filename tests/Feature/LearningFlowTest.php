@@ -34,7 +34,9 @@ class LearningFlowTest extends TestCase
             'password' => 'secret123', 'password_confirmation' => 'secret123',
         ])->assertRedirect('/learn');
 
-        $this->get('/learn')->assertOk()->assertSee('Ewaka')->assertSee('Up next')->assertSee('Okulamusa')->assertSee('Oli otya, Nakato!');
+        $this->get('/learn')->assertRedirect(route('welcome'));
+        $this->post('/welcome', ['reason' => 'family', 'goal' => 10, 'start' => 'beginning'])->assertRedirect('/learn');
+        $this->get('/learn')->assertOk()->assertSee('Daily goal: 10 min')->assertSee('Ewaka')->assertSee('Up next')->assertSee('Okulamusa')->assertSee('Oli otya, Nakato!');
     }
 
     public function test_lesson_plan_generates_all_exercise_types(): void

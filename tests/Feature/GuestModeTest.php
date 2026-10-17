@@ -21,6 +21,8 @@ class GuestModeTest extends TestCase
 
     public function test_visitors_can_learn_without_signing_up(): void
     {
+        $this->get('/learn')->assertRedirect(route('welcome')); // a new guest is welcomed first
+        $this->post('/welcome', ['reason' => 'curious', 'goal' => 5, 'start' => 'beginning'])->assertRedirect('/learn');
         $this->get('/learn')->assertOk()->assertSee('Up next')->assertSee('Save progress')
             ->assertSee('<span data-cowries>0</span>', false);
         $guest = User::where('is_guest', true)->sole();

@@ -24,6 +24,7 @@ class GuestMerger
                 $existing->best_score = max($existing->best_score ?? 0, $c->best_score);
                 $existing->times_completed = ($existing->times_completed ?? 0) + $c->times_completed;
                 $existing->last_completed_at = max($existing->last_completed_at, $c->last_completed_at);
+                $existing->placed_at ??= $c->placed_at;
                 $existing->save();
             }
 
@@ -31,6 +32,11 @@ class GuestMerger
             ReviewItem::where('user_id', $guest->id)->whereNotIn('phrase_id', $known)->update(['user_id' => $account->id]);
             GamePlay::where('user_id', $guest->id)->update(['user_id' => $account->id]);
             SpeechAttempt::where('user_id', $guest->id)->update(['user_id' => $account->id]);
+
+            // The welcome answers, if the account never gave its own.
+            $account->learning_reason ??= $guest->learning_reason;
+            $account->daily_goal ??= $guest->daily_goal;
+            $account->onboarded_at ??= $guest->onboarded_at;
 
             $account->cowries += $guest->cowries;
             $account->longest_streak = max($account->longest_streak, $guest->longest_streak);

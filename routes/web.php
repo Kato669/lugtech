@@ -11,7 +11,9 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\OfflineController;
 use App\Http\Controllers\PhrasebookController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SpeechController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Middleware\EnsureAdmin;
 use App\Http\Middleware\EnsureContributor;
 use App\Http\Middleware\EnsureLearner;
@@ -40,6 +42,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 // No sign-up needed: visitors get a guest account automatically.
 Route::middleware(EnsureLearner::class)->group(function () {
     Route::get('/learn', CourseController::class)->name('course');
+    // Phase 10: the welcome, the placement check and settings
+    Route::get('/welcome', [WelcomeController::class, 'show'])->name('welcome');
+    Route::post('/welcome', [WelcomeController::class, 'store']);
+    Route::get('/placement', [WelcomeController::class, 'placement'])->name('placement');
+    Route::post('/placement', [WelcomeController::class, 'grade'])->middleware('throttle:10,1');
+    Route::get('/placement/result', [WelcomeController::class, 'result'])->name('placement.result');
+    Route::get('/settings', [SettingsController::class, 'show'])->name('settings');
+    Route::post('/settings', [SettingsController::class, 'update']);
+    Route::post('/settings/start-over', [SettingsController::class, 'startOver'])->name('settings.start-over');
     Route::get('/learn/{lesson}', [LessonController::class, 'show'])->name('lessons.show');
     Route::post('/learn/{lesson}/complete', [LessonController::class, 'complete'])->middleware(OnceOnly::class)->name('lessons.complete');
     Route::get('/offline/stage/{stage}', [OfflineController::class, 'stage'])->name('offline.stage');
