@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 419, 'title' => 'This page expired', 'message' => 'It was open for a long time, so it needs refreshing. Go back, reload the page and try again.', 'mood' => 'happy'])

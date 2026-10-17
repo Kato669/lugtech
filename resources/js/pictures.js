@@ -1,0 +1,66 @@
+/**
+ * Built-in pictures for lessons (no image uploads needed): lugPicture('cowrie', 3)
+ * returns SVG markup showing three cowries. Names must match app/Lessons/Pictures.php.
+ */
+const ink = '#3b1f12';
+const shapes = {
+    cowrie: `<ellipse cx="20" cy="20" rx="16" ry="11" fill="#fbf6ec" stroke="${ink}" stroke-width="2"/><path d="M7 20c6-3 20-3 26 0" stroke="${ink}" stroke-width="2" stroke-linecap="round"/><path d="M11 18v4M15 17v5M19 17v5M23 17v5M27 17v5M31 18v4" stroke="${ink}" stroke-width="1"/>`,
+    matooke: `<path d="M8 30c4-14 14-22 26-24-6 6-10 16-10 26z" fill="#7fb05a" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M14 33c3-12 12-20 22-22-5 6-8 14-8 23z" fill="#9ccc6e" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M33 6l3-3" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>`,
+    mango: `<path d="M20 6c9 0 15 8 15 17s-7 13-15 13S6 31 7 23 11 6 20 6z" fill="#f4b23b" stroke="${ink}" stroke-width="2"/><path d="M20 6c1-2 4-3 7-2-2 3-4 3-7 2z" fill="#6aa04a" stroke="${ink}" stroke-width="1.5"/><ellipse cx="14" cy="16" rx="3" ry="5" fill="#fff" opacity=".35"/>`,
+    egg: `<path d="M20 5c7 0 12 11 12 19s-5 12-12 12S8 32 8 24 13 5 20 5z" fill="#fbf6ec" stroke="${ink}" stroke-width="2"/><ellipse cx="15" cy="16" rx="2.5" ry="4" fill="#fff"/>`,
+    cup: `<path d="M8 12h20l-2 20c0 2-2 3-4 3h-8c-2 0-4-1-4-3z" fill="#c9773f" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M28 16c6 0 6 9 0 9" stroke="${ink}" stroke-width="2" fill="none"/><path d="M14 4c-2 2 2 3 0 5M20 4c-2 2 2 3 0 5" stroke="#a65a33" stroke-width="1.5" stroke-linecap="round"/>`,
+    ball: `<circle cx="20" cy="20" r="14" fill="#e85d3f" stroke="${ink}" stroke-width="2"/><path d="M6 20h28M20 6c6 6 6 22 0 28M20 6c-6 6-6 22 0 28" stroke="#fbf6ec" stroke-width="2" fill="none"/>`,
+    drum: `<path d="M8 12c0 10 3 20 6 24h12c3-4 6-14 6-24" fill="#a65a33" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><ellipse cx="20" cy="12" rx="12" ry="4" fill="#fbf6ec" stroke="${ink}" stroke-width="2"/><path d="M11 16l4 16M20 17v16M29 16l-4 16" stroke="#f4cf6b" stroke-width="1.5"/>`,
+    star: `<path d="M20 4l4.6 10 10.9 1.2-8.1 7.4 2.3 10.8L20 28l-9.7 5.4 2.3-10.8-8.1-7.4L15.4 14z" fill="#f4cf6b" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/>`,
+    house: `<path d="M5 20L20 6l15 14" fill="#c9a26b" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M9 18v16h22V18" fill="#fbf6ec" stroke="${ink}" stroke-width="2"/><path d="M17 34v-9h6v9" fill="#a65a33" stroke="${ink}" stroke-width="2"/>`,
+    person: `<circle cx="20" cy="11" r="6" fill="#7a4a2b" stroke="${ink}" stroke-width="2"/><path d="M9 36c0-9 5-15 11-15s11 6 11 15z" fill="#3e7c3a" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/>`,
+    // ── Phase 6 ──────────────────────────────────────────────
+    // Time of day
+    sun: `<circle cx="20" cy="20" r="8" fill="#f4cf6b" stroke="${ink}" stroke-width="2"/><path d="M20 3v5M20 32v5M3 20h5M32 20h5M8 8l3.5 3.5M28.5 28.5L32 32M8 32l3.5-3.5M28.5 11.5L32 8" stroke="#e8a23b" stroke-width="2.5" stroke-linecap="round"/>`,
+    moon: `<path d="M25 6A14.5 14.5 0 1 0 34 27 11.5 11.5 0 0 1 25 6z" fill="#f4e7b0" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="1.3" fill="#f4cf6b"/><circle cx="35" cy="16" r="1" fill="#f4cf6b"/>`,
+    // People: a man in a kanzu, a woman in a gomesi, a child
+    man: `<circle cx="20" cy="8.5" r="5.5" fill="#7a4a2b" stroke="${ink}" stroke-width="2"/><path d="M12 37l1.6-19c.4-3 3-4.8 6.4-4.8s6 1.8 6.4 4.8L28 37z" fill="#fbf6ec" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M20 14v11" stroke="#a65a33" stroke-width="2.2"/>`,
+    woman: `<circle cx="20" cy="8.5" r="5.5" fill="#7a4a2b" stroke="${ink}" stroke-width="2"/><path d="M11 37l3-21h12l3 21z" fill="#c2415a" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><ellipse cx="13" cy="17" rx="3.6" ry="3.2" fill="#c2415a" stroke="${ink}" stroke-width="2"/><ellipse cx="27" cy="17" rx="3.6" ry="3.2" fill="#c2415a" stroke="${ink}" stroke-width="2"/><path d="M14.6 24h10.8" stroke="#f4cf6b" stroke-width="3"/>`,
+    child: `<circle cx="20" cy="17" r="5" fill="#7a4a2b" stroke="${ink}" stroke-width="2"/><path d="M13 37c0-7 3-12 7-12s7 5 7 12z" fill="#f4b23b" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/>`,
+    // In the house
+    door: `<rect x="11" y="4" width="18" height="32" rx="1" fill="#a65a33" stroke="${ink}" stroke-width="2"/><path d="M14.5 8h11v10h-11zM14.5 21.5h11v10.5h-11z" fill="none" stroke="#7a4a2b" stroke-width="1.5"/><circle cx="25.8" cy="20" r="1.5" fill="#f4cf6b" stroke="${ink}" stroke-width="1"/><path d="M6 36h28" stroke="${ink}" stroke-width="2" stroke-linecap="round"/>`,
+    window: `<rect x="7" y="6" width="26" height="26" fill="#bfe3f0" stroke="${ink}" stroke-width="2"/><path d="M20 6v26M7 19h26" stroke="${ink}" stroke-width="2"/><path d="M10 9l4 0M10 22l3 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M4 33.5h32" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>`,
+    chair: `<rect x="10" y="4" width="4.5" height="32" rx="1" fill="#c9773f" stroke="${ink}" stroke-width="1.8"/><rect x="10" y="19" width="21" height="4.5" rx="1" fill="#c9773f" stroke="${ink}" stroke-width="1.8"/><rect x="26.5" y="23.5" width="4.5" height="12.5" rx="1" fill="#c9773f" stroke="${ink}" stroke-width="1.8"/>`,
+    table: `<rect x="3" y="13" width="34" height="5" rx="1" fill="#c9773f" stroke="${ink}" stroke-width="1.8"/><rect x="6.5" y="18" width="4" height="18" fill="#a65a33" stroke="${ink}" stroke-width="1.8"/><rect x="29.5" y="18" width="4" height="18" fill="#a65a33" stroke="${ink}" stroke-width="1.8"/>`,
+    bed: `<rect x="3" y="9" width="4.5" height="26" rx="1" fill="#a65a33" stroke="${ink}" stroke-width="1.8"/><rect x="7.5" y="20" width="29.5" height="7" fill="#fbf6ec" stroke="${ink}" stroke-width="1.8"/><ellipse cx="13" cy="18" rx="4.5" ry="2.6" fill="#fff" stroke="${ink}" stroke-width="1.6"/><path d="M19 17.5h18v9.5H19z" fill="#3e7c3a" stroke="${ink}" stroke-width="1.8"/><rect x="3" y="27" width="34" height="4" fill="#a65a33" stroke="${ink}" stroke-width="1.8"/><path d="M35 31v4" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/>`,
+    // Food
+    beans: `<g fill="#9b3b2a" stroke="${ink}" stroke-width="1.6"><ellipse cx="13" cy="13" rx="6" ry="3.8" transform="rotate(-25 13 13)"/><ellipse cx="27" cy="12" rx="6" ry="3.8" transform="rotate(20 27 12)"/><ellipse cx="20" cy="21" rx="6" ry="3.8" transform="rotate(-5 20 21)"/><ellipse cx="11" cy="28" rx="6" ry="3.8" transform="rotate(15 11 28)"/><ellipse cx="28" cy="29" rx="6" ry="3.8" transform="rotate(-20 28 29)"/></g><g stroke="#e8a080" stroke-width="1.2" stroke-linecap="round"><path d="M10 12l3-1M24 11l3 1M17 20.5h3M9 27l3 1M26 29l3-1"/></g>`,
+    rice: `<path d="M8 19c1.5-6 6.5-9.5 12-9.5S30.5 13 32 19z" fill="#fbf6ec" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 14l1.5-.6M19 12.5h1.6M24 14l1.4.7M16.5 17l1.5-.4M22 17.2h1.5" stroke="#c9a26b" stroke-width="1.2" stroke-linecap="round"/><path d="M5 19h30c0 9-6.5 15-15 15S5 28 5 19z" fill="#c9773f" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M9 24h22" stroke="#f4cf6b" stroke-width="1.6"/>`,
+    meat: `<path d="M5 22c0-8 7-14 16-14 9 0 15 5 14 12-1 8-8 12-16 12-8 0-14-3-14-10z" fill="#c0392b" stroke="${ink}" stroke-width="2"/><path d="M8 21c3-6 9-9 16-8M10 27c5 2 13 1 18-3" stroke="#f6c9b8" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="25" cy="19" r="3.2" fill="#fbf6ec" stroke="${ink}" stroke-width="1.6"/>`,
+    'sweet-potato': `<path d="M4 24c1-8 9-13 18-13 8 0 14 3 13 8s-8 10-17 10S3.5 30 4 24z" fill="#b5476b" stroke="${ink}" stroke-width="2"/><path d="M35 19l3-2M4.5 25.5L2 27" stroke="${ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M13 19l1 1M22 16l1 1M26 22l1 1M15 25l1 1" stroke="#6e2741" stroke-width="1.6" stroke-linecap="round"/>`,
+    cassava: `<path d="M9 9c-4 .5-6.5 5-4.5 9L29 34c2.5 2 6.5.5 6.5-2.5 0-1.5-1-2.8-2.4-3.6z" fill="#8a5a36" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><ellipse cx="7.6" cy="13.6" rx="4" ry="5" transform="rotate(-30 7.6 13.6)" fill="#fbf6ec" stroke="${ink}" stroke-width="1.6"/><circle cx="7.6" cy="13.6" r="1.2" fill="#e8d9b8"/><path d="M15 17.5l2-1.8M21 22l2-1.7M27 26.5l1.8-1.5" stroke="#5e3a1f" stroke-width="1.5" stroke-linecap="round"/>`,
+    // Market goods
+    orange: `<circle cx="20" cy="22" r="13" fill="#f39c12" stroke="${ink}" stroke-width="2"/><path d="M20 9c0-3 2-5 5-5-.5 3-2.5 5-5 5z" fill="#6aa04a" stroke="${ink}" stroke-width="1.5"/><circle cx="15" cy="18" r=".9" fill="#c87408"/><circle cx="24" cy="25" r=".9" fill="#c87408"/><circle cx="18" cy="28" r=".9" fill="#c87408"/><ellipse cx="14" cy="16" rx="3" ry="4" fill="#fff" opacity=".3"/>`,
+    tomato: `<path d="M20 11c9 0 15 5 15 12s-7 13-15 13S5 30 5 23s6-12 15-12z" fill="#e0412f" stroke="${ink}" stroke-width="2"/><path d="M20 12l-5-4 3 5-6 0 6 2 2 3 2-3 6-2-6 0 3-5z" fill="#4f8f3a" stroke="${ink}" stroke-width="1.3" stroke-linejoin="round"/><ellipse cx="12.5" cy="20" rx="2.5" ry="4" fill="#fff" opacity=".35"/>`,
+    onion: `<path d="M20 9c8 6 14 10 14 17 0 6-6 10-14 10S6 32 6 26c0-7 6-11 14-17z" fill="#b04a6d" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M20 10c-4 6-6 12-5 25M20 10c4 6 6 12 5 25" stroke="#7d2e4b" stroke-width="1.3" fill="none"/><path d="M20 9V3M18 9l-2-5M22 9l2-5" stroke="#6aa04a" stroke-width="1.8" stroke-linecap="round"/><path d="M16 36l-1 2M20 36v2.5M24 36l1 2" stroke="${ink}" stroke-width="1.2" stroke-linecap="round"/>`,
+    groundnut: `<path d="M13 5c5 0 8 4 7.5 8.5-.3 2.5 1.2 4 3.5 5 4 1.8 6.5 5 6.5 9.5 0 5-4 8-9 8-5 0-8.5-3.5-8.5-8 0-2.6-1.3-4-3.4-5.2C6.3 21.4 4 18.5 4 14c0-5 4-9 9-9z" fill="#d9b27c" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M8 11l2 1M13 9l1 2M10 17l2-1M19 26l2 1M24 23l1 2M22 31l2-1M27 29l1 2" stroke="#a7783f" stroke-width="1.4" stroke-linecap="round"/>`,
+    bag: `<path d="M13 15c0-6 3-10 7-10s7 4 7 10" stroke="${ink}" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M6 15h28l-2.5 19c-.3 1.8-1.7 3-3.5 3h-16c-1.8 0-3.2-1.2-3.5-3z" fill="#d6a85c" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M8 21h24M9 27h22M10 32h20" stroke="#a7783f" stroke-width="1.4"/><path d="M14 15l-1 21M20 15v21M26 15l1 21" stroke="#a7783f" stroke-width="1.2"/>`,
+    // Drinks (a glass of …)
+    water: `<path d="M10 6h20l-2.5 29c-.1 1.2-1 2-2.2 2H14.7c-1.2 0-2.1-.8-2.2-2z" fill="#eef7fb" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M11.3 15h17.4l-1.7 20c0 .6-.5 1-1 1H14c-.5 0-1-.4-1-1z" fill="#6cb8e0"/><path d="M14 18v12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>`,
+    milk: `<path d="M10 6h20l-2.5 29c-.1 1.2-1 2-2.2 2H14.7c-1.2 0-2.1-.8-2.2-2z" fill="#eef7fb" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M11.1 13c3 1.5 5 -1 9 0s6 1.5 8.8 0l-1.9 22c0 .6-.5 1-1 1H14c-.5 0-1-.4-1-1z" fill="#fffdf6" stroke="#d8cfc0" stroke-width="1"/>`,
+    juice: `<path d="M10 9h20l-2.5 26c-.1 1.2-1 2-2.2 2H14.7c-1.2 0-2.1-.8-2.2-2z" fill="#eef7fb" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M11.2 16h17.6l-1.8 19c0 .6-.5 1-1 1H14c-.5 0-1-.4-1-1z" fill="#f39c12"/><path d="M23 30L27 3h4" stroke="#d9534f" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="11" r="4" fill="#f39c12" stroke="${ink}" stroke-width="1.6"/>`,
+};
+
+// How a picture is read aloud by screen readers ("2 sweet potatoes"), where "name + s" would be wrong.
+const spoken = {
+    'sweet-potato': ['sweet potato', 'sweet potatoes'], tomato: ['tomato', 'tomatoes'], man: ['man', 'men'], woman: ['woman', 'women'],
+    child: ['child', 'children'], beans: ['beans', 'beans'], rice: ['bowl of rice', 'bowls of rice'], meat: ['piece of meat', 'pieces of meat'],
+    water: ['glass of water', 'glasses of water'], milk: ['glass of milk', 'glasses of milk'], juice: ['glass of juice', 'glasses of juice'],
+    cassava: ['cassava root', 'cassava roots'],
+};
+
+const label = (name, n) => (spoken[name] ? spoken[name][n > 1 ? 1 : 0] : name + (n > 1 ? 's' : ''));
+
+window.lugPicture = (name, count = 1) => {
+    const shape = shapes[name];
+    if (!shape) return '';
+    const n = Math.max(1, Math.min(10, Number(count) || 1));
+    const items = Array.from({ length: n }, (_, i) =>
+        `<span class="lug-pic-item" style="animation-delay:${i * 0.12}s" aria-hidden="true"><svg viewBox="0 0 40 40">${shape}</svg></span>`).join('');
+    return `<span class="lug-pic" role="img" aria-label="${n} ${label(name, n)}">${items}</span>`;
+};

@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 404, 'title' => "This page isn't here", 'message' => 'The link may be old, or the lesson may have moved. Your progress is safe.', 'link' => url('/learn'), 'button' => 'Go to your lessons'])
