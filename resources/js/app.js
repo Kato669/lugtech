@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs';
 import lessonPlayer from './lesson-player';
+import offline from './offline';
 import './pictures';
 
 window.Alpine = Alpine;
@@ -554,27 +555,16 @@ Alpine.data('converseStep', (step) => ({
     yourLines() { return this.lines.filter((l) => l.who === this.you); },
 }));
 
-/** POST JSON with the CSRF token; resolves to the parsed response. */
-window.postJson = async (url, body) => {
-    const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content,
-        },
-        body: JSON.stringify(body),
-    });
-    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-    return res.json();
-};
+// window.postJson (with the offline queue) lives in ./offline.js
 
 /** Keep the header's cowrie and streak counters in sync after earning. */
 window.updateCounters = (data) => {
+    if (!data || data.queued) return;
     if (data?.cowries !== undefined) document.querySelector('[data-cowries]').textContent = data.cowries;
     if (data?.streak !== undefined) document.querySelector('[data-streak]').textContent = data.streak;
 };
 
+offline(Alpine);
 lessonPlayer(Alpine);
 
 Alpine.start();

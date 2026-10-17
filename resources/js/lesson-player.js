@@ -48,6 +48,7 @@ export default (Alpine) => {
         finished: false,
         result: null,
         saveError: false,
+        savedOffline: false,
         praise: '',
         streak: 0,
         prompts: { choose: 'What does this mean?', recall: 'How do you say this in Luganda?', listen: 'What did you hear?', sequence: 'What comes next?' },
@@ -88,6 +89,10 @@ export default (Alpine) => {
 
         init() {
             this.lessonId = Number(this.$el.dataset.lesson) || null;
+            // Keep this lesson's recordings on the phone, so it also works without a signal later.
+            const audio = [];
+            JSON.stringify(steps, (k, v) => { if ((k === 'audio' || k === 'audio_slow') && v) audio.push(v); return v; });
+            window.lugKeep?.(audio);
             this.prepare();
         },
         get step() { return this.queue[this.index] ?? null; },
@@ -132,7 +137,10 @@ export default (Alpine) => {
             item.classList.add('is-counted');
             item.dataset.n = this.counted;
             playInstrument('amadinda', this.counted);
-            if (this.counted === items.length && this.step.phrase?.audio) setTimeout(() => playAudio(this.step.phrase.audio), 350);
+            // After the last one, say the number. Take the recording now: the learner may already be on the next step.
+            const word = this.step.phrase?.audio;
+            const at = this.index;
+            if (this.counted === items.length && word) setTimeout(() => this.index === at && playAudio(word), 350);
         },
         pick(i) { this.tiles[i].used = true; this.picked.push({ text: this.tiles[i].text, from: i }); },
         unpick(i) { const [t] = this.picked.splice(i, 1); this.tiles[t.from].used = false; },
@@ -189,8 +197,13 @@ export default (Alpine) => {
             this.finished = true;
             playInstrument('cheer');
             try {
-                this.result = await postJson(completeUrl, { score: this.score });
-                updateCounters(this.result);
+                const r = await postJson(completeUrl, { score: this.score });
+                if (r.queued) {
+                    this.savedOffline = true; // sent (and rewarded) when the phone is back online
+                } else {
+                    this.result = r;
+                    updateCounters(r);
+                }
             } catch (e) {
                 this.saveError = true;
             }

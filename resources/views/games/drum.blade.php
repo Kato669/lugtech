@@ -49,7 +49,8 @@
                 <x-art.ngoma mood="wow" class="anim-pop mx-auto h-24 w-24" />
                 <h2 class="mt-2 text-2xl font-bold">Engoma ewummudde! The drum rests.</h2>
                 <p class="mt-2 text-lg"><strong x-text="points"></strong> points · <span x-text="right"></span> right · best combo <span x-text="bestCombo"></span></p>
-                <template x-if="result">
+                <p x-show="result && result.queued" class="mt-3 text-sm font-semibold text-bark-800" role="status">📱 Saved on this phone. Cowries are added when you're back online.</p>
+                <template x-if="result && !result.queued">
                     <p class="mt-3 text-lg">🐚 +<span x-text="result.cowries_earned"></span> cowries
                         <span x-show="result.capped" class="block text-sm text-bark-500">You've reached today's game cowrie limit. Lessons still earn more.</span></p>
                 </template>

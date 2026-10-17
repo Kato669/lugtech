@@ -63,6 +63,7 @@
                 <template x-if="result">
                     <p class="mt-4 text-lg">🐚 +<span x-text="result.cowries_earned"></span> cowries · 🔥 <span x-text="result.streak"></span>-day streak</p>
                 </template>
+                <p x-show="savedOffline" class="mx-auto mt-4 max-w-sm rounded-2xl bg-gold-300/40 px-4 py-3 text-sm font-semibold text-bark-800" role="status">📱 Saved on this phone. Your cowries and streak are added when you're back online.</p>
                 <p x-show="saveError" class="mt-4 text-sm text-red-600">Couldn't save your progress. Check your connection and try again.</p>
                 @if (auth()->user()->is_guest)
                     <div class="mx-auto mt-6 max-w-sm rounded-2xl bg-leaf-100 p-4">

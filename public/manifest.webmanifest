@@ -1,0 +1,23 @@
+{
+  "name": "Luganda · Learn the language of Buganda",
+  "short_name": "Luganda",
+  "description": "Learn Luganda with Mukasa and Nakato: short lessons, real voices, games and speaking practice. Works offline once opened.",
+  "id": "/learn",
+  "start_url": "/learn?source=home-screen",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf6ec",
+  "theme_color": "#8b4a2b",
+  "lang": "en",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/app-icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Continue learning", "url": "/learn?source=shortcut", "icons": [{ "src": "/app-icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Review", "url": "/review?source=shortcut", "icons": [{ "src": "/app-icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -36,6 +36,17 @@
                             @if ($stage->greeting)<span class="ml-auto hidden rounded-full bg-bark-900/40 px-3 py-1 text-sm font-bold text-gold-300 sm:block">{{ $stage->greeting }}</span>@endif
                         </div>
 
+                        @if ($stage->publishedLessons->isNotEmpty())
+                            {{-- Keep the whole stage on this phone: lessons and recordings (resources/js/offline.js) --}}
+                            <div class="mt-3 flex justify-end" x-data="saveStage(@js(route('offline.stage', $stage)))" x-show="supported" x-cloak>
+                                <button type="button" class="btn-ghost !px-3 !py-1.5 text-sm" @click="save()" x-show="state === 'idle' || state === 'error'">⬇ Save for offline</button>
+                                <p class="text-sm font-semibold text-bark-800" x-show="state === 'saving'" role="status">Saving… <span x-text="total ? Math.round(done / total * 100) + '%' : ''"></span></p>
+                                <p class="flex items-center gap-2 text-sm font-semibold text-leaf-600" x-show="state === 'saved'" role="status">✓ Saved: works without a signal<span x-show="failed"> (<span x-text="failed"></span> not saved)</span>
+                                    <button type="button" class="font-normal text-bark-500 underline" @click="save()" aria-label="Save this stage again, with any new lessons">Update</button></p>
+                                <p class="text-sm text-red-600" x-show="state === 'error'">Couldn't save right now.</p>
+                            </div>
+                        @endif
+
                         @if ($stage->publishedLessons->isEmpty())
                             <div class="mt-6 flex items-center justify-center gap-3 text-bark-500">
                                 <x-art.spear class="h-4 w-16 opacity-60" /> Lessons coming soon <x-art.spear class="h-4 w-16 -scale-x-100 opacity-60" />
@@ -75,6 +86,20 @@
         </div>
 
         <aside class="space-y-5 lg:sticky lg:top-24 lg:self-start">
+            {{-- Install the app (Android/desktop: one tap; iPhone/iPad: Share → Add to Home Screen) --}}
+            <div x-data="installApp" x-cloak x-show="!installed && (canInstall || ios)" class="card border-gold-500/50 bg-gold-300/20">
+                <p class="font-display text-lg font-bold">📲 Put Luganda on your phone</p>
+                <p class="mt-1 text-sm text-bark-800">Open it like an app, and keep learning without a signal.</p>
+                <button type="button" class="btn-primary mt-3 w-full" x-show="canInstall" @click="install()">Install the app</button>
+                <div x-show="!canInstall && ios">
+                    <button type="button" class="btn-ghost mt-3 w-full" @click="showIos = !showIos">How to install on iPhone</button>
+                    <ol class="mt-3 list-decimal space-y-1 pl-5 text-sm text-bark-800" x-show="showIos">
+                        <li>Open this page in <b>Safari</b>.</li>
+                        <li>Tap the <b>Share</b> button (the square with an arrow).</li>
+                        <li>Choose <b>Add to Home Screen</b>, then <b>Add</b>.</li>
+                    </ol>
+                </div>
+            </div>
             @if ($me->is_guest && $completed->isNotEmpty())
                 <div class="card border-leaf-500/40 bg-leaf-100/60">
                     <p class="font-display text-lg font-bold text-leaf-600">Keep your progress</p>

@@ -51,14 +51,8 @@
                     this.chosen = option;
                     const correct = option === this.card.answer;
                     if (correct) this.right++;
-                    fetch(`{{ url('review') }}/${this.card.id}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', Accept: 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content },
-                        body: JSON.stringify({ correct }),
-                    }).then((r) => r.json()).then((d) => {
-                        document.querySelector('[data-cowries]').textContent = d.cowries;
-                    }).catch(() => {});
+                    // Offline, the grade waits on the phone and is sent when back online (resources/js/offline.js).
+                    postJson(`{{ url('review') }}/${this.card.id}`, { correct }).then((d) => updateCounters(d)).catch(() => {});
                 },
                 next() { this.index++; this.chosen = null; },
             }));

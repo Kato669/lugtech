@@ -314,3 +314,29 @@ php artisan app:production-check     # lists what still needs fixing, with how
    (`storage/app/public`). Keep a copy off the server.
 8. Recommended: put the code under git (`git init && git add -A && git commit -m "Phase 8"`), so every
    update is one change you can look at and undo. `.env` and `vendor/` are already in `.gitignore`.
+
+## Works offline, installs like an app (Phase 9)
+No migrations. After updating: `npm run build` (the offline app saves the built files on each phone).
+
+**What learners get**
+- **Install**: on Android/Chrome the course page shows **📲 Install the app**; on iPhone/iPad it explains
+  Safari → Share → Add to Home Screen. It opens full screen with Ngoma's icon.
+- **Without a signal**: lessons they've opened (and their recordings), the course path, review and the phrasebook
+  keep working. A banner says they're offline. Pages that were never opened show a friendly offline page that
+  lists what *is* saved on the phone.
+- **⬇ Save for offline** on each stage of the course path keeps the whole stage (lessons + recordings) on the phone.
+- **Progress made offline** (finished lessons, reviews, games, "Say it" verdicts) waits on the phone: "📱 Saved on this
+  phone". When the signal is back it's sent automatically ("Progress from offline saved."), with cowries and streak.
+  Each save carries a request id, so a save that arrives twice is **counted once**.
+
+**How it works (for developers)**
+- `public/manifest.webmanifest`, icons in `public/app-icons/` (not `/icons/`: Ubuntu's Apache keeps that address).
+- `public/sw.js`: pages network-first (saved copy offline), recordings and built files cache-first, never admin/
+  Check/Studio/login or any POST. Bump `VERSION` in it when its caching rules change.
+- `resources/js/offline.js`: the queue (`localStorage lug.queue`), sending it with a fresh token from `/sync/token`,
+  the offline banner, "Save for offline" (`/offline/stage/{id}`), the install button.
+- `App\Http\Middleware\OnceOnly` on the four save routes: same `X-Request-Id` → the first answer again (kept 24 h).
+- `public/.htaccess` serves `sw.js` and the manifest with `Cache-Control: no-cache`, so updates reach phones.
+- Service workers need HTTPS (or localhost). On plain http on another computer the app works as before, just not offline.
+- A different person logging in on the same phone: the pages saved for the last person are forgotten, and their
+  waiting saves are never sent to the new account.

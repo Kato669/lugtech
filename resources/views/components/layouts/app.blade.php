@@ -6,6 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- Installable, and works offline (Phase 9): public/manifest.webmanifest, public/sw.js, resources/js/offline.js --}}
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#8b4a2b">
+    <link rel="apple-touch-icon" href="/app-icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Luganda">
+    @if ($me)<meta name="lug-user" content="{{ $me->id }}">@endif
     <script>window.LUGANDA_VOICE = @js($voiceOn);</script>
     @if ($voiceOn)
         @php($checker = app(\App\Audio\Stt\SttManager::class)->provider())
@@ -53,6 +60,14 @@
             </div>
         </nav>
     </header>
+
+    {{-- No signal: say so, and how many saves are waiting to be sent --}}
+    <div x-data x-cloak class="sticky top-[var(--header-h,0px)] z-30">
+        <div x-show="!$store.net.online" x-transition class="bg-bark-800 px-4 py-2 text-center text-sm font-semibold text-white" role="status">
+            📴 You're offline. Lessons you've opened still work<span x-show="$store.net.waiting">, and <span x-text="$store.net.waiting"></span> <span x-text="$store.net.waiting === 1 ? 'save is' : 'saves are'"></span> waiting to be sent</span>.
+        </div>
+        <div x-show="$store.net.online && $store.net.message" x-transition class="bg-leaf-500 px-4 py-2 text-center text-sm font-semibold text-white" role="status" x-text="$store.net.message"></div>
+    </div>
 
     @if (session('status'))
         <div class="mx-auto mt-4 max-w-6xl px-4">
