@@ -11,6 +11,14 @@ return [
     'voice' => (bool) env('LUGANDA_VOICE', false),
 
     /*
+    | Background music: "Mpola", a slow original piece (public/music/), quiet under the lessons.
+    | Learners can switch it off with the 🎵 button; this switches it off for everyone.
+    | Never played on the admin, Check or Studio pages.
+    */
+    'music' => (bool) env('LUGANDA_MUSIC', true),
+    'music_file' => '/music/mpola-1.mp3', // a new piece gets a new name (files here are cached for a year)
+
+    /*
     | Play recordings before a native speaker has checked them?
     |
     | true:  learners hear every recording straight away (generated ones show 🤖).

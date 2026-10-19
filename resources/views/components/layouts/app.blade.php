@@ -14,6 +14,8 @@
     <meta name="apple-mobile-web-app-title" content="Luganda">
     @if ($me)<meta name="lug-user" content="{{ $me->id }}">@endif
     <script>window.LUGANDA_VOICE = @js($voiceOn);</script>
+    {{-- Background music (resources/js/music.js): never where contributors work with recordings --}}
+    <script>window.LUGANDA_MUSIC = @js(config('luganda.music') && ! request()->routeIs('admin.*', 'check', 'check.*', 'studio', 'studio.*') ? config('luganda.music_file') : null);</script>
     @if ($voiceOn)
         @php($checker = app(\App\Audio\Stt\SttManager::class)->provider())
         <script>window.LUGANDA_SPEAK = @js(['attempts' => route('speak.attempts'), 'check' => $checker ? route('speak.check') : null, 'checker' => $checker?->label()]);</script>
@@ -43,6 +45,10 @@
                 @endif
             </div>
             <div class="ml-auto flex items-center gap-2 text-sm">
+                <button type="button" x-data x-cloak x-show="$store.music.available" @click="$store.music.toggle()"
+                        class="relative rounded-full p-1.5 text-lg leading-none transition hover:bg-bark-50" :class="!$store.music.on && 'opacity-60 grayscale'"
+                        :aria-pressed="$store.music.on.toString()" aria-label="Background music" :title="$store.music.on ? 'Background music: on' : 'Background music: off'">🎵<span
+                        x-show="!$store.music.on" aria-hidden="true" class="absolute left-1/2 top-1/2 h-0.5 w-6 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded bg-bark-800"></span></button>
                 @if ($me)
                     <span class="badge bg-gold-300/60 px-3 py-1 text-sm text-bark-800" title="Cowries"><x-art.cowrie class="h-4 w-5" /> <span data-cowries>{{ $me->cowries }}</span></span>
                     <span class="badge bg-bark-50 px-3 py-1 text-sm text-bark-600" title="Day streak">🔥 <span data-streak>{{ $me->liveStreak() }}</span></span>

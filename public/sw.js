@@ -52,8 +52,8 @@ self.addEventListener('fetch', (event) => {
     if (req.method !== 'GET' || url.origin !== self.location.origin) return;
     if (NEVER.some((r) => r.test(url.pathname))) return;
 
-    if (url.pathname.startsWith('/storage/audio/')) {
-        event.respondWith(audio(req));
+    if (url.pathname.startsWith('/storage/audio/') || url.pathname.startsWith('/music/')) {
+        event.respondWith(audio(req)); // recordings and the background music: kept whole, served in byte ranges
     } else if (url.pathname.startsWith('/build/') || url.pathname.startsWith('/app-icons/')) {
         event.respondWith(cacheFirst(req, APP));
     } else if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {

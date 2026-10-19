@@ -1,6 +1,7 @@
 import Alpine from 'alpinejs';
 import lessonPlayer from './lesson-player';
 import offline from './offline';
+import music from './music';
 import './pictures';
 
 window.Alpine = Alpine;
@@ -78,10 +79,12 @@ Alpine.data('recorder', () => ({
             this.mediaRecorder.ondataavailable = (e) => this.chunks.push(e.data);
             this.mediaRecorder.onstop = () => {
                 stream.getTracks().forEach((t) => t.stop());
+                window.dispatchEvent(new CustomEvent('lug-mic', { detail: false }));
                 if (this.url) URL.revokeObjectURL(this.url);
                 this.url = URL.createObjectURL(new Blob(this.chunks, { type: this.mediaRecorder.mimeType }));
                 this.recording = false;
             };
+            window.dispatchEvent(new CustomEvent('lug-mic', { detail: true }));
             this.mediaRecorder.start();
             this.recording = true;
             this.error = null;
@@ -158,6 +161,7 @@ Alpine.data('sayIt', (opts = {}) => ({
             this.recorder.ondataavailable = (e) => e.data.size && chunks.push(e.data);
             this.recorder.onstop = () => {
                 stream.getTracks().forEach((t) => t.stop());
+                window.dispatchEvent(new CustomEvent('lug-mic', { detail: false })); // background music may come back
                 clearInterval(this.timer);
                 if (this.url) URL.revokeObjectURL(this.url);
                 this.blob = new Blob(chunks, { type: this.recorder.mimeType || 'audio/webm' });
@@ -170,6 +174,7 @@ Alpine.data('sayIt', (opts = {}) => ({
             };
             this.started = Date.now();
             this.elapsed = 0;
+            window.dispatchEvent(new CustomEvent('lug-mic', { detail: true })); // no background music in the recording
             this.recorder.start();
             this.phase = 'recording';
             this.timer = setInterval(() => {
@@ -565,6 +570,7 @@ window.updateCounters = (data) => {
 };
 
 offline(Alpine);
+music(Alpine);
 lessonPlayer(Alpine);
 
 Alpine.start();

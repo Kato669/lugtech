@@ -33,6 +33,28 @@
             <button class="btn-primary w-full">Save</button>
         </form>
 
+        {{-- Background music: kept on this device (resources/js/music.js) --}}
+        <section class="card" x-data x-show="$store.music.available" x-cloak>
+            <h2 class="font-display text-xl font-bold">Sound</h2>
+            <label class="mt-3 flex cursor-pointer items-center justify-between gap-4">
+                <span><span class="block font-semibold">🎵 Background music</span>
+                    <span class="text-sm text-bark-800">A slow Kiganda-style tune under your lessons. It goes quiet whenever Luganda is spoken, and stops while you record yourself.</span></span>
+                <input type="checkbox" class="peer sr-only" :checked="$store.music.on" @change="$store.music.setOn($event.target.checked)">
+                <span aria-hidden="true" class="relative h-7 w-12 shrink-0 rounded-full bg-bark-100 transition peer-checked:bg-leaf-500 peer-focus-visible:ring-2 peer-focus-visible:ring-bark-500 after:absolute after:left-1 after:top-1 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5"></span>
+            </label>
+            <fieldset class="mt-4" x-show="$store.music.on">
+                <legend class="text-sm font-semibold text-bark-800">Volume</legend>
+                <div class="mt-2 flex gap-2">
+                    <template x-for="[level, label] in [['quiet', 'Quiet'], ['medium', 'Medium']]" :key="level">
+                        <button type="button" class="rounded-full border-2 px-4 py-1.5 text-sm font-semibold transition"
+                            :class="$store.music.level === level ? 'border-bark-600 bg-gold-300/30' : 'border-bark-100 hover:border-bark-500'"
+                            :aria-pressed="($store.music.level === level).toString()" @click="$store.music.setLevel(level)" x-text="label"></button>
+                    </template>
+                </div>
+            </fieldset>
+            <p class="mt-3 text-xs text-bark-500">Saved on this device. You can also switch it with the 🎵 button at the top of every page.</p>
+        </section>
+
         <section class="card">
             <h2 class="font-display text-xl font-bold">Your place on the path</h2>
             @if ($placed)
