@@ -21,7 +21,7 @@ class MusicTest extends TestCase
 
     private function musicOn(string $html): bool
     {
-        return str_contains($html, "window.LUGANDA_MUSIC = '\\/music\\/mpola-1.mp3'");
+        return str_contains($html, "window.LUGANDA_MUSIC = '\\/music\\/mpola-2.mp3'");
     }
 
     public function test_the_music_file_is_there_and_cached_like_recordings(): void
@@ -43,7 +43,7 @@ class MusicTest extends TestCase
             $this->assertTrue($this->musicOn($html), $url);
             $this->assertStringContainsString('aria-label="Background music"', $html);
         }
-        $this->get('/settings')->assertSee('Background music')->assertSee('$store.music.setOn', false)->assertSee('Medium');
+        $this->get('/settings')->assertSee('Background music')->assertSee('$store.music.setOn', false)->assertSee('Medium')->assertSee('Loud');
     }
 
     public function test_no_music_where_contributors_work_with_recordings(): void

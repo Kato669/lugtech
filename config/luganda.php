@@ -16,7 +16,7 @@ return [
     | Never played on the admin, Check or Studio pages.
     */
     'music' => (bool) env('LUGANDA_MUSIC', true),
-    'music_file' => '/music/mpola-1.mp3', // a new piece gets a new name (files here are cached for a year)
+    'music_file' => '/music/mpola-2.mp3', // a new piece gets a new name (files here are cached for a year)
 
     /*
     | Play recordings before a native speaker has checked them?

@@ -2,7 +2,7 @@
  * Background music: "Mpola" (gently), an original slow piece in a Kiganda style
  * (public/music/, made for this app). Quiet, and never in the way:
  *
- *   - On by default; the 🎵 button in the header (and Settings) turns it off, remembered on this device.
+ *   - On by default (medium volume); the 🎵 button in the header (and Settings) turns it off, remembered on this device.
  *   - Browsers only allow sound after a tap, so it fades in on the learner's first tap or key.
  *   - It turns down while a Luganda recording plays, and stops while the microphone records.
  *   - It pauses when the app is in the background, and carries on from the same place on the next page.
@@ -10,10 +10,10 @@
  *     (admin, Check, Studio, or LUGANDA_MUSIC=false in .env).
  */
 const PREF = 'lug.music';          // 'on' | 'off'
-const LEVEL = 'lug.music.level';   // 'quiet' | 'medium'
+const LEVEL = 'lug.music.level';   // 'soft' | 'medium' | 'loud'
 const AT = 'lug.music.at';         // where it got to (this tab only)
-const VOLUMES = { quiet: 0.12, medium: 0.25 };
-const DUCKED = 0.025;              // while a recording plays
+const VOLUMES = { soft: 0.4, medium: 0.7, loud: 1 }; // the file itself is mastered at normal music loudness
+const DUCKED = 0.12;               // while a recording plays: still there, well under the voice
 
 const get = (k, fallback) => { try { return localStorage.getItem(k) ?? fallback; } catch (e) { return fallback; } };
 const set = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } };
@@ -29,7 +29,7 @@ export default (Alpine) => {
     const store = {
         available: !!src,
         on: get(PREF, 'on') !== 'off',
-        level: get(LEVEL, 'quiet') in VOLUMES ? get(LEVEL, 'quiet') : 'quiet',
+        level: get(LEVEL, 'medium') in VOLUMES ? get(LEVEL, 'medium') : 'medium',
         playing: false,
         toggle() { this.setOn(!this.on); },
         setOn(on) {

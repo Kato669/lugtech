@@ -45,7 +45,7 @@
             <fieldset class="mt-4" x-show="$store.music.on">
                 <legend class="text-sm font-semibold text-bark-800">Volume</legend>
                 <div class="mt-2 flex gap-2">
-                    <template x-for="[level, label] in [['quiet', 'Quiet'], ['medium', 'Medium']]" :key="level">
+                    <template x-for="[level, label] in [['soft', 'Soft'], ['medium', 'Medium'], ['loud', 'Loud']]" :key="level">
                         <button type="button" class="rounded-full border-2 px-4 py-1.5 text-sm font-semibold transition"
                             :class="$store.music.level === level ? 'border-bark-600 bg-gold-300/30' : 'border-bark-100 hover:border-bark-500'"
                             :aria-pressed="($store.music.level === level).toString()" @click="$store.music.setLevel(level)" x-text="label"></button>
