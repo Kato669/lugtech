@@ -119,4 +119,29 @@ return [
     | (noindex, left out of /sitemap.xml). LUGANDA_INDEX_DRAFTS=true lets search engines list them too.
     */
     'index_drafts' => (bool) env('LUGANDA_INDEX_DRAFTS', false),
+
+    /*
+    | The daily habit (Phase 12). Days (streaks, daily goal, tasks) follow this time zone, so a
+    | day ends at midnight in Kampala, not 3 am. Stored times stay as they are.
+    */
+    'timezone' => env('LUGANDA_TIMEZONE', 'Africa/Kampala'),
+
+    'habit' => [
+        'task_cowries' => (int) env('LUGANDA_TASK_COWRIES', 3),        // each of the day's three tasks
+        'all_tasks_bonus' => (int) env('LUGANDA_ALL_TASKS_BONUS', 5),  // all three done
+        'freeze_price' => (int) env('LUGANDA_FREEZE_PRICE', 20),       // one streak freeze
+        'max_freezes' => (int) env('LUGANDA_MAX_FREEZES', 2),
+        'max_seconds_per_save' => 1200,                                 // practice time one save can add
+    ],
+
+    /*
+    | Daily reminders (web push, Phase 12). Off until keys are set: run `php artisan app:push-keys`
+    | and copy the lines it prints into .env. Needs HTTPS. Reminders carry no data: the phone
+    | shows a fixed "Time for a little Luganda" note.
+    */
+    'push' => [
+        'public_key' => env('LUGANDA_PUSH_PUBLIC_KEY'),
+        'private_key' => env('LUGANDA_PUSH_PRIVATE_KEY'),   // base64 of the PEM
+        'subject' => env('LUGANDA_PUSH_SUBJECT', 'mailto:'.env('MAIL_FROM_ADDRESS', 'hello@example.com')),
+    ],
 ];

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Services\DailyHabit;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -38,6 +39,7 @@ class User extends Authenticatable
         'cowries' => 0,
         'current_streak' => 0,
         'longest_streak' => 0,
+        'streak_freezes' => 0,
     ];
 
     /**
@@ -56,6 +58,9 @@ class User extends Authenticatable
             'last_active_on' => 'date',
             'onboarded_at' => 'datetime',
             'daily_goal' => 'integer',
+            'streak_freezes' => 'integer',
+            'freeze_used_on' => 'date',
+            'reminder_hour' => 'integer',
         ];
     }
 
@@ -81,13 +86,28 @@ class User extends Authenticatable
         return ! $this->onboarded_at && ! $this->completions()->exists();
     }
 
-    /** Streak counts as alive if the learner practised today or yesterday. */
+    /** One row per day of practice (Phase 12). */
+    public function dailyActivities(): HasMany
+    {
+        return $this->hasMany(DailyActivity::class);
+    }
+
+    public function pushSubscriptions(): HasMany
+    {
+        return $this->hasMany(PushSubscription::class);
+    }
+
+    /**
+     * Streak counts as alive if the learner practised today or yesterday (days in LUGANDA_TIMEZONE),
+     * or if their streak freezes cover the days missed since (Phase 12).
+     */
     public function liveStreak(): int
     {
         if (! $this->last_active_on) {
             return 0;
         }
+        $gap = DailyHabit::daysSince($this->last_active_on);
 
-        return $this->last_active_on->greaterThanOrEqualTo(today()->subDay()) ? $this->current_streak : 0;
+        return $gap <= 1 || $gap - 1 <= $this->streak_freezes ? $this->current_streak : 0;
     }
 }

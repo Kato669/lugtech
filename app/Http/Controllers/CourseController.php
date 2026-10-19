@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Stage;
 use App\Models\Word;
+use App\Services\DailyHabit;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, DailyHabit $habit)
     {
         $user = $request->user();
         if ($user->needsWelcome()) {
@@ -30,6 +31,7 @@ class CourseController extends Controller
             'dueCount' => $user->reviewItems()->where('due_at', '<=', now())->count(),
             'wordOfDay' => Word::ofTheDay('word'),
             'proverb' => Word::ofTheDay('proverb'),
+            'today' => $habit->status($user), // Phase 12: goal ring, tasks, freezes
         ]);
     }
 }

@@ -227,7 +227,7 @@ class DictionaryTest extends TestCase
         $sw = file_get_contents(public_path('sw.js'));
         $this->assertStringContainsString('/^\/say(\/[^/]+)?$/', $sw);
         $this->assertStringContainsString('/^\/dictionary(\/[^/]+)?$/', $sw);
-        $this->assertStringContainsString("const VERSION = 'v2'", $sw);
+        $this->assertMatchesRegularExpression("/const VERSION = 'v([2-9]|\\d\\d)'/", $sw, 'bumped since Phase 9');
     }
 
     // ---- Admin → Word links -----------------------------------------------------------------

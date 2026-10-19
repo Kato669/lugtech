@@ -10,7 +10,9 @@ use App\Models\SpeechAttempt;
 use App\Models\User;
 use App\Models\Word;
 use App\Services\AudioGenerator;
+use App\Services\DailyReminders;
 use App\Services\LessonPlan;
+use App\Services\WebPush;
 use App\Support\LegacyAudioImport;
 use App\Support\ProductionCheck;
 use Illuminate\Foundation\Inspiring;
@@ -243,4 +245,31 @@ Artisan::command('app:production-check', function () {
     return $fails ? 1 : 0;
 })->purpose('Check the settings that matter before the site goes online');
 
+Artisan::command('app:push-keys', function () {
+    $keys = WebPush::generateKeys();
+    $this->line('Add these lines to .env (keep the private key secret), then run php artisan config:clear:');
+    $this->newLine();
+    $this->line('LUGANDA_PUSH_PUBLIC_KEY='.$keys['public']);
+    $this->line('LUGANDA_PUSH_PRIVATE_KEY='.$keys['private']);
+    $this->line('LUGANDA_PUSH_SUBJECT=mailto:you@example.com');
+    $this->newLine();
+    $this->line('Reminders need the site on HTTPS, and the scheduler in cron (php artisan schedule:run every minute).');
+    $this->line('Making new keys later switches off every reminder already set up: learners would turn them on again.');
+
+    return 0;
+})->purpose('Make the keys for daily reminders (web push)');
+
+Artisan::command('app:send-reminders {--dry-run : Say who would get one, without sending}', function () {
+    if (! WebPush::configured()) {
+        $this->warn('Reminders are not set up: run php artisan app:push-keys first.');
+
+        return 0;
+    }
+    $stats = app(DailyReminders::class)->run(dryRun: (bool) $this->option('dry-run'));
+    $this->line(($this->option('dry-run') ? 'Would send: ' : 'Sent: ').$stats['sent'].' · skipped: '.$stats['skipped'].' · removed: '.$stats['removed'].' · failed: '.$stats['failed']);
+
+    return 0;
+})->purpose('Send the daily reminders due this hour (Phase 12)');
+
 Schedule::command('app:prune-guests')->weekly();
+Schedule::command('app:send-reminders')->hourly(); // Phase 12: daily reminders, only if keys are set

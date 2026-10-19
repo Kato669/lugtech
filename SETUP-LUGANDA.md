@@ -348,3 +348,14 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - **Syllable guides:** every dictionary word gets a draft guide (a-ma-zzi) split by a simple rule. Reviewers confirm or correct them on **Check → Syllable guides**; the admin word form has the same field.
 - **Public pages:** `/dictionary/amazzi` (meaning, syllables, course phrases that use it, related words), `/say` and `/say/thank-you` ("How to say thank you in Luganda"), and `/sitemap.xml`. They don't create guest accounts. Drafts are shown with a "Draft" label but hidden from search engines (`noindex`, not in the sitemap); `LUGANDA_INDEX_DRAFTS=true` lists them too.
 - **When the site is online:** add `Sitemap: https://YOUR-DOMAIN/sitemap.xml` to `public/robots.txt`, and submit the sitemap in Google Search Console.
+
+## Daily habit (Phase 12)
+- Run `php artisan migrate` (adds `daily_activities`, `push_subscriptions` and four user columns) and `npm run build`.
+- **Days follow `LUGANDA_TIMEZONE`** (default `Africa/Kampala`): streaks, the daily goal and tasks reset at midnight there.
+- **Today card** on the course path: the daily-goal ring (real practice minutes, counted by the phone on lesson, review and game pages while the learner is active), three tasks a day (3 cowries each, 5 more for all three) and streak freezes (20 cowries, hold up to 2; one is used by itself for each missed day). Change the numbers with `LUGANDA_TASK_COWRIES`, `LUGANDA_ALL_TASKS_BONUS`, `LUGANDA_FREEZE_PRICE`, `LUGANDA_MAX_FREEZES`.
+- **Daily reminders (optional, needs HTTPS):**
+  1. `php artisan app:push-keys` and copy the three lines it prints into `.env`, then `php artisan config:clear`.
+  2. Keep the scheduler in cron (`* * * * * cd /var/www/html/language/myapp && php artisan schedule:run >> /dev/null 2>&1`): `app:send-reminders` runs hourly.
+  3. Learners switch it on in Settings → Daily reminder and pick the hour. No reminder on days they've already practised.
+  - `php artisan app:send-reminders --dry-run` shows how many would go out right now.
+  - Making new keys switches off every reminder already set up (learners turn them on again).

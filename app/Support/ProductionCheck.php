@@ -5,6 +5,7 @@ namespace App\Support;
 use App\Audio\Stt\SttManager;
 use App\Audio\Tts\TtsManager;
 use App\Models\User;
+use App\Services\WebPush;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -55,6 +56,9 @@ class ProductionCheck
         $add($tts->available() ? 'ok' : 'fail', $tts->label().($tts->available() ? ' is set up' : ' is not set up'), 'Add SUNBIRD_API_TOKEN to .env.');
         $stt = app(SttManager::class)->provider();
         $add($stt?->name() === 'fake' ? 'warn' : 'ok', 'Automatic speech checking: '.($stt ? $stt->label() : 'off'), 'Use LUGANDA_STT=off or sunbird; "fake" is only for tests.');
+        // Phase 12: daily reminders are optional; they need keys and the hourly scheduler.
+        $add(WebPush::configured() ? 'ok' : 'warn', 'Daily reminders: '.(WebPush::configured() ? 'set up' : 'off'), 'Optional: php artisan app:push-keys, then add the lines to .env (needs HTTPS and the cron scheduler).');
+        $add('ok', 'Learning days follow '.config('luganda.timezone'), 'Set LUGANDA_TIMEZONE in .env.');
 
         return $checks;
     }

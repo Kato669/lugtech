@@ -7,6 +7,7 @@ use App\Audio\Stt\SttException;
 use App\Audio\Stt\SttManager;
 use App\Models\Phrase;
 use App\Models\SpeechAttempt;
+use App\Services\DailyHabit;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -27,6 +28,7 @@ class SpeechController extends Controller
             'self_rating' => ['required', Rule::in(SpeechAttempt::RATINGS)],
             'duration_ms' => ['nullable', 'integer', 'min:0', 'max:60000'],
             'attempt_id' => ['nullable', 'integer'],
+            'active_seconds' => ['nullable', 'integer', 'min:0', 'max:86400'],
         ]);
 
         $attempt = isset($data['attempt_id'])
@@ -39,7 +41,12 @@ class SpeechController extends Controller
             'duration_ms' => $data['duration_ms'] ?? $attempt->duration_ms,
         ])->save();
 
-        return response()->json(['attempt_id' => $attempt->id]);
+        // Daily tasks (Phase 12): a new attempt counts once; re-rating the same attempt doesn't.
+        $user = $request->user();
+        $habit = app(DailyHabit::class)->record($user, $attempt->wasRecentlyCreated ? 'speak' : null, (int) ($data['active_seconds'] ?? 0));
+        $user->save();
+
+        return response()->json(['attempt_id' => $attempt->id, 'cowries' => $user->cowries, 'habit' => $habit]);
     }
 
     /** The automatic check (only when LUGANDA_STT is set up): what was heard, and how close. */

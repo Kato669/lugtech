@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GamePlay;
+use App\Services\DailyHabit;
 use App\Services\Games;
 use Illuminate\Http\Request;
 
@@ -47,8 +48,15 @@ class GameController extends Controller
         $max = ['memory' => 100, 'speak' => Games::SPEAK_ROUNDS][$game] ?? 500;
         $data = $request->validate([
             'score' => ['required', 'integer', 'min:0', 'max:'.$max],
+            'active_seconds' => ['nullable', 'integer', 'min:0', 'max:86400'],
         ]);
+        $user = $request->user();
+        $result = $this->games->record($user, $game, $data['score']);
+        // Daily tasks (Phase 12): task cowries are separate from the game cap.
+        $result['habit'] = app(DailyHabit::class)->record($user, 'game', (int) ($data['active_seconds'] ?? 0));
+        $user->save();
+        $result['cowries'] = $user->cowries;
 
-        return response()->json($this->games->record($request->user(), $game, $data['score']));
+        return response()->json($result);
     }
 }

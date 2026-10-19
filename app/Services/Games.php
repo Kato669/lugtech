@@ -84,7 +84,7 @@ class Games
     public function earnedToday(User $user): int
     {
         return (int) GamePlay::where('user_id', $user->id)
-            ->where('created_at', '>=', today())->sum('cowries');
+            ->where('created_at', '>=', DailyHabit::startOfToday())->sum('cowries');
     }
 
     /** @return array{cowries_earned:int, capped:bool, cowries:int, streak:int} */

@@ -32,6 +32,8 @@
                 </a>
             @endif
 
+            @include('habit.today')
+
             <div class="mt-10 space-y-12">
                 @foreach ($stages as $s => $stage)
                     <section>

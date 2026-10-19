@@ -3,6 +3,7 @@ import lessonPlayer from './lesson-player';
 import offline from './offline';
 import music from './music';
 import words from './words';
+import habit from './habit';
 import './pictures';
 
 window.Alpine = Alpine;
@@ -573,6 +574,7 @@ window.updateCounters = (data) => {
 offline(Alpine);
 music(Alpine);
 words(Alpine);
+habit(Alpine);
 lessonPlayer(Alpine);
 
 Alpine.start();

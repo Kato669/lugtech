@@ -20,6 +20,8 @@
         @php($checker = app(\App\Audio\Stt\SttManager::class)->provider())
         <script>window.LUGANDA_SPEAK = @js(['attempts' => route('speak.attempts'), 'check' => $checker ? route('speak.check') : null, 'checker' => $checker?->label()]);</script>
     @endif
+    {{-- Daily habit (Phase 12, resources/js/habit.js): practice time is counted on these pages --}}
+    @if (request()->routeIs('lessons.show', 'review', 'games.show'))<script>window.LUGANDA_PRACTICE = true;</script>@endif
     <title>{{ $title ? $title.' · ' : '' }}{{ config('app.name') }}</title>
     {{-- Public dictionary and phrase pages (Phase 11): what search engines show, and drafts kept out of them --}}
     @if ($description)
@@ -85,13 +87,18 @@
         <div x-show="$store.net.online && $store.net.message" x-transition class="bg-leaf-500 px-4 py-2 text-center text-sm font-semibold text-white" role="status" x-text="$store.net.message"></div>
     </div>
 
-    @if (session('status'))
-        <div class="mx-auto mt-4 max-w-6xl px-4">
-            <div class="anim-pop rounded-2xl border-2 border-leaf-500/30 bg-leaf-100 px-4 py-3 font-semibold text-leaf-600">{{ session('status') }}</div>
-        </div>
-    @endif
+    {{-- Daily tasks done, daily goal reached (Phase 12) --}}
+    {{-- At the top and click-through, so it never covers a lesson's Continue button --}}
+    <div x-data x-cloak class="pointer-events-none fixed inset-x-0 top-[calc(var(--lug-header,4rem)+0.75rem)] z-40 flex justify-center px-4" aria-live="polite">
+        <p x-show="$store.habit.message" x-transition x-text="$store.habit.message"
+           class="max-w-md rounded-2xl border-2 border-gold-500 bg-gold-300 px-4 py-3 text-center font-semibold text-bark-900 shadow-[0_4px_0_#b9831a]"></p>
+    </div>
 
     <main @class(['mx-auto overflow-x-clip px-4 py-8', 'max-w-6xl' => ! $wide])>
+        @if (session('status'))
+            {{-- Inside <main>, so screen readers find it with the page (axe: region) --}}
+            <div class="anim-pop mb-6 rounded-2xl border-2 border-leaf-500/30 bg-leaf-100 px-4 py-3 font-semibold text-leaf-600" role="status">{{ session('status') }}</div>
+        @endif
         {{ $slot }}
     </main>
 

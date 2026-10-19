@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Services\DailyHabit;
 use App\Services\Glossary;
 use App\Services\LessonPlan;
 use App\Services\Progress;
@@ -25,13 +26,19 @@ class LessonController extends Controller
         ]);
     }
 
-    public function complete(Request $request, Lesson $lesson, Progress $progress)
+    public function complete(Request $request, Lesson $lesson, Progress $progress, DailyHabit $habit)
     {
         abort_unless($lesson->is_published || $request->user()->is_admin, 404);
-        $data = $request->validate(['score' => ['required', 'integer', 'min:0', 'max:100']]);
+        $data = $request->validate([
+            'score' => ['required', 'integer', 'min:0', 'max:100'],
+            'active_seconds' => ['nullable', 'integer', 'min:0', 'max:86400'], // practice time (Phase 12)
+        ]);
+        $user = $request->user();
 
-        $result = $progress->completeLesson($request->user(), $lesson, $data['score']);
+        $result = $progress->completeLesson($user, $lesson, $data['score']);
+        $result['habit'] = $habit->record($user, 'lesson', (int) ($data['active_seconds'] ?? 0), ['score' => (int) $data['score']]);
+        $user->save();
 
-        return response()->json($result + ['cowries' => $request->user()->cowries]);
+        return response()->json($result + ['cowries' => $user->cowries]);
     }
 }

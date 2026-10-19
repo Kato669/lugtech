@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\DailyActivity;
 use App\Models\GamePlay;
 use App\Models\LessonCompletion;
+use App\Models\PushSubscription;
 use App\Models\ReviewItem;
 use App\Models\SpeechAttempt;
 use App\Models\User;
@@ -32,6 +34,29 @@ class GuestMerger
             ReviewItem::where('user_id', $guest->id)->whereNotIn('phrase_id', $known)->update(['user_id' => $account->id]);
             GamePlay::where('user_id', $guest->id)->update(['user_id' => $account->id]);
             SpeechAttempt::where('user_id', $guest->id)->update(['user_id' => $account->id]);
+
+            // The daily habit (Phase 12): practice per day (added together; tasks already paid stay paid,
+            // nothing is paid twice), reminders on this browser, and streak freezes (up to the limit).
+            foreach (DailyActivity::where('user_id', $guest->id)->get() as $day) {
+                $mine = DailyActivity::where('user_id', $account->id)->where('day', $day->day)->first();
+                if (! $mine) {
+                    $day->update(['user_id' => $account->id]);
+
+                    continue;
+                }
+                foreach (['active_seconds', 'lessons', 'perfect_lessons', 'reviews', 'speaks', 'games', 'cowries_earned'] as $count) {
+                    $mine->{$count} += $day->{$count};
+                }
+                $mine->tasks_done = array_values(array_unique(array_merge($mine->tasks_done ?? [], array_intersect($day->tasks_done ?? [], collect($mine->tasks ?? [])->pluck('key')->all()))));
+                $mine->bonus_paid = $mine->bonus_paid || $day->bonus_paid;
+                $mine->goal_met_at ??= $day->goal_met_at;
+                $mine->save();
+                $day->delete();
+            }
+            PushSubscription::where('user_id', $guest->id)->update(['user_id' => $account->id]);
+            $account->reminder_hour ??= $guest->reminder_hour;
+            $account->timezone ??= $guest->timezone;
+            $account->streak_freezes = min((int) config('luganda.habit.max_freezes', 2), $account->streak_freezes + $guest->streak_freezes);
 
             // The welcome answers, if the account never gave its own.
             $account->learning_reason ??= $guest->learning_reason;

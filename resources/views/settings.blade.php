@@ -55,6 +55,42 @@
             <p class="mt-3 text-xs text-bark-500">Saved on this device. You can also switch it with the 🎵 button at the top of every page.</p>
         </section>
 
+        {{-- Daily reminder (Phase 12): web push, resources/js/habit.js. Needs HTTPS and keys (php artisan app:push-keys). --}}
+        <section class="card" x-data="reminders(@js(['key' => config('luganda.push.public_key'), 'on' => $me->reminder_hour !== null, 'hour' => $me->reminder_hour, 'onUrl' => route('reminders.on'), 'offUrl' => route('reminders.off')]))">
+            <h2 class="font-display text-xl font-bold">Daily reminder</h2>
+            <p class="mt-1 text-sm text-bark-800">A short note on this phone at the time you choose, only on days you haven't practised yet.</p>
+            <template x-if="supported">
+                <div class="mt-3">
+                    <div class="flex flex-wrap items-end gap-3">
+                        <div>
+                            <label for="reminder-hour" class="field-label">Remind me at</label>
+                            <select id="reminder-hour" class="field !w-auto" x-model="hour" @change="on && enable()">
+                                @foreach (range(5, 22) as $h)
+                                    <option value="{{ $h }}">{{ ($h % 12) ?: 12 }} {{ $h < 12 ? 'am' : 'pm' }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="button" class="btn-primary !py-2" x-show="!on" @click="enable()" :disabled="busy">🔔 Turn on</button>
+                        <button type="button" class="btn-ghost !py-2" x-show="on" @click="disable()" :disabled="busy">Turn off</button>
+                    </div>
+                    <p class="mt-2 text-sm font-semibold text-leaf-600" x-show="on && !done" x-text="'On: every day at ' + label(hour) + '.'"></p>
+                    <p class="mt-2 text-sm font-semibold text-leaf-600" role="status" x-show="done" x-text="done"></p>
+                    <p class="mt-2 text-sm text-red-600" role="alert" x-show="error" x-text="error"></p>
+                    <p class="mt-2 text-sm text-bark-800" x-show="blocked">Notifications are blocked for this site. Allow them in the browser's site settings first.</p>
+                </div>
+            </template>
+            <template x-if="!supported">
+                <p class="mt-3 rounded-xl bg-bark-50 px-3 py-2 text-sm text-bark-800">
+                    @if (! \App\Services\WebPush::configured())
+                        Reminders aren't switched on for this site yet.
+                    @else
+                        Reminders need a secure (https) connection and a browser that supports notifications.
+                        On iPhone, add the app to your home screen first.
+                    @endif
+                </p>
+            </template>
+        </section>
+
         <section class="card">
             <h2 class="font-display text-xl font-bold">Your place on the path</h2>
             @if ($placed)

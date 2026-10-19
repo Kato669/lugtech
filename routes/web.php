@@ -6,6 +6,7 @@ use App\Http\Controllers\Contributor;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\HabitController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\OfflineController;
@@ -60,6 +61,10 @@ Route::middleware(EnsureLearner::class)->group(function () {
     Route::get('/settings', [SettingsController::class, 'show'])->name('settings');
     Route::post('/settings', [SettingsController::class, 'update']);
     Route::post('/settings/start-over', [SettingsController::class, 'startOver'])->name('settings.start-over');
+    // Phase 12: streak freezes and daily reminders
+    Route::post('/habit/freeze', [HabitController::class, 'buyFreeze'])->middleware('throttle:20,1')->name('habit.freeze');
+    Route::post('/reminders', [HabitController::class, 'remind'])->middleware('throttle:20,1')->name('reminders.on');
+    Route::post('/reminders/off', [HabitController::class, 'stopReminding'])->middleware('throttle:20,1')->name('reminders.off');
     Route::get('/learn/{lesson}', [LessonController::class, 'show'])->name('lessons.show');
     Route::post('/learn/{lesson}/complete', [LessonController::class, 'complete'])->middleware(OnceOnly::class)->name('lessons.complete');
     Route::get('/offline/stage/{stage}', [OfflineController::class, 'stage'])->name('offline.stage');

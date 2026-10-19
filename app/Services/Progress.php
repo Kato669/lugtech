@@ -59,16 +59,29 @@ class Progress
         $user->save();
     }
 
-    /** Practising on consecutive days grows the streak; missing a day resets it. */
+    /**
+     * Practising on consecutive days grows the streak; missing a day resets it, unless streak
+     * freezes cover the days missed (Phase 12: one freeze per missed day, used automatically).
+     * Days follow LUGANDA_TIMEZONE.
+     */
     public function touchStreak(User $user): void
     {
-        $today = today();
+        $today = DailyHabit::today();
         $last = $user->last_active_on;
+        $gap = $last ? DailyHabit::daysSince($last) : null;
 
-        if ($last && $last->isSameDay($today)) {
+        if ($gap !== null && $gap <= 0) {
             return;
         }
-        $user->current_streak = ($last && $last->isSameDay($today->copy()->subDay())) ? $user->current_streak + 1 : 1;
+        if ($gap === 1) {
+            $user->current_streak++;
+        } elseif ($gap !== null && $gap - 1 <= $user->streak_freezes && $user->current_streak > 0) {
+            $user->streak_freezes -= $gap - 1;
+            $user->freeze_used_on = $today;
+            $user->current_streak++;
+        } else {
+            $user->current_streak = 1;
+        }
         $user->longest_streak = max($user->longest_streak, $user->current_streak);
         $user->last_active_on = $today;
     }

@@ -12,7 +12,7 @@
  * Progress made offline is not handled here: the page queues it (resources/js/offline.js).
  * Bump VERSION when this file changes in a way that needs old app files cleared.
  */
-const VERSION = 'v2'; // v2 (Phase 11): word and phrase pages, and the word sheet in the app files
+const VERSION = 'v3'; // v2 (Phase 11): word and phrase pages; v3 (Phase 12): daily reminders
 const APP = `app-${VERSION}`;
 const PAGES = 'pages';
 const AUDIO = 'audio';
@@ -181,3 +181,31 @@ async function save(urls, client, id) {
     trim(PAGES, MAX_PAGES);
     report();
 }
+
+/*
+ * Daily reminders (Phase 12). The app sends an empty push (no data, so nothing to decrypt):
+ * show a fixed note. Tapping it opens the course path (or brings an open window forward).
+ */
+self.addEventListener('push', (event) => {
+    event.waitUntil(self.registration.showNotification('Time for a little Luganda 🥁', {
+        body: 'A few minutes today keeps your streak going.',
+        icon: '/app-icons/icon-192.png',
+        badge: '/app-icons/icon-192.png',
+        tag: 'daily-reminder',
+        data: { url: '/learn' },
+    }));
+});
+
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    const url = new URL(event.notification.data?.url || '/learn', self.location.origin).href;
+    event.waitUntil((async () => {
+        for (const client of await self.clients.matchAll({ type: 'window', includeUncontrolled: true })) {
+            if (client.url.startsWith(self.location.origin) && 'focus' in client) {
+                await client.navigate?.(url).catch(() => {});
+                return client.focus();
+            }
+        }
+        return self.clients.openWindow(url);
+    })());
+});

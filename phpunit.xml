@@ -27,6 +27,13 @@
         <!-- Most audio tests check the strict rule; PlayUncheckedAudioTest covers the default (true). -->
         <env name="LUGANDA_PLAY_UNCHECKED" value="false"/>
         <env name="LUGANDA_TTS" value="fake"/>
+        <env name="LUGANDA_TIMEZONE" value="UTC"/>
+        <!-- Daily task cowries off, so older tests keep exact cowrie counts; DailyHabitTest switches them on -->
+        <env name="LUGANDA_TASK_COWRIES" value="0"/>
+        <env name="LUGANDA_ALL_TASKS_BONUS" value="0"/>
+        <!-- Reminders start unset whatever .env says; DailyHabitTest makes its own keys -->
+        <env name="LUGANDA_PUSH_PUBLIC_KEY" value=""/>
+        <env name="LUGANDA_PUSH_PRIVATE_KEY" value=""/>
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="DB_URL" value=""/>
