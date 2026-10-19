@@ -14,7 +14,9 @@
         <template x-if="card">
             <div class="card mt-6">
                 <p class="text-sm text-bark-500" x-text="`${index + 1} of ${cards.length}`"></p>
-                <p class="mt-3 text-center text-3xl lug" x-text="card.luganda"></p>
+                <p class="mt-3 text-center text-3xl lug" x-show="chosen === null" x-text="card.luganda"></p>
+                {{-- After answering, each word can be tapped (before, it would give the answer away) --}}
+                <p class="mt-3 text-center text-3xl lug" x-show="chosen !== null" x-lug="card.luganda"></p>
                 <div class="mt-2 text-center" x-show="card.audio">
                     <button class="btn-ghost" @click="playAudio(card.audio)">🔊</button>
                 </div>

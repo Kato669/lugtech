@@ -3,6 +3,9 @@
         @csrf @if ($phrase->exists) @method('PUT') @endif
         <h1 class="text-2xl font-bold">{{ $phrase->exists ? 'Edit phrase' : 'New phrase' }}
             @if ($phrase->exists)<span class="ml-2 rounded-full bg-bark-50 px-2 py-0.5 align-middle font-mono text-sm">{{ $phrase->code }}</span>@endif</h1>
+        @if ($phrase->exists)
+            <p class="text-sm"><a href="{{ route('admin.word-links.index', ['phrase' => $phrase->id]) }}" class="font-semibold text-bark-600 hover:underline">Words in this phrase: what learners see when they tap them →</a></p>
+        @endif
         @if ($phrase->isFlagged())
             <div class="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">⚑ Flagged by {{ $phrase->reviewer?->name ?? 'a reviewer' }}: {{ $phrase->review_note }}</div>
         @elseif ($phrase->is_reviewed && $phrase->reviewer)

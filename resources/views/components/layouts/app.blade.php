@@ -1,4 +1,4 @@
-@props(['title' => null, 'wide' => false])
+@props(['title' => null, 'wide' => false, 'description' => null, 'robots' => null, 'canonical' => null])
 @php $me = auth()->user(); @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -21,6 +21,15 @@
         <script>window.LUGANDA_SPEAK = @js(['attempts' => route('speak.attempts'), 'check' => $checker ? route('speak.check') : null, 'checker' => $checker?->label()]);</script>
     @endif
     <title>{{ $title ? $title.' · ' : '' }}{{ config('app.name') }}</title>
+    {{-- Public dictionary and phrase pages (Phase 11): what search engines show, and drafts kept out of them --}}
+    @if ($description)
+        <meta name="description" content="{{ $description }}">
+        <meta property="og:title" content="{{ $title ?? config('app.name') }}">
+        <meta property="og:description" content="{{ $description }}">
+        <meta property="og:type" content="website">
+    @endif
+    @if ($robots)<meta name="robots" content="{{ $robots }}">@endif
+    @if ($canonical)<link rel="canonical" href="{{ $canonical }}">@endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="barkcloth-soft min-h-screen font-sans text-bark-900 antialiased">
@@ -85,6 +94,13 @@
     <main @class(['mx-auto overflow-x-clip px-4 py-8', 'max-w-6xl' => ! $wide])>
         {{ $slot }}
     </main>
+
+    {{-- Tap a word (Phase 11): the meanings of the Luganda on this page, and the sheet that shows them --}}
+    @php($glossary = app(\App\Services\Glossary::class)->take())
+    @if ($glossary)
+        <script type="application/json" id="lug-glossary">@json($glossary)</script>
+        <x-word-sheet />
+    @endif
 
     <footer class="mt-10 pb-10">
         <x-art.spear class="mx-auto h-5 w-64 opacity-70" />

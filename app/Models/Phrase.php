@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use App\Models\Concerns\Contributable;
+use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Phrase extends Model
 {
-    use Contributable;
+    use Contributable, HasSlug;
 
     protected $fillable = ['luganda', 'english', 'literal', 'notes', 'audio_path', 'audio_slow_path', 'audio_male_path', 'audio_female_path', 'is_reviewed'];
 
@@ -34,6 +36,17 @@ class Phrase extends Model
     public static function codePrefix(): string
     {
         return 'P';
+    }
+
+    protected function slugSource(): ?string
+    {
+        return $this->english;
+    }
+
+    /** Which dictionary word each word in this phrase belongs to (Admin → Word links). */
+    public function wordLinks(): HasMany
+    {
+        return $this->hasMany(PhraseWord::class);
     }
 
     public function lessons(): BelongsToMany

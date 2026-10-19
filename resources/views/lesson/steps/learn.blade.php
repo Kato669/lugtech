@@ -6,7 +6,7 @@
         <div class="mt-2 sm:mt-4" x-show="step.picture" :class="step.count_along && 'count-along'" @click="countTap($event)"
              x-html="step.picture ? lugPicture(step.picture.name, step.picture.count) : ''"></div>
         <p class="mt-2 text-sm font-semibold text-bark-500" x-show="step.count_along && step.picture && counted < step.picture.count">👆 Tap each one to count</p>
-        <p class="mt-4 font-display text-5xl font-bold text-bark-900" x-text="step.phrase.luganda"></p>
+        <p class="mt-4 font-display text-5xl font-bold text-bark-900" x-lug="step.phrase.luganda"></p>
         <p class="mt-2 text-xl text-bark-800" x-text="step.phrase.english"></p>
         <p class="mt-1 text-sm italic text-bark-500" x-show="step.phrase.literal" x-text="'Literally: ' + step.phrase.literal"></p>
         <p class="mx-auto mt-4 max-w-md rounded-xl bg-bark-50 px-4 py-3 text-sm text-bark-800" x-show="step.phrase.notes" x-text="step.phrase.notes"></p>

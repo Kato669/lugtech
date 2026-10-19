@@ -340,3 +340,11 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - Service workers need HTTPS (or localhost). On plain http on another computer the app works as before, just not offline.
 - A different person logging in on the same phone: the pages saved for the last person are forgotten, and their
   waiting saves are never sent to the new account.
+
+## Tap a word, and the public dictionary (Phase 11)
+- Run `php artisan migrate` (adds `phrase_word`, slugs and syllable guides) and `npm run build`.
+- **Tapping:** every Luganda word in lessons (new phrase cards, conversations), the phrasebook, review answers and the public pages can be tapped. The meaning comes from, in order: a link made in **Admin → Word links**, a dictionary word spelled the same, a one-word course phrase spelled the same. Otherwise: "Not in the dictionary yet". Nothing is guessed. Quiz questions and answer choices are never tappable.
+- **Admin → Word links:** course words with no meaning yet (link to a dictionary word, mark as a name, or add a draft dictionary word with a meaning you type), words only known from a one-word phrase (add to the dictionary as a draft), and the links made so far. Each phrase also has a word-by-word page (link from the phrase edit page).
+- **Syllable guides:** every dictionary word gets a draft guide (a-ma-zzi) split by a simple rule. Reviewers confirm or correct them on **Check → Syllable guides**; the admin word form has the same field.
+- **Public pages:** `/dictionary/amazzi` (meaning, syllables, course phrases that use it, related words), `/say` and `/say/thank-you` ("How to say thank you in Luganda"), and `/sitemap.xml`. They don't create guest accounts. Drafts are shown with a "Draft" label but hidden from search engines (`noindex`, not in the sitemap); `LUGANDA_INDEX_DRAFTS=true` lists them too.
+- **When the site is online:** add `Sitemap: https://YOUR-DOMAIN/sitemap.xml` to `public/robots.txt`, and submit the sitemap in Google Search Console.

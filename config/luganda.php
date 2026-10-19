@@ -112,4 +112,11 @@ return [
             ],
         ],
     ],
+
+    /*
+    | Public dictionary and phrase pages (Phase 11). Drafts (Luganda not yet checked by a native
+    | speaker) are shown to people with a "Draft" label, but kept out of search engines
+    | (noindex, left out of /sitemap.xml). LUGANDA_INDEX_DRAFTS=true lets search engines list them too.
+    */
+    'index_drafts' => (bool) env('LUGANDA_INDEX_DRAFTS', false),
 ];

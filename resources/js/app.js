@@ -2,6 +2,7 @@ import Alpine from 'alpinejs';
 import lessonPlayer from './lesson-player';
 import offline from './offline';
 import music from './music';
+import words from './words';
 import './pictures';
 
 window.Alpine = Alpine;
@@ -571,6 +572,7 @@ window.updateCounters = (data) => {
 
 offline(Alpine);
 music(Alpine);
+words(Alpine);
 lessonPlayer(Alpine);
 
 Alpine.start();

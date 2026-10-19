@@ -2,7 +2,8 @@
  * Luganda app service worker (Phase 9): the app keeps working without a signal.
  *
  *   - The app itself (built CSS/JS, icons, the offline page) is saved on install.
- *   - Learner pages (the course path, lessons, review, phrasebook, games, dictionary) are
+ *   - Learner pages (the course path, lessons, review, phrasebook, games, dictionary, and the
+ *     public word and phrase pages from Phase 11: /dictionary/amazzi, /say/thank-you) are
  *     network-first: always fresh when online, the last saved copy when offline.
  *   - Recordings are cache-first (their file names never change) and can be saved ahead,
  *     a whole stage at a time ("Save for offline").
@@ -11,7 +12,7 @@
  * Progress made offline is not handled here: the page queues it (resources/js/offline.js).
  * Bump VERSION when this file changes in a way that needs old app files cleared.
  */
-const VERSION = 'v1';
+const VERSION = 'v2'; // v2 (Phase 11): word and phrase pages, and the word sheet in the app files
 const APP = `app-${VERSION}`;
 const PAGES = 'pages';
 const AUDIO = 'audio';
@@ -19,7 +20,7 @@ const MAX_AUDIO = 600;      // recordings kept on the phone (oldest go first)
 const MAX_PAGES = 120;      // pages kept
 
 const SHELL = ['/offline', '/manifest.webmanifest', '/app-icons/icon-192.png', '/app-icons/icon-512.png', '/app-icons/maskable-512.png', '/favicon.ico'];
-const LEARNER_PAGES = [/^\/$/, /^\/learn(\/[^/]+)?$/, /^\/review$/, /^\/phrasebook$/, /^\/games(\/[^/]+)?$/, /^\/dictionary$/];
+const LEARNER_PAGES = [/^\/$/, /^\/learn(\/[^/]+)?$/, /^\/review$/, /^\/phrasebook$/, /^\/games(\/[^/]+)?$/, /^\/dictionary(\/[^/]+)?$/, /^\/say(\/[^/]+)?$/];
 const NEVER = [/^\/(admin|check|studio|login|register|logout|speak|sync)(\/|$)/];
 
 self.addEventListener('install', (event) => {

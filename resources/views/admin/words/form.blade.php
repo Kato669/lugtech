@@ -17,6 +17,11 @@
             <x-input name="example_lg" label="Example (Luganda)" :value="$word->example_lg" />
             <x-input name="example_en" label="Example (English)" :value="$word->example_en" />
         </div>
+        <div class="rounded-2xl bg-bark-50 p-4">
+            <x-input name="syllables" label="Syllable guide" :value="$word->syllables" help="Syllables joined by hyphens, e.g. a-ma-zzi. Left empty, a draft guide is made for single words." />
+            <input type="hidden" name="syllables_was_checked" value="{{ $word->syllablesChecked() ? 1 : 0 }}">
+            <label class="mt-2 flex items-center gap-2"><input type="checkbox" name="syllables_checked" value="1" @checked(old('syllables_checked', $word->syllablesChecked())) class="rounded"> Syllable guide checked by a native speaker</label>
+        </div>
         <div>
             <label class="field-label" for="audio">Recording</label>
             @if ($word->audio_url)<audio controls src="{{ $word->audio_url }}" class="mb-2 h-9"></audio>@endif
@@ -25,6 +30,17 @@
             <p class="mt-1 text-xs text-bark-500">New recordings wait to be approved on the Check page before learners hear them.</p>
         </div>
         @include('admin.partials.recordings', ['item' => $word])
+        @if ($word->exists && $word->kind === 'word')
+            <div>
+                <p class="field-label">Used in these course phrases</p>
+                @forelse ($usedIn ?? [] as $p)
+                    <a href="{{ route('admin.word-links.index', ['phrase' => $p->id]) }}" class="mr-3 text-sm text-bark-600 hover:underline"><span class="lug">{{ $p->luganda }}</span></a>
+                @empty
+                    <p class="text-sm text-bark-500">None yet. Link it from <a class="underline" href="{{ route('admin.word-links.index') }}">Word links</a>.</p>
+                @endforelse
+                <p class="mt-1 text-sm"><a href="{{ route('dictionary.word', $word->slug) }}" class="text-bark-600 hover:underline">Public page →</a></p>
+            </div>
+        @endif
         <label class="flex items-center gap-2"><input type="checkbox" name="is_reviewed" value="1" @checked(old('is_reviewed', $word->is_reviewed)) class="rounded"> Luganda text checked by a native speaker</label>
         <button class="btn-primary">Save</button>
     </form>

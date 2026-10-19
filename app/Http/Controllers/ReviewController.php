@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Phrase;
 use App\Models\ReviewItem;
+use App\Services\Glossary;
 use App\Services\Progress;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,8 @@ class ReviewController extends Controller
                 'options' => $options,
             ];
         });
+
+        app(Glossary::class)->registerFrom($cards->all()); // tappable once answered
 
         return view('review', ['cards' => $cards]);
     }

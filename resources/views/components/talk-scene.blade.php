@@ -12,7 +12,7 @@
                 <div x-show="bubbleFor({{ $who }})" x-transition:enter="anim-pop"
                      class="absolute bottom-full z-10 mb-1 w-max max-w-[11rem] rounded-2xl border-2 border-bark-900 bg-white px-3 py-1.5 text-center shadow-[0_3px_0_#3b1f12] {{ $who === 0 ? 'left-1' : 'right-1' }}"
                      :class="speaking === {{ $who }} ? 'ring-4 ring-gold-300' : ''">
-                    <p class="font-display text-lg font-bold leading-tight text-bark-900" x-text="bubbleFor({{ $who }})?.luganda"></p>
+                    <p class="font-display text-lg font-bold leading-tight text-bark-900" x-lug="bubbleFor({{ $who }})?.luganda"></p>
                     <p class="text-xs text-bark-500" x-show="showMeaning" x-text="bubbleFor({{ $who }})?.english"></p>
                     <span class="absolute -bottom-2 h-3 w-3 rotate-45 border-b-2 border-r-2 border-bark-900 bg-white {{ $who === 0 ? 'left-8' : 'right-8' }}"></span>
                 </div>

@@ -1,14 +1,15 @@
-<x-layouts.app title="Dictionary">
+<x-layouts.app title="Luganda dictionary" description="A Luganda–English dictionary with recordings, syllable guides and everyday example phrases." :canonical="route('dictionary')">
     <h1 class="text-3xl font-bold">Enkuluze · Dictionary</h1>
     <form class="mt-4 flex gap-2" method="GET">
         <input name="q" value="{{ $q }}" placeholder="Search Luganda or English…" class="field max-w-md" autofocus>
         <button class="btn-primary">Search</button>
     </form>
+    <p class="mt-3 text-sm text-bark-800">Open a word for its syllables and the phrases that use it, or browse <a href="{{ route('say.index') }}" class="font-semibold text-bark-600 hover:underline">everyday phrases →</a></p>
 
     <div class="mt-6 overflow-hidden rounded-2xl border border-bark-100 bg-white">
         @forelse ($words as $word)
             <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-bark-100 px-5 py-3 last:border-0">
-                <span class="text-lg lug">{{ $word->luganda }}</span>
+                <a href="{{ route('dictionary.word', $word->slug) }}" class="text-lg lug font-semibold text-bark-900 hover:underline">{{ $word->luganda }}</a>
                 <x-speak :item="$word" />
                 @if ($word->part_of_speech)<span class="text-xs italic text-bark-500">{{ $word->part_of_speech }}</span>@endif
                 <span class="text-bark-800">{{ $word->english }}</span>

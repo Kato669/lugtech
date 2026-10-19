@@ -4,7 +4,7 @@
         <p class="font-display text-3xl font-bold text-bark-900" x-text="step.title"></p>
         <template x-if="step.phrase">
             <p class="mt-3 flex items-center gap-2">
-                <span class="lug text-2xl" x-text="step.phrase.luganda"></span>
+                <span class="lug text-2xl" x-lug="step.phrase.luganda"></span>
                 <button type="button" class="speak-btn" x-show="step.phrase.audio" @click="playAudio(step.phrase.audio)" aria-label="Listen">🔊</button>
             </p>
         </template>

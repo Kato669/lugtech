@@ -5,7 +5,7 @@
         <p class="text-sm font-semibold uppercase tracking-wide text-leaf-600">🎙️ Your turn to speak</p>
         <p class="lesson-figure anim-pop mt-2" x-show="step.figure" x-text="step.figure"></p>
         <div class="mt-2" x-show="step.picture" x-html="step.picture ? lugPicture(step.picture.name, step.picture.count) : ''"></div>
-        <p class="mt-3 font-display text-5xl font-bold text-bark-900" x-text="step.phrase.luganda"></p>
+        <p class="mt-3 font-display text-5xl font-bold text-bark-900" x-lug="step.phrase.luganda"></p>
         <p class="mt-2 text-xl text-bark-800" x-text="step.phrase.english"></p>
         <div class="mt-4 flex flex-wrap justify-center gap-2">
             <button type="button" class="btn-ghost" @click="playAudio(step.phrase.audio)">🔊 Listen</button>

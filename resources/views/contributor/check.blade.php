@@ -16,6 +16,12 @@
             @endforeach
         </div>
 
+        {{-- Phase 11: dictionary syllable guides are checked on their own page --}}
+        @php($syllablesToCheck = \App\Http\Controllers\Contributor\SyllableController::pendingCount())
+        @if ($syllablesToCheck)
+            <p class="mt-3 text-sm"><a href="{{ route('check.syllables') }}" class="font-semibold text-bark-600 hover:underline">🔤 Syllable guides to check: {{ $syllablesToCheck }} →</a></p>
+        @endif
+
         {{-- Find one phrase or word: Luganda, English or its code (P0008) --}}
         <form method="GET" class="mt-4 flex gap-2" role="search">
             <input type="hidden" name="show" value="{{ $show }}">

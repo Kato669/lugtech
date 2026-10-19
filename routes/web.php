@@ -10,8 +10,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\OfflineController;
 use App\Http\Controllers\PhrasebookController;
+use App\Http\Controllers\PhrasePageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SpeechController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Middleware\EnsureAdmin;
@@ -23,6 +25,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/dictionary', DictionaryController::class)->name('dictionary');
+
+// Phase 11: public word and phrase pages, found through search engines. Outside EnsureLearner
+// on purpose: visitors and crawlers must not get guest accounts or be redirected.
+Route::get('/dictionary/{word:slug}', [DictionaryController::class, 'show'])->name('dictionary.word');
+Route::get('/say', [PhrasePageController::class, 'index'])->name('say.index');
+Route::get('/say/{phrase:slug}', [PhrasePageController::class, 'show'])->name('say.show');
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 // Working offline (Phase 9): the page the service worker shows when a page isn't saved on the phone,
 // and a fresh token for sending progress that was saved offline.
@@ -79,6 +88,10 @@ Route::middleware(['auth', EnsureContributor::class])->group(function () {
         ->whereIn('type', ['phrase', 'word'])->whereNumber('id')->name('studio.store');
 
     Route::get('/check', [Contributor\CheckController::class, 'index'])->name('check');
+    // Phase 11: syllable guides for dictionary words (drafts until checked here)
+    Route::get('/check/syllables', [Contributor\SyllableController::class, 'index'])->name('check.syllables');
+    Route::post('/check/syllables/{word}', [Contributor\SyllableController::class, 'update'])
+        ->whereNumber('word')->name('check.syllables.update');
     Route::post('/check/audio/{clip}', [Contributor\AudioReviewController::class, 'update'])
         ->whereNumber('clip')->name('check.audio');
     Route::delete('/check/audio/{clip}', [Contributor\AudioReviewController::class, 'destroy'])
@@ -94,6 +107,11 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
         ->scoped(['lesson' => 'id']);
     Route::resource('phrases', Admin\PhraseController::class)->except('show');
     Route::resource('words', Admin\WordController::class)->except('show');
+    // Phase 11: which dictionary word each word in a phrase belongs to
+    Route::get('word-links', [Admin\WordLinkController::class, 'index'])->name('word-links.index');
+    Route::post('word-links', [Admin\WordLinkController::class, 'store'])->name('word-links.store');
+    Route::post('word-links/from-phrase/{phrase}', [Admin\WordLinkController::class, 'fromPhrase'])->name('word-links.from-phrase');
+    Route::delete('word-links/{link}', [Admin\WordLinkController::class, 'destroy'])->name('word-links.destroy');
     Route::get('audio', [Admin\AudioController::class, 'index'])->name('audio.index');
     Route::post('audio/generate', [Admin\AudioController::class, 'generate'])->name('audio.generate');
     Route::get('people', [Admin\PeopleController::class, 'index'])->name('people.index');
