@@ -21,6 +21,43 @@
             <p class="mt-4 rounded-xl bg-gold-300/40 px-4 py-3 text-sm text-bark-800">Voices are switched off (LUGANDA_VOICE=false), so nobody can listen to the results. Switch them on to review.</p>
         @endunless
 
+        {{-- Character voices: Mukasa (a man) and Nakato (a woman) each speak with their own voice --}}
+        <section class="card mt-6 !p-5" aria-labelledby="character-voices">
+            <h2 id="character-voices" class="text-2xl font-bold">Character voices</h2>
+            <p class="mt-1 max-w-3xl text-bark-800">Mukasa is a man and Nakato a woman. Each speaks with their own voice in the conversations and in the lessons they teach
+                (Mukasa teaches stages 1, 3, 5…). Lines without their own recording use the normal one.</p>
+            <div class="mt-4 grid gap-4 lg:grid-cols-2">
+                @foreach ($characters as $key => $c)
+                    <div class="rounded-2xl border-2 border-bark-100 p-4" x-data="characterVoice(@js($c), @js($key), @js(route('admin.audio.generate')), @js($chooseUrl), @js($defaultProvider))">
+                        <h3 class="font-display text-xl font-bold">{{ $key === 'mukasa' ? '👨🏾' : '👩🏾' }} {{ $c['name'] }}
+                            <span class="text-base font-normal text-bark-800">({{ $key === 'mukasa' ? 'a man' : 'a woman' }})</span></h3>
+                        <p class="mt-1 text-sm text-bark-800">Voice: <strong x-text="voice || 'not chosen yet'"></strong></p>
+
+                        <p class="mt-3 text-sm font-semibold text-bark-900">1. Hear the voices</p>
+                        <p class="text-sm text-bark-800">{{ $c['name'] }} says “{{ $c['sample']['luganda'] ?? '…' }}” in each voice, so you can choose one that sounds like {{ $key === 'mukasa' ? 'a man' : 'a woman' }}.</p>
+                        <button type="button" class="btn-ghost mt-2 !py-2 text-sm" @click="makeSamples()" :disabled="busy || !sample">🎧 Make voice samples</button>
+                        <ul class="mt-2 space-y-1" x-show="samples.length">
+                            <template x-for="s in samples" :key="s.voice">
+                                <li class="flex flex-wrap items-center gap-2 text-sm">
+                                    <button type="button" class="speak-btn !min-h-8 !min-w-8 text-xs" @click="playAudio(s.url)" :aria-label="'Play ' + s.voice">🔊</button>
+                                    <span class="font-mono" x-text="s.voice"></span>
+                                    <span class="badge bg-leaf-100 text-leaf-600" x-show="s.voice === voice">chosen</span>
+                                    <button type="button" class="text-sm font-semibold text-bark-600 underline" x-show="s.voice !== voice" @click="choose(s.voice)" :disabled="busy">Use for {{ $c['name'] }}</button>
+                                </li>
+                            </template>
+                        </ul>
+
+                        <p class="mt-4 text-sm font-semibold text-bark-900">2. Give {{ $c['name'] }} this voice</p>
+                        <p class="text-sm text-bark-800"><span x-text="doneCount"></span> of <span x-text="items.length"></span> of {{ $c['name'] }}'s lines have their own recording.</p>
+                        <button type="button" class="btn-leaf mt-2 !py-2 text-sm" @click="voiceAll()" :disabled="busy || !voice || doneCount === items.length">
+                            🔊 Record {{ $c['name'] }}'s lines (<span x-text="items.length - doneCount"></span>)</button>
+                        <button type="button" class="btn-ghost mt-2 !py-2 text-sm" x-show="busy" @click="stop = true">Stop</button>
+                        <p class="mt-2 text-sm text-bark-800" role="status" x-show="message" x-text="message"></p>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
         {{-- Settings --}}
         <div class="card mt-6 grid gap-4 !p-5 sm:grid-cols-3">
             <div>
@@ -91,6 +128,61 @@
 
     <script>
         document.addEventListener('alpine:init', () => {
+            /** One character's voice: samples, choosing, and recording all their lines in their slot. */
+            Alpine.data('characterVoice', (c, character, url, chooseUrl, provider) => ({
+                voice: c.voice, samples: c.samples, items: c.items, sample: c.sample, busy: false, stop: false, message: '',
+                get doneCount() { return this.items.filter((i) => i.done).length; },
+                async send(body) {
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content },
+                        body: JSON.stringify({ provider, slot: c.slot, ...body }),
+                    });
+                    return res.json().catch(() => ({ status: 'failed', message: 'Unexpected reply (' + res.status + ')' }));
+                },
+                async makeSamples() {
+                    this.busy = true; this.stop = false;
+                    const voices = Alpine.store('ttsVoices') || [];
+                    for (const [n, v] of voices.entries()) {
+                        if (this.stop) break;
+                        if (this.samples.some((s) => s.voice === v)) continue;
+                        this.message = `Making sample ${n + 1} of ${voices.length} (${v})…`;
+                        const data = await this.send({ type: 'phrase', id: this.sample.id, voice: v });
+                        if (data.url) this.samples.push({ voice: v, url: data.url, status: 'pending' });
+                        if (data.status === 'limit' || data.status === 'failed') { this.message = data.message; this.busy = false; return; }
+                    }
+                    this.message = 'Listen, then press “Use for ' + c.name + '” next to the voice you like.';
+                    this.busy = false;
+                },
+                async choose(voice) {
+                    this.busy = true;
+                    try {
+                        const data = await postJson(chooseUrl, { character, voice });
+                        this.voice = data.voice;
+                        this.message = data.env ? 'Saved, but .env sets a different voice (LUGANDA_' + character.toUpperCase() + '_VOICE), and that one wins.' : 'Saved: ' + c.name + ' now speaks with ' + data.voice + '.';
+                    } catch (e) {
+                        this.message = 'Could not save the choice.';
+                    } finally {
+                        this.busy = false;
+                    }
+                },
+                async voiceAll() {
+                    this.busy = true; this.stop = false;
+                    const todo = this.items.filter((i) => !i.done);
+                    for (const [n, item] of todo.entries()) {
+                        if (this.stop) break;
+                        this.message = `Recording ${n + 1} of ${todo.length}: ${item.luganda}`;
+                        const data = await this.send({ type: 'phrase', id: item.id });
+                        if (['created', 'skipped'].includes(data.status)) item.done = true;
+                        if (data.status === 'created') playInstrument('amadinda', 3);
+                        if (data.status === 'limit' || data.status === 'failed') { this.message = data.message; this.busy = false; return; }
+                    }
+                    this.message = this.stop ? 'Stopped.' : 'Done: ' + c.name + ' speaks with ' + this.voice + '.';
+                    this.busy = false;
+                },
+            }));
+            Alpine.store('ttsVoices', (@js($providers)).find((p) => p.name === @js($defaultProvider) && p.available)?.voices || []);
+
             Alpine.data('audioGenerator', (items, providers, defaultProvider, url, remaining) => ({
                 items, providers, url, remaining,
                 provider: (providers.find((p) => p.name === defaultProvider && p.available) || providers.find((p) => p.available)).name,

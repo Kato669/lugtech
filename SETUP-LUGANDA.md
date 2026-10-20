@@ -359,3 +359,13 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
   3. Learners switch it on in Settings → Daily reminder and pick the hour. No reminder on days they've already practised.
   - `php artisan app:send-reminders --dry-run` shows how many would go out right now.
   - Making new keys switches off every reminder already set up (learners turn them on again).
+
+## Mukasa's and Nakato's voices (20 Oct 2026)
+- Mukasa (a man) and Nakato (a woman) each speak with their own generated voice: in the conversations, and in the lessons they teach (Mukasa: stages 1, 3, 5…; Nakato: 2, 4, 6…). A line with no recording of its own uses the normal one.
+- **Admin → Generate audio → Character voices:**
+  1. 🎧 *Make voice samples*: Mukasa says "Oli otya?" in each Sunbird voice (8 generations).
+  2. Listen, then press *Use for Mukasa* next to the voice that sounds like a man.
+  3. 🔊 *Record Mukasa's lines*: about 60 generations, within the daily limit.
+- Or from the terminal: `php artisan app:generate-audio --mukasa --limit=100` (uses the chosen voice, or `--voice=…`). `--nakato` does the same for Nakato.
+- `.env` can fix the voices instead: `LUGANDA_MUKASA_VOICE=…`, `LUGANDA_NAKATO_VOICE=…` (these win over the admin's choice, which is kept in `storage/app/character-voices.json`).
+- New recordings are pending like any other: learners hear them straight away (LUGANDA_PLAY_UNCHECKED=true), and a native speaker checks them on the Check page.

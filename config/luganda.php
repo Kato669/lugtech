@@ -54,6 +54,13 @@ return [
         // Safety rail: at most this many generation requests per day (all admins together).
         'daily_limit' => (int) env('LUGANDA_TTS_DAILY_LIMIT', 50),
 
+        // Character voices: Mukasa (a man) and Nakato (a woman) each speak with their own generated voice.
+        // Empty = the voice an admin picked in Admin → Generate audio → Character voices.
+        'character_voices' => [
+            'male' => env('LUGANDA_MUKASA_VOICE'),
+            'female' => env('LUGANDA_NAKATO_VOICE'),
+        ],
+
         // Bump this if provider settings change, so "already generated" checks start afresh.
         'settings_version' => 1,
 

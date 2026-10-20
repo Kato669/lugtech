@@ -75,7 +75,8 @@ class VoiceSwitchTest extends TestCase
 
         $this->assertNotNull($this->phrase->fresh()->audio_url);
         $this->assertSame(1, collect((new LessonPlan)->build($lesson))->where('type', 'listen')->count());
-        $this->get(route('lessons.show', $lesson))->assertSee('audio_path-x.webm', false)
+        // Stage 1 is taught by Mukasa, so his own (man's) recording plays (character voices, 20 Oct 2026).
+        $this->get(route('lessons.show', $lesson))->assertSee('audio_male_path-x.webm', false)
             ->assertSee('Say it yourself, then compare')->assertSee('window.LUGANDA_VOICE = true', false);
         $this->get('/learn')->assertSee('🎙️ Studio');
         $this->get('/')->assertSee('Tap Mukasa or Nakato to hear them.');

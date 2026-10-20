@@ -119,6 +119,7 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
     Route::delete('word-links/{link}', [Admin\WordLinkController::class, 'destroy'])->name('word-links.destroy');
     Route::get('audio', [Admin\AudioController::class, 'index'])->name('audio.index');
     Route::post('audio/generate', [Admin\AudioController::class, 'generate'])->name('audio.generate');
+    Route::post('audio/character-voice', [Admin\AudioController::class, 'chooseCharacterVoice'])->name('audio.character-voice');
     Route::get('people', [Admin\PeopleController::class, 'index'])->name('people.index');
     Route::patch('people/{user}', [Admin\PeopleController::class, 'update'])->name('people.update');
 });

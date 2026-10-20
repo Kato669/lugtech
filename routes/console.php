@@ -13,6 +13,7 @@ use App\Services\AudioGenerator;
 use App\Services\DailyReminders;
 use App\Services\LessonPlan;
 use App\Services\WebPush;
+use App\Support\CharacterVoices;
 use App\Support\LegacyAudioImport;
 use App\Support\ProductionCheck;
 use Illuminate\Foundation\Inspiring;
@@ -88,6 +89,9 @@ Artisan::command('app:generate-audio
     {--lesson=* : Lesson slug(s), e.g. ennamba-1-5}
     {--code=* : Phrase or word code(s), e.g. P0001 W0012}
     {--words : All dictionary words and proverbs}
+    {--mukasa : Everything Mukasa says, in his own (man\'s) voice}
+    {--nakato : Everything Nakato says, in her own (woman\'s) voice}
+    {--slot=normal : normal | male (Mukasa) | female (Nakato)}
     {--all : Every lesson phrase, dictionary word and proverb}
     {--pause=500 : Milliseconds to wait between requests (be gentle with the service)}
     {--provider= : fake | sunbird (default: LUGANDA_TTS)}
@@ -113,17 +117,29 @@ Artisan::command('app:generate-audio
     if ($this->option('words') || $this->option('all')) {
         $items->push(...Word::orderBy('kind')->orderBy('luganda')->get());
     }
+    $slot = in_array($this->option('slot'), ['normal', 'male', 'female'], true) ? $this->option('slot') : 'normal';
+    foreach (CharacterVoices::SLOTS as $character => $characterSlot) {
+        if ($this->option($character)) {
+            $slot = $characterSlot;
+            $items->push(...Phrase::whereIn('id', CharacterVoices::phraseIds($character))->orderBy('id')->get());
+        }
+    }
     if ($items->isEmpty()) {
-        $this->error('Say what to generate: --all, --lesson=ennamba-1-5, --code=P0001 or --words.');
+        $this->error('Say what to generate: --all, --lesson=ennamba-1-5, --code=P0001, --words, --mukasa or --nakato.');
 
         return 1;
     }
 
     $provider = $tts->provider($this->option('provider'));
-    $voice = $this->option('voice') ?: $provider->defaultVoice();
+    $voice = $this->option('voice') ?: ($slot !== 'normal' ? CharacterVoices::voiceFor($slot) : null) ?: $provider->defaultVoice();
+    if ($slot !== 'normal' && ! $this->option('voice') && ! CharacterVoices::voiceFor($slot)) {
+        $this->error('Choose the character\'s voice first: Admin > Generate audio > Character voices, or --voice=… (or LUGANDA_'.($slot === 'male' ? 'MUKASA' : 'NAKATO').'_VOICE in .env).');
+
+        return 1;
+    }
     $limit = max(1, (int) $this->option('limit'));
     $items = $items->unique(fn ($i) => $i->getMorphClass().$i->id)->values();
-    $this->info(($this->option('dry-run') ? '[dry run] ' : '')."{$provider->label()} · {$voice} · up to {$limit} of {$items->count()} item(s) · {$generator->remainingToday()} left today");
+    $this->info(($this->option('dry-run') ? '[dry run] ' : '')."{$provider->label()} · {$voice}".($slot !== 'normal' ? " · {$slot} slot" : '')." · up to {$limit} of {$items->count()} item(s) · {$generator->remainingToday()} left today");
 
     $made = 0;
     foreach ($items as $item) {
@@ -131,7 +147,7 @@ Artisan::command('app:generate-audio
             $this->line("Stopped at --limit={$limit}.");
             break;
         }
-        $r = $generator->generate($item, $provider->name(), $voice, 'normal', null, (bool) $this->option('force'), (bool) $this->option('dry-run'));
+        $r = $generator->generate($item, $provider->name(), $voice, $slot, null, (bool) $this->option('force'), (bool) $this->option('dry-run'));
         $mark = ['created' => '<info>✓</info>', 'would_create' => '•', 'skipped' => '-', 'limit' => '<error>!</error>', 'failed' => '<error>✗</error>'][$r['status']];
         $this->line("{$mark} {$item->code} {$item->luganda}: {$r['message']}");
         if (in_array($r['status'], ['created', 'would_create'], true)) {
