@@ -157,7 +157,14 @@
                     <p class="text-sm font-bold uppercase tracking-wide text-bark-500">Olugero</p>
                     <p class="mt-1 font-display text-lg font-bold italic">“{{ $proverb->luganda }}”</p>
                     <p class="text-sm">{{ $proverb->english }}</p>
+                    {{-- Phase 15 --}}
+                    <a href="{{ route('culture.proverbs') }}" class="mt-2 inline-block text-sm font-semibold text-bark-600 hover:underline">More proverbs →</a>
                 </div>
+                <a href="{{ route('culture') }}" class="card block transition hover:-translate-y-0.5">
+                    <p class="text-sm font-bold uppercase tracking-wide text-bark-500">Culture</p>
+                    <p class="mt-1 font-display text-lg font-bold">📖 Kintu ne Nambi, clans and names</p>
+                    <p class="text-sm text-bark-800">Stories and traditions behind the language, and a four-week plan.</p>
+                </a>
             @endif
         </aside>
     </div>

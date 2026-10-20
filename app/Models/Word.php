@@ -14,7 +14,7 @@ class Word extends Model
 {
     use Contributable, HasSlug;
 
-    protected $fillable = ['kind', 'luganda', 'english', 'part_of_speech', 'plural', 'example_lg', 'example_en', 'audio_path', 'is_reviewed', 'syllables'];
+    protected $fillable = ['kind', 'luganda', 'english', 'part_of_speech', 'plural', 'example_lg', 'example_en', 'audio_path', 'is_reviewed', 'syllables', 'theme', 'literal', 'meaning'];
 
     protected function casts(): array
     {

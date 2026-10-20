@@ -389,3 +389,13 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
   - **Market run**: five stalls, one question each (meaning, say it, or listen); right answers fill the basket. 1 per item, +1 for a full basket.
 - All stay within the 30-a-day game cap and count for the "Play a game" daily task.
 - **Names:** English until a reviewer approves the Luganda draft on the Check page (under "Not in a lesson yet"): Mangu mangu (Lightning round), Wandiika (Spell it), Olutindo (Sentence bridge), Mu katale (Market run). Approve, correct or flag them like any phrase.
+
+## Culture (Phase 15)
+- Run `php artisan migrate` (adds `clans`, `ganda_names`, `stories`, `story_pages`, and theme / literal / meaning on proverbs), then `php artisan db:seed --class=LugandaCultureSeeder` (add-only), and `npm run build`.
+- **Culture** (header link, and a card on the course path), public like the dictionary:
+  - `/culture/proverbs`: proverbs by theme, with word-for-word translation and meaning; every word tappable.
+  - `/culture/clans`: clans with their totems, and Ganda names (twin names and more).
+  - `/culture/stories/kintu-ne-nambi`: the story page by page. The English is complete; only pages 1–2 have Luganda (drafts). Pages without Luganda say "Luganda coming soon".
+  - `/culture/getting-started`: a four-week plan using the app's lessons (English only).
+- **All Luganda here is a draft.** A native speaker checks it on **Check → Culture** (story pages, clans, names: approve, correct, flag, and write the Luganda for story pages). Proverbs are checked on the main Check page with the other words. Drafts are labelled and kept out of search engines.
+- **Admin → Culture** adds clans, names and story pages (as drafts) and removes them. Proverbs: Dictionary → New entry (type Proverb) has theme, word-for-word and meaning fields.

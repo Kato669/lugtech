@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clan;
+use App\Models\GandaName;
 use App\Models\Phrase;
+use App\Models\Story;
 use App\Models\Word;
 
 /**
@@ -20,7 +23,22 @@ class SitemapController extends Controller
             ->when(! $drafts, fn ($q) => $q->where('is_reviewed', true))
             ->orderBy('id')->get(['id', 'slug', 'updated_at']);
 
-        return response()->view('sitemap', ['words' => $words, 'phrases' => $phrases])
+        // Phase 15: culture pages (the hub and guide always; the rest once everything on them is checked)
+        $culture = [route('culture'), route('culture.guide')];
+        $checked = fn ($model) => $drafts || ! $model::where('is_reviewed', false)->exists();
+        if ($checked(Clan::class) && $checked(GandaName::class)) {
+            $culture[] = route('culture.clans');
+        }
+        if ($drafts || ! Word::where('kind', 'proverb')->where('is_reviewed', false)->exists()) {
+            $culture[] = route('culture.proverbs');
+        }
+        foreach (Story::where('is_published', true)->get() as $story) {
+            if ($drafts || ! $story->pages()->where('is_reviewed', false)->exists()) {
+                $culture[] = route('culture.story', $story->slug);
+            }
+        }
+
+        return response()->view('sitemap', ['words' => $words, 'phrases' => $phrases, 'culture' => $culture])
             ->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Contributor;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CultureController;
 use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HabitController;
@@ -34,6 +35,13 @@ Route::get('/dictionary/{word:slug}', [DictionaryController::class, 'show'])->na
 Route::get('/say', [PhrasePageController::class, 'index'])->name('say.index');
 Route::get('/say/{phrase:slug}', [PhrasePageController::class, 'show'])->name('say.show');
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+
+// Phase 15: culture (public, like the dictionary): proverbs, clans and names, stories, a four-week guide.
+Route::get('/culture', [CultureController::class, 'index'])->name('culture');
+Route::get('/culture/proverbs', [CultureController::class, 'proverbs'])->name('culture.proverbs');
+Route::get('/culture/clans', [CultureController::class, 'clans'])->name('culture.clans');
+Route::get('/culture/stories/{story:slug}', [CultureController::class, 'story'])->name('culture.story');
+Route::get('/culture/getting-started', [CultureController::class, 'guide'])->name('culture.guide');
 
 // Working offline (Phase 9): the page the service worker shows when a page isn't saved on the phone,
 // and a fresh token for sending progress that was saved offline.
@@ -101,6 +109,10 @@ Route::middleware(['auth', EnsureContributor::class])->group(function () {
     Route::get('/check', [Contributor\CheckController::class, 'index'])->name('check');
     // Phase 11: syllable guides for dictionary words (drafts until checked here)
     Route::get('/check/syllables', [Contributor\SyllableController::class, 'index'])->name('check.syllables');
+    // Phase 15: culture (story pages, clans, names)
+    Route::get('/check/culture', [Contributor\CultureCheckController::class, 'index'])->name('check.culture');
+    Route::post('/check/culture/{type}/{id}', [Contributor\CultureCheckController::class, 'update'])
+        ->whereIn('type', ['page', 'clan', 'name'])->whereNumber('id')->name('check.culture.update');
     Route::post('/check/syllables/{word}', [Contributor\SyllableController::class, 'update'])
         ->whereNumber('word')->name('check.syllables.update');
     Route::post('/check/audio/{clip}', [Contributor\AudioReviewController::class, 'update'])
@@ -118,6 +130,10 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
         ->scoped(['lesson' => 'id']);
     Route::resource('phrases', Admin\PhraseController::class)->except('show');
     Route::resource('words', Admin\WordController::class)->except('show');
+    // Phase 15: culture (clans, names, story pages)
+    Route::get('culture', [Admin\CultureController::class, 'index'])->name('culture');
+    Route::post('culture/{type}', [Admin\CultureController::class, 'store'])->whereIn('type', ['clan', 'name', 'page'])->name('culture.store');
+    Route::delete('culture/{type}/{id}', [Admin\CultureController::class, 'destroy'])->whereIn('type', ['clan', 'name', 'page'])->whereNumber('id')->name('culture.destroy');
     // Phase 11: which dictionary word each word in a phrase belongs to
     Route::get('word-links', [Admin\WordLinkController::class, 'index'])->name('word-links.index');
     Route::post('word-links', [Admin\WordLinkController::class, 'store'])->name('word-links.store');

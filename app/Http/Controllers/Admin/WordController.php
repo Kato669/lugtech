@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CultureController;
 use App\Models\Word;
 use App\Services\AutoAudio;
 use App\Services\Glossary;
 use App\Services\Recordings;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class WordController extends Controller
 {
@@ -68,6 +70,10 @@ class WordController extends Controller
             'example_lg' => ['nullable', 'string', 'max:255'],
             'example_en' => ['nullable', 'string', 'max:255'],
             'syllables' => ['nullable', 'string', 'max:255', 'regex:/^[\pL\pM]+(-[\pL\pM]+)*$/u'],
+            // Phase 15: proverbs
+            'theme' => ['nullable', Rule::in(array_keys(CultureController::THEMES))],
+            'literal' => ['nullable', 'string', 'max:255'],
+            'meaning' => ['nullable', 'string', 'max:1000'],
             'audio' => ['nullable', 'file', 'max:5120', 'mimes:mp3,m4a,ogg,oga,wav,webm,aac'],
         ]);
         $data['is_reviewed'] = $request->boolean('is_reviewed');

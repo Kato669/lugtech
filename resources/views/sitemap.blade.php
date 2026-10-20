@@ -3,6 +3,9 @@
     <url><loc>{{ route('home') }}</loc></url>
     <url><loc>{{ route('dictionary') }}</loc></url>
     <url><loc>{{ route('say.index') }}</loc></url>
+@foreach ($culture ?? [] as $url)
+    <url><loc>{{ $url }}</loc></url>
+@endforeach
 @foreach ($words as $word)
     <url><loc>{{ route('dictionary.word', $word->slug) }}</loc>@if ($word->updated_at)<lastmod>{{ $word->updated_at->toDateString() }}</lastmod>@endif</url>
 @endforeach

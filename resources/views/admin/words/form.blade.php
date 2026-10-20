@@ -17,6 +17,18 @@
             <x-input name="example_lg" label="Example (Luganda)" :value="$word->example_lg" />
             <x-input name="example_en" label="Example (English)" :value="$word->example_en" />
         </div>
+        {{-- Phase 15: proverbs (shown on Culture → Proverbs) --}}
+        <fieldset class="rounded-2xl bg-bark-50 p-4">
+            <legend class="font-semibold">For proverbs</legend>
+            <div class="grid gap-4 sm:grid-cols-3">
+                <div><label class="field-label" for="theme">Theme</label>
+                    <select id="theme" name="theme" class="field"><option value="">—</option>
+                        @foreach (\App\Http\Controllers\CultureController::THEMES as $key => $label)<option value="{{ $key }}" @selected(old('theme', $word->theme) === $key)>{{ $label }}</option>@endforeach
+                    </select></div>
+                <x-input name="literal" label="Word for word" :value="$word->literal" />
+                <x-input name="meaning" label="What it teaches" :value="$word->meaning" />
+            </div>
+        </fieldset>
         <div class="rounded-2xl bg-bark-50 p-4">
             <x-input name="syllables" label="Syllable guide" :value="$word->syllables" help="Syllables joined by hyphens, e.g. a-ma-zzi. Left empty, a draft guide is made for single words." />
             <input type="hidden" name="syllables_was_checked" value="{{ $word->syllablesChecked() ? 1 : 0 }}">

@@ -268,7 +268,7 @@ class DailyHabitTest extends TestCase
         $sw = file_get_contents(public_path('sw.js'));
         $this->assertStringContainsString("addEventListener('push'", $sw);
         $this->assertStringContainsString("addEventListener('notificationclick'", $sw);
-        $this->assertStringContainsString("const VERSION = 'v3'", $sw);
+        $this->assertMatchesRegularExpression("/const VERSION = 'v([3-9]|\\d\\d)'/", $sw, 'bumped since Phase 12');
     }
 
     public function test_a_guest_keeps_their_day_and_freezes_when_logging_in(): void

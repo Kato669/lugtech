@@ -42,7 +42,7 @@
                 <span class="font-display text-xl font-bold text-bark-600">{{ config('app.name') }}</span>
             </a>
             <div class="order-last -mx-1 flex w-full flex-nowrap items-center gap-1 overflow-x-auto text-sm font-semibold whitespace-nowrap sm:order-none sm:mx-0 sm:w-auto sm:flex-1 sm:overflow-visible">
-                @foreach ([['course', 'Learn', ['course', 'lessons.*']], ['review', 'Review', ['review']], ['games.index', 'Games', ['games.*']], ['phrasebook', 'Phrasebook', ['phrasebook']], ['dictionary', 'Dictionary', ['dictionary']]] as [$route, $label, $active])
+                @foreach ([['course', 'Learn', ['course', 'lessons.*']], ['review', 'Review', ['review']], ['games.index', 'Games', ['games.*']], ['phrasebook', 'Phrasebook', ['phrasebook']], ['dictionary', 'Dictionary', ['dictionary', 'dictionary.*']], ['culture', 'Culture', ['culture', 'culture.*']]] as [$route, $label, $active])
                     <a href="{{ route($route) }}" class="rounded-full px-3 py-1.5 transition {{ request()->routeIs(...$active) ? 'bg-bark-600 text-white' : 'hover:bg-bark-50' }}">{{ $label }}</a>
                 @endforeach
                 @if ($me?->isContributor())

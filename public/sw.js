@@ -12,7 +12,7 @@
  * Progress made offline is not handled here: the page queues it (resources/js/offline.js).
  * Bump VERSION when this file changes in a way that needs old app files cleared.
  */
-const VERSION = 'v3'; // v2 (Phase 11): word and phrase pages; v3 (Phase 12): daily reminders
+const VERSION = 'v4'; // v2 (Phase 11): word and phrase pages; v3 (Phase 12): daily reminders; v4 (Phase 15): culture pages
 const APP = `app-${VERSION}`;
 const PAGES = 'pages';
 const AUDIO = 'audio';
@@ -20,7 +20,7 @@ const MAX_AUDIO = 600;      // recordings kept on the phone (oldest go first)
 const MAX_PAGES = 120;      // pages kept
 
 const SHELL = ['/offline', '/manifest.webmanifest', '/app-icons/icon-192.png', '/app-icons/icon-512.png', '/app-icons/maskable-512.png', '/favicon.ico'];
-const LEARNER_PAGES = [/^\/$/, /^\/learn(\/[^/]+)?$/, /^\/review$/, /^\/phrasebook$/, /^\/games(\/[^/]+)?$/, /^\/dictionary(\/[^/]+)?$/, /^\/say(\/[^/]+)?$/];
+const LEARNER_PAGES = [/^\/$/, /^\/learn(\/[^/]+)?$/, /^\/review$/, /^\/phrasebook$/, /^\/games(\/[^/]+)?$/, /^\/dictionary(\/[^/]+)?$/, /^\/say(\/[^/]+)?$/, /^\/culture(\/.*)?$/];
 const NEVER = [/^\/(admin|check|studio|login|register|logout|speak|sync)(\/|$)/];
 
 self.addEventListener('install', (event) => {
