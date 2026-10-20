@@ -379,3 +379,13 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
   - Items and prices live in `App\Services\Wardrobe::ITEMS`.
 - **Who teaches:** take turns (Mukasa stages 1, 3, 5…; Nakato 2, 4, 6…), always Mukasa, or always Nakato. With a chosen teacher, lines written for the other guide are said by the chosen one, except lines about that guide themselves.
 - The guides appear dressed in lessons, conversations, the wardrobe and on the course path, for that learner only.
+
+## More games (Phase 14)
+- Run `php artisan db:seed --class=LugandaGameNamesSeeder` (add-only: the draft Luganda game names for the Check page) and `npm run build`. No migration.
+- Four new games on the Games page, built from each learner's own phrases:
+  - **Lightning round**: 30 seconds of quick answers; every third question goes English → Luganda. 1 cowrie per 2 right, up to 8.
+  - **Spell it**: build a word from its letters (one-word phrases). 2 + 1 per word right first time, up to 7.
+  - **Sentence bridge**: lay the words of a phrase in order; Mukasa walks across the planks. 2 + 1 per perfect bridge, up to 7. Needs 3 phrases of two or more words (locked until then).
+  - **Market run**: five stalls, one question each (meaning, say it, or listen); right answers fill the basket. 1 per item, +1 for a full basket.
+- All stay within the 30-a-day game cap and count for the "Play a game" daily task.
+- **Names:** English until a reviewer approves the Luganda draft on the Check page (under "Not in a lesson yet"): Mangu mangu (Lightning round), Wandiika (Spell it), Olutindo (Sentence bridge), Mu katale (Market run). Approve, correct or flag them like any phrase.

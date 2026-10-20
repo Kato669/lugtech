@@ -17,8 +17,14 @@ class GameController extends Controller
         $best = GamePlay::where('user_id', $user->id)->selectRaw('game, MAX(score) as best')
             ->groupBy('game')->pluck('best', 'game');
 
+        // Phase 14: some games need particular phrases (single words, longer phrases): locked until there are enough.
+        $locked = collect(Games::available())->mapWithKeys(fn ($g, $key) => [
+            $key => isset($g['pool']) && $this->games->poolFor($user, $key)->count() < Games::minFor($key),
+        ]);
+
         return view('games.index', [
             'games' => Games::available(),
+            'locked' => $locked,
             'known' => $user->reviewItems()->count(),
             'min' => Games::MIN_PHRASES,
             'best' => $best,
@@ -30,13 +36,13 @@ class GameController extends Controller
     public function show(Request $request, string $game)
     {
         abort_unless(array_key_exists($game, Games::available()), 404);
-        $pool = $game === 'speak' ? $this->games->speakPool($request->user()) : $this->games->pool($request->user());
-        if ($pool->count() < Games::MIN_PHRASES) {
+        $pool = $this->games->poolFor($request->user(), $game);
+        if ($pool->count() < Games::minFor($game)) {
             return redirect()->route('games.index');
         }
 
         return view("games.{$game}", [
-            'game' => Games::GAMES[$game],
+            'game' => Games::available()[$game],
             'pool' => $pool,
             'completeUrl' => route('games.complete', $game),
         ]);
@@ -45,7 +51,7 @@ class GameController extends Controller
     public function complete(Request $request, string $game)
     {
         abort_unless(array_key_exists($game, Games::available()), 404);
-        $max = ['memory' => 100, 'speak' => Games::SPEAK_ROUNDS][$game] ?? 500;
+        $max = Games::MAX_SCORE[$game] ?? 500;
         $data = $request->validate([
             'score' => ['required', 'integer', 'min:0', 'max:'.$max],
             'active_seconds' => ['nullable', 'integer', 'min:0', 'max:86400'],

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             LugandaKitchenMarketSeeder::class,   // Stage 2 (Mu ffumbiro) + Stage 3 (Mu katale)
             LugandaNumbersPilotSeeder::class,    // Ennamba 1–5 as an interactive classroom lesson
             LugandaClassroomLessonsSeeder::class, // Phase 6: 14 more interactive lessons
+            LugandaGameNamesSeeder::class,       // Phase 14: draft Luganda names for the new games
         ]);
     }
 }
