@@ -61,6 +61,7 @@ class User extends Authenticatable
             'streak_freezes' => 'integer',
             'freeze_used_on' => 'date',
             'reminder_hour' => 'integer',
+            'outfit' => 'array',
         ];
     }
 
@@ -90,6 +91,12 @@ class User extends Authenticatable
     public function dailyActivities(): HasMany
     {
         return $this->hasMany(DailyActivity::class);
+    }
+
+    /** Bought in the cowrie shop (Phase 13). */
+    public function items(): HasMany
+    {
+        return $this->hasMany(UserItem::class);
     }
 
     public function pushSubscriptions(): HasMany

@@ -61,7 +61,8 @@
                         :aria-pressed="$store.music.on.toString()" aria-label="Background music" :title="$store.music.on ? 'Background music: on' : 'Background music: off'">🎵<span
                         x-show="!$store.music.on" aria-hidden="true" class="absolute left-1/2 top-1/2 h-0.5 w-6 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded bg-bark-800"></span></button>
                 @if ($me)
-                    <span class="badge bg-gold-300/60 px-3 py-1 text-sm text-bark-800" title="Cowries"><x-art.cowrie class="h-4 w-5" /> <span data-cowries>{{ $me->cowries }}</span></span>
+                    {{-- Phase 13: cowries are spent in the wardrobe --}}
+                    <a href="{{ route('wardrobe') }}" class="badge bg-gold-300/60 px-3 py-1 text-sm text-bark-800 transition hover:brightness-95" title="Cowries: spend them in the wardrobe"><x-art.cowrie class="h-4 w-5" /> <span data-cowries>{{ $me->cowries }}</span><span class="sr-only"> cowries: open the wardrobe</span></a>
                     <span class="badge bg-bark-50 px-3 py-1 text-sm text-bark-600" title="Day streak">🔥 <span data-streak>{{ $me->liveStreak() }}</span></span>
                     <a href="{{ route('settings') }}" class="rounded-full p-1.5 text-lg leading-none transition hover:bg-bark-50 {{ request()->routeIs('settings') ? 'bg-bark-50' : '' }}" title="Settings" aria-label="Settings">⚙️</a>
                     @if ($me->is_guest)

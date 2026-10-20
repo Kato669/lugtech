@@ -7,6 +7,7 @@ use App\Services\DailyHabit;
 use App\Services\Glossary;
 use App\Services\LessonPlan;
 use App\Services\Progress;
+use App\Services\Wardrobe;
 use App\Support\CharacterVoices;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,12 @@ class LessonController extends Controller
 
         $lesson->load('stage');
         // Mukasa and Nakato take turns teaching: Mukasa in stages 1, 3, 5…, Nakato in 2, 4, 6…
-        $teacher = CharacterVoices::teacherFor($lesson);
+        // (Phase 13: or the learner's own choice of teacher.)
+        $wardrobe = app(Wardrobe::class);
+        $teacher = $wardrobe->teacherFor($request->user(), $lesson);
+        $steps = $wardrobe->applyTeacher($request->user(), (new LessonPlan)->build($lesson));
         // Whoever says a phrase speaks with their own voice (a man's for Mukasa), when it's recorded.
-        $steps = CharacterVoices::apply((new LessonPlan)->build($lesson), $teacher);
+        $steps = CharacterVoices::apply($steps, $teacher);
         app(Glossary::class)->registerFrom($steps); // tap a word: phrase cards and conversation lines
 
         return view('lesson', [

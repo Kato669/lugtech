@@ -7,6 +7,7 @@ use App\Models\PhraseWord;
 use App\Models\Word;
 use App\Services\AudioResolver;
 use App\Services\Glossary;
+use App\Services\Wardrobe;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->scoped(AudioResolver::class);
         // Phase 11: the Luganda a page shows, and what each word means (tap a word).
         $this->app->scoped(Glossary::class);
+        // Phase 13: what each guide wears (bought items looked up once per request).
+        $this->app->scoped(Wardrobe::class);
     }
 
     /**

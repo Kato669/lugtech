@@ -34,6 +34,19 @@
 
             @include('habit.today')
 
+            {{-- Phase 13: your guides, as you dressed them --}}
+            <a href="{{ route('wardrobe') }}" class="card group mt-4 flex items-center gap-4 !p-4 transition hover:-translate-y-0.5" x-data>
+                <span class="flex shrink-0 items-end gap-1" aria-hidden="true">
+                    <x-character name="mukasa" state="'idle'" class="h-20 w-12" />
+                    <x-character name="nakato" state="'idle'" class="h-20 w-12" />
+                </span>
+                <span class="min-w-0 flex-1">
+                    <span class="block font-display text-xl font-bold text-bark-900">Your guides</span>
+                    <span class="block text-sm text-bark-800">Spend your cowries on a new kanzu, a gomesi, beads or a drum, and choose who teaches you.</span>
+                </span>
+                <span class="text-2xl text-bark-600 transition group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+
             <div class="mt-10 space-y-12">
                 @foreach ($stages as $s => $stage)
                     <section>

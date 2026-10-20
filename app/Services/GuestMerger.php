@@ -9,6 +9,7 @@ use App\Models\PushSubscription;
 use App\Models\ReviewItem;
 use App\Models\SpeechAttempt;
 use App\Models\User;
+use App\Models\UserItem;
 use Illuminate\Support\Facades\DB;
 
 /** When a guest logs into an existing account, carry their progress across. */
@@ -54,6 +55,12 @@ class GuestMerger
                 $day->delete();
             }
             PushSubscription::where('user_id', $guest->id)->update(['user_id' => $account->id]);
+
+            // The wardrobe (Phase 13): what the guest bought, and their outfits and teacher if the account had none.
+            $have = UserItem::where('user_id', $account->id)->pluck('item');
+            UserItem::where('user_id', $guest->id)->whereNotIn('item', $have)->update(['user_id' => $account->id]);
+            $account->outfit ??= $guest->outfit;
+            $account->teacher_choice ??= $guest->teacher_choice;
             $account->reminder_hour ??= $guest->reminder_hour;
             $account->timezone ??= $guest->timezone;
             $account->streak_freezes = min((int) config('luganda.habit.max_freezes', 2), $account->streak_freezes + $guest->streak_freezes);

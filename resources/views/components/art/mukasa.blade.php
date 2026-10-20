@@ -4,25 +4,40 @@
     <ellipse class="char-shadow" cx="60" cy="203" rx="34" ry="5" fill="#3b1f12" opacity=".15"/>
     <g class="char-body">
         {{-- kanzu --}}
-        <path d="M34 92c-8 20-12 60-14 106h80c-2-46-6-86-14-106-8-6-18-9-26-9s-18 3-26 9z" fill="#fbf6ec" stroke="#3b1f12" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M34 92c-8 20-12 60-14 106h80c-2-46-6-86-14-106-8-6-18-9-26-9s-18 3-26 9z" fill="var(--robe, #fbf6ec)" stroke="#3b1f12" stroke-width="3" stroke-linejoin="round"/>
         <path d="M60 86v74" stroke="#8b2a1f" stroke-width="5" stroke-linecap="round"/>
         <path d="M53 88q7 8 14 0" stroke="#8b2a1f" stroke-width="3" fill="none"/>
         <path d="M57 100h6M57 112h6M57 124h6M57 136h6" stroke="#f4cf6b" stroke-width="1.5"/>
+        {{-- Phase 13 wardrobe: shown only when worn (classes wear-beads, wear-sash…: components/character) --}}
+        <g class="item item-sash">
+            <path d="M35 92L45 100L85 154L75 146z" fill="#9a5a32" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M42 102L48 98M58 126L64 122M74 151L80 147" stroke="#d9a066" stroke-width="1.5"/>
+        </g>
+        <g class="item item-beads"><circle cx="49.0" cy="88.0" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="51.8" cy="93.5" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/><circle cx="55.0" cy="97.0" r="2.3" fill="#2f6fa8" stroke="#3b1f12" stroke-width="1"/><circle cx="58.4" cy="98.0" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="61.6" cy="98.0" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/><circle cx="65.0" cy="97.0" r="2.3" fill="#2f6fa8" stroke="#3b1f12" stroke-width="1"/><circle cx="68.2" cy="93.5" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="71.0" cy="88.0" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/></g>
         {{-- arms: each turns at the shoulder --}}
         <g class="talker-arm arm-left" style="transform-origin: 37px 96px">
-            <path d="M36 96c-10 18-12 36-8 54" stroke="#3b1f12" stroke-width="3" fill="#fbf6ec"/>
+            <path d="M36 96c-10 18-12 36-8 54" stroke="#3b1f12" stroke-width="3" fill="var(--robe, #fbf6ec)"/>
             <circle cx="28" cy="152" r="6" fill="#7a4a2b" stroke="#3b1f12" stroke-width="2.5"/>
         </g>
         <g class="arm-right" style="transform-origin: 83px 96px">
-            <path d="M84 96c10 18 12 36 8 54" stroke="#3b1f12" stroke-width="3" fill="#fbf6ec"/>
+            <path d="M84 96c10 18 12 36 8 54" stroke="#3b1f12" stroke-width="3" fill="var(--robe, #fbf6ec)"/>
             <circle cx="92" cy="152" r="6" fill="#7a4a2b" stroke="#3b1f12" stroke-width="2.5"/>
             <path class="point-finger" d="M92 152l2 9" stroke="#7a4a2b" stroke-width="4" stroke-linecap="round"/>
+            <g class="item item-drum">
+                <path d="M93 150h16l-3 16h-10z" fill="#9a5a32" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+                <ellipse cx="101" cy="150" rx="8" ry="3" fill="#f4e3c3" stroke="#3b1f12" stroke-width="2"/>
+                <path d="M95 155l3 9M101 155v10M107 155l-3 9" stroke="#f4e3c3" stroke-width="1"/>
+            </g>
         </g>
         {{-- neck + head --}}
         <path d="M53 78h14v10H53z" fill="#7a4a2b"/>
         <g class="talker-head">
             <ellipse cx="60" cy="50" rx="27" ry="30" fill="#7a4a2b" stroke="#3b1f12" stroke-width="3"/>
             <path d="M34 42c0-18 12-26 26-26s26 8 26 26c-6-8-16-11-26-11s-20 3-26 11z" fill="#1f130b"/>
+            <g class="item item-cap">
+                <path d="M33 36c0-16 12-24 27-24s27 8 27 24c-8-3-17-5-27-5s-19 2-27 5z" fill="var(--cap, #8b2a1f)" stroke="#3b1f12" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M38 29c7-3 15-4 22-4s15 1 22 4" stroke="#f4cf6b" stroke-width="1.5" fill="none" stroke-dasharray="2 3"/>
+            </g>
             <ellipse cx="33" cy="52" rx="4" ry="6" fill="#7a4a2b" stroke="#3b1f12" stroke-width="2.5"/>
             <ellipse cx="87" cy="52" rx="4" ry="6" fill="#7a4a2b" stroke="#3b1f12" stroke-width="2.5"/>
             <g class="talker-eyes">

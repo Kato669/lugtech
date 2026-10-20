@@ -16,6 +16,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SpeechController;
+use App\Http\Controllers\WardrobeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Middleware\EnsureAdmin;
 use App\Http\Middleware\EnsureContributor;
@@ -61,6 +62,11 @@ Route::middleware(EnsureLearner::class)->group(function () {
     Route::get('/settings', [SettingsController::class, 'show'])->name('settings');
     Route::post('/settings', [SettingsController::class, 'update']);
     Route::post('/settings/start-over', [SettingsController::class, 'startOver'])->name('settings.start-over');
+    // Phase 13: the cowrie shop and the wardrobe
+    Route::get('/wardrobe', [WardrobeController::class, 'show'])->name('wardrobe');
+    Route::post('/wardrobe/buy/{item}', [WardrobeController::class, 'buy'])->middleware('throttle:30,1')->name('wardrobe.buy');
+    Route::post('/wardrobe/wear', [WardrobeController::class, 'wear'])->middleware('throttle:60,1')->name('wardrobe.wear');
+    Route::post('/wardrobe/teacher', [WardrobeController::class, 'teacher'])->middleware('throttle:30,1')->name('wardrobe.teacher');
     // Phase 12: streak freezes and daily reminders
     Route::post('/habit/freeze', [HabitController::class, 'buyFreeze'])->middleware('throttle:20,1')->name('habit.freeze');
     Route::post('/reminders', [HabitController::class, 'remind'])->middleware('throttle:20,1')->name('reminders.on');

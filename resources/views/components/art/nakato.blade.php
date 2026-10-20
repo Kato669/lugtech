@@ -4,8 +4,8 @@
     <ellipse class="char-shadow" cx="60" cy="203" rx="38" ry="5" fill="#3b1f12" opacity=".15"/>
     <g class="char-body">
         {{-- gomesi --}}
-        <path d="M38 92c-6 24-16 66-20 106h84c-4-40-14-82-20-106-7-5-14-8-22-8s-15 3-22 8z" fill="#3e7c3a" stroke="#3b1f12" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M30 168c20 6 40 6 60 0M26 186c22 6 46 6 68 0" stroke="#2f652c" stroke-width="2" opacity=".7"/>
+        <path d="M38 92c-6 24-16 66-20 106h84c-4-40-14-82-20-106-7-5-14-8-22-8s-15 3-22 8z" fill="var(--robe, #3e7c3a)" stroke="#3b1f12" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M30 168c20 6 40 6 60 0M26 186c22 6 46 6 68 0" stroke="var(--robe-dark, #2f652c)" stroke-width="2" opacity=".7"/>
         {{-- arms: each turns at the shoulder (drawn under the puffed sleeves) --}}
         <g class="talker-arm arm-left" style="transform-origin: 38px 102px">
             <path d="M38 104c-8 14-10 28-8 40" stroke="#7a4a2b" stroke-width="7" stroke-linecap="round"/>
@@ -13,15 +13,26 @@
         <g class="arm-right" style="transform-origin: 82px 102px">
             <path d="M82 104c8 14 10 28 8 40" stroke="#7a4a2b" stroke-width="7" stroke-linecap="round"/>
             <path class="point-finger" d="M90 144l1 7" stroke="#7a4a2b" stroke-width="4" stroke-linecap="round"/>
+            <g class="item item-drum">
+                <path d="M90 142h16l-3 16h-10z" fill="#9a5a32" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+                <ellipse cx="98" cy="142" rx="8" ry="3" fill="#f4e3c3" stroke="#3b1f12" stroke-width="2"/>
+                <path d="M92 147l3 9M98 147v10M104 147l-3 9" stroke="#f4e3c3" stroke-width="1"/>
+            </g>
         </g>
         {{-- puffed shoulders --}}
-        <path d="M40 90c-10-4-20 0-22 10 6-2 12 2 20 4z" fill="#4f9348" stroke="#3b1f12" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M80 90c10-4 20 0 22 10-6-2-12 2-20 4z" fill="#4f9348" stroke="#3b1f12" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M40 90c-10-4-20 0-22 10 6-2 12 2 20 4z" fill="var(--robe-light, #4f9348)" stroke="#3b1f12" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M80 90c10-4 20 0 22 10-6-2-12 2-20 4z" fill="var(--robe-light, #4f9348)" stroke="#3b1f12" stroke-width="2.5" stroke-linejoin="round"/>
         {{-- square neckline --}}
         <path d="M50 88v10h20V88" fill="#7a4a2b" stroke="#3b1f12" stroke-width="2"/>
         {{-- sash (kitambaala) --}}
-        <path d="M30 128c20 6 40 6 60 0l2 12c-22 6-42 6-64 0z" fill="#e0a526" stroke="#3b1f12" stroke-width="2.5"/>
-        <path d="M70 136l8 20-6 2-6-18z" fill="#e0a526" stroke="#3b1f12" stroke-width="2"/>
+        <path d="M30 128c20 6 40 6 60 0l2 12c-22 6-42 6-64 0z" fill="var(--sash, #e0a526)" stroke="#3b1f12" stroke-width="2.5"/>
+        <path d="M70 136l8 20-6 2-6-18z" fill="var(--sash, #e0a526)" stroke="#3b1f12" stroke-width="2"/>
+        {{-- Phase 13 wardrobe: shown only when worn (classes wear-beads, wear-sash…: components/character) --}}
+        <g class="item item-sash">
+            <path d="M37 92L47 100L87 152L77 144z" fill="#9a5a32" stroke="#3b1f12" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M44 102L50 98M60 125L66 121M76 149L82 145" stroke="#d9a066" stroke-width="1.5"/>
+        </g>
+        <g class="item item-beads"><circle cx="51.0" cy="89.0" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="53.2" cy="93.4" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/><circle cx="56.0" cy="96.2" r="2.3" fill="#2f6fa8" stroke="#3b1f12" stroke-width="1"/><circle cx="58.6" cy="97.0" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="61.4" cy="97.0" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/><circle cx="64.0" cy="96.2" r="2.3" fill="#2f6fa8" stroke="#3b1f12" stroke-width="1"/><circle cx="66.8" cy="93.4" r="2.3" fill="#e0a526" stroke="#3b1f12" stroke-width="1"/><circle cx="69.0" cy="89.0" r="2.3" fill="#8b2a1f" stroke="#3b1f12" stroke-width="1"/></g>
         {{-- neck + head --}}
         <path d="M54 76h12v12H54z" fill="#7a4a2b"/>
         <g class="talker-head">

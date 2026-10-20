@@ -14,7 +14,9 @@ class HabitController extends Controller
     {
         $problem = $habit->buyFreeze($request->user());
 
-        return redirect()->route('course')->with('status', $problem ?? '🧊 Streak freeze bought. If you miss a day, it keeps your streak going.');
+        $back = $request->input('from') === 'wardrobe' ? 'wardrobe' : 'course'; // also sold in the shop (Phase 13)
+
+        return redirect()->route($back)->with('status', $problem ?? '🧊 Streak freeze bought. If you miss a day, it keeps your streak going.');
     }
 
     /** Switch the reminder on (or change its hour), for this browser. */

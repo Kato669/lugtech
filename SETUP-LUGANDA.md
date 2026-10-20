@@ -369,3 +369,13 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - Or from the terminal: `php artisan app:generate-audio --mukasa --limit=100` (uses the chosen voice, or `--voice=…`). `--nakato` does the same for Nakato.
 - `.env` can fix the voices instead: `LUGANDA_MUKASA_VOICE=…`, `LUGANDA_NAKATO_VOICE=…` (these win over the admin's choice, which is kept in `storage/app/character-voices.json`).
 - New recordings are pending like any other: learners hear them straight away (LUGANDA_PLAY_UNCHECKED=true), and a native speaker checks them on the Check page.
+
+## The cowrie shop (Phase 13)
+- Run `php artisan migrate` (adds `user_items`, `users.outfit`, `users.teacher_choice`) and `npm run build`.
+- **Wardrobe** (`/wardrobe`; tap the 🐚 count in the header, or "Your guides" on the course path): buy once with cowries, then wear or take off for free.
+  - Mukasa: kanzu colours (cream, sky blue, grey: 25; white is free), cap (maroon or black: 40).
+  - Nakato: gomesi colours (gold, purple, red: 25; green is free).
+  - Both: bead necklace (30), barkcloth sash (50), small drum (60). Streak freezes are sold here too.
+  - Items and prices live in `App\Services\Wardrobe::ITEMS`.
+- **Who teaches:** take turns (Mukasa stages 1, 3, 5…; Nakato 2, 4, 6…), always Mukasa, or always Nakato. With a chosen teacher, lines written for the other guide are said by the chosen one, except lines about that guide themselves.
+- The guides appear dressed in lessons, conversations, the wardrobe and on the course path, for that learner only.

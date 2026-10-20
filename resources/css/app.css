@@ -112,6 +112,9 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0
  * drawing move (transform/opacity), so it stays smooth on cheap phones.
  */
 .char { display: inline-block; }
+/* Phase 13 wardrobe: items stay hidden until worn (App\Services\Wardrobe::look) */
+.char .item { display: none; }
+.char.wear-cap .item-cap, .char.wear-beads .item-beads, .char.wear-sash .item-sash, .char.wear-drum .item-drum { display: inline; }
 .char svg { overflow: visible; }
 .char .talker-head, .char .arm-left, .char .arm-right, .char .talker-eyes, .char .brows, .char .char-body {
     transition: transform .35s cubic-bezier(.3, .9, .4, 1.2);
