@@ -9,6 +9,7 @@ use App\Services\AudioResolver;
 use App\Services\Glossary;
 use App\Services\Wardrobe;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,6 +33,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Behind HTTPS that ends at a proxy (a Cloudflare Tunnel, a load balancer), the app itself sees
+        // plain http. When APP_URL is https, every link and asset is https too, so browsers don't block them.
+        if (str_starts_with((string) config('app.url'), 'https://')) {
+            URL::forceScheme('https');
+        }
+
         // Short, stable names for what a recording belongs to (stored in audio_clips.owner_type).
         Relation::morphMap(['phrase' => Phrase::class, 'word' => Word::class]);
 
