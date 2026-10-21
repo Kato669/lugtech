@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\DB;
  *
  * Safe to run again and again:
  *  - a lesson that already has steps is left exactly as it is;
- *  - if a phrase the script needs can't be found (for example a reviewer re-spelled it),
- *    nothing is saved, the lesson stays automatic and a warning says which phrase;
+ *  - a phrase a reviewer re-spelled is still found (by its slug), and the reviewer's spelling is used;
+ *  - if a phrase the script needs really can't be found, nothing is saved, the lesson stays
+ *    automatic and a warning says which phrase;
  *  - new Luganda only ever comes from newPhrases(), and arrives as a draft for the Check page.
  */
 abstract class ClassroomLesson extends Seeder
@@ -61,7 +62,7 @@ abstract class ClassroomLesson extends Seeder
             });
         } catch (\InvalidArgumentException $e) {
             $this->command?->warn("  {$this->slug}: not converted, nothing was changed. {$e->getMessage()}"
-                .' (Was it re-spelled on the Check page? Update the script to the new spelling.)');
+                .' (Was it deleted? Update the script to match.)');
         }
     }
 
@@ -76,7 +77,8 @@ abstract class ClassroomLesson extends Seeder
         $phrases = Phrase::whereIn('luganda', $luganda)->get()->keyBy('luganda');
         foreach ($luganda as $text) {
             if (! $phrases->has($text)) {
-                throw new \InvalidArgumentException("No phrase \"{$text}\".");
+                // Re-spelled by a reviewer? Then it's found by its slug (see AddsCourseContent::respelled()).
+                $phrases[$text] = $this->respelled($text, []) ?? throw new \InvalidArgumentException("No phrase \"{$text}\".");
             }
         }
         $stage = Stage::where('slug', $stageSlug)->first() ?? throw new \InvalidArgumentException("No stage \"{$stageSlug}\".");

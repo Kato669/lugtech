@@ -128,19 +128,19 @@ class ClassroomLessonsTest extends TestCase
         $this->assertSame($counts, [Phrase::count(), LessonStep::count(), Lesson::count()]);
     }
 
-    public function test_a_respelled_phrase_skips_that_lesson_without_half_making_it(): void
+    public function test_a_missing_phrase_skips_that_lesson_without_half_making_it(): void
     {
         $lesson = Lesson::where('slug', 'okulamusa')->first();
         $lesson->steps()->delete();
         $lesson->forceFill(['mode' => 'auto'])->save(); // as before Phase 6
-        Phrase::where('luganda', 'Gyendi')->update(['luganda' => 'Gyendi (re-spelled)']); // a reviewer's correction
+        Phrase::where('luganda', 'Gyendi')->first()->delete(); // gone (a re-spelled phrase is followed instead: RespelledPhrasesTest)
         $before = Phrase::count();
 
         $this->seed(GreetingsLesson::class);
         $lesson->refresh();
         $this->assertSame('auto', $lesson->mode);
         $this->assertSame(0, $lesson->steps()->count(), 'nothing half-made');
-        $this->assertSame($before, Phrase::count(), 'the old spelling is not re-created');
+        $this->assertSame($before, Phrase::count(), 'it is not re-created');
 
         $this->seed(LugandaClassroomLessonsSeeder::class); // the others are untouched, this one still skipped
         $this->assertSame(14, Lesson::where('mode', 'scripted')->count(), 'the other 13 + the pilot');

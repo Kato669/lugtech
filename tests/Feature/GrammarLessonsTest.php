@@ -185,18 +185,18 @@ class GrammarLessonsTest extends TestCase
         $this->assertSame([], $sort->validate('sort', ['bins' => ['One', 'Many'], 'groups' => [[$id('Omusajja'), $id('Omukazi')], [$id('Abasajja')]]], $ctx));
     }
 
-    public function test_seeding_again_changes_nothing_and_a_respelled_phrase_skips_only_that_lesson(): void
+    public function test_seeding_again_changes_nothing_and_a_missing_phrase_skips_only_that_lesson(): void
     {
         $counts = [Phrase::count(), LessonStep::count(), Lesson::count()];
         $this->seed(LugandaMoreLessonsSeeder::class);
         $this->assertSame($counts, [Phrase::count(), LessonStep::count(), Lesson::count()]);
 
-        // As if Phase 16 had not run yet, but a reviewer had re-spelled Omwana.
+        // As if Phase 16 had not run yet, and Omwana had been deleted.
         $lesson = Lesson::where('slug', 'one-and-many-people')->first();
         $lesson->steps()->delete();
         $lesson->phrases()->detach();
         $lesson->delete();
-        Phrase::where('luganda', 'Omwana')->update(['luganda' => 'Omwana (re-spelled)']);
+        Phrase::where('luganda', 'Omwana')->first()->delete();
         $before = Phrase::count();
 
         $this->seed(PeopleOneManyLesson::class);

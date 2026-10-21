@@ -7,6 +7,7 @@ use App\Models\LessonStep;
 use App\Models\Phrase;
 use App\Models\Stage;
 use App\Models\Word;
+use App\Support\Slugs;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -63,6 +64,10 @@ trait AddsCourseContent
      * New phrases are created as drafts (for the Check page) and added to the lesson's phrase list.
      * Nothing is saved unless every step can be built.
      *
+     * A phrase a reviewer has re-spelled on the Check page is still found: by its slug, which is made
+     * once from the English and never changes (see respelled()). The step then uses the reviewer's
+     * spelling, and so do the teacher's lines.
+     *
      * @param  array<int, array{0:string, 1:array}>  $steps
      * @param  array<string, string|array{0:string,1?:string}>  $newPhrases  Luganda => English (or [English, notes for reviewers]) for phrases that may not exist yet
      */
@@ -76,8 +81,12 @@ trait AddsCourseContent
         // saved, so the lesson stays automatic and the seeder can simply be run again later.
         DB::transaction(function () use ($lesson, $steps, $newPhrases) {
             $created = [];
-            $id = function (string $text) use ($newPhrases, &$created): int {
+            $renamed = []; // script spelling => the reviewer's spelling
+            $id = function (string $text) use ($newPhrases, &$created, &$renamed): int {
                 $phrase = Phrase::where('luganda', $text)->first();
+                if (! $phrase && ($phrase = $this->respelled($text, $newPhrases))) {
+                    $renamed[$text] = $phrase->luganda;
+                }
                 if (! $phrase) {
                     $new = $newPhrases[$text] ?? throw new \InvalidArgumentException("No phrase \"{$text}\" (add it to \$newPhrases)");
                     [$english, $notes] = is_array($new) ? [$new[0], $new[1] ?? null] : [$new, null];
@@ -114,6 +123,7 @@ trait AddsCourseContent
                 if (isset($payload['wrong'])) {
                     $payload['wrong'] = array_map(fn ($list) => $ids((array) $list), $payload['wrong']);
                 }
+                $payload = self::respellLines($payload, $renamed);
                 LessonStep::create(['lesson_id' => $lesson->id, 'position' => $pos + 1, 'type' => $type, 'payload' => $payload]);
             }
 
@@ -126,5 +136,47 @@ trait AddsCourseContent
 
             $lesson->forceFill(['mode' => 'scripted'])->save();
         });
+    }
+
+    /**
+     * The phrase a script means when its spelling isn't in the database any more: a reviewer
+     * re-spelled it. Found by its slug (made once from the English, never changed), either from
+     * database/seeders/data/phrase-slugs.json (every phrase as first seeded) or from the English in
+     * $newPhrases. Null when there is no such phrase (then the script's text is really missing).
+     */
+    protected function respelled(string $text, array $newPhrases): ?Phrase
+    {
+        static $slugs = null;
+        $slugs ??= json_decode((string) file_get_contents(database_path('seeders/data/phrase-slugs.json')), true) ?: [];
+
+        $new = $newPhrases[$text] ?? null;
+        $slug = $slugs[$text] ?? ($new !== null ? Slugs::fromText(is_array($new) ? $new[0] : $new, '') : null);
+
+        return $slug ? Phrase::where('slug', $slug)->first() : null;
+    }
+
+    /** Use the reviewer's spelling in the teacher's lines too (whole words only). */
+    protected static function respellLines(array $payload, array $renamed): array
+    {
+        if (! $renamed) {
+            return $payload;
+        }
+        $fix = function (string $line) use ($renamed): string {
+            foreach ($renamed as $old => $new) {
+                $line = preg_replace('/(?<![\p{L}])'.preg_quote($old, '/').'(?![\p{L}])/u', $new, $line);
+            }
+
+            return $line;
+        };
+        foreach (['say', 'title', 'prompt', 'note'] as $key) {
+            if (isset($payload[$key]) && is_string($payload[$key])) {
+                $payload[$key] = $fix($payload[$key]);
+            }
+        }
+        if (isset($payload['feedback']) && is_array($payload['feedback'])) {
+            $payload['feedback'] = array_map(fn ($l) => is_string($l) ? $fix($l) : $l, $payload['feedback']);
+        }
+
+        return $payload;
     }
 }
