@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs';
 import lessonPlayer from './lesson-player';
+import blogEditor from './blog-editor';
 import offline from './offline';
 import music from './music';
 import words from './words';
@@ -576,5 +577,6 @@ music(Alpine);
 words(Alpine);
 habit(Alpine);
 lessonPlayer(Alpine);
+blogEditor(Alpine);
 
 Alpine.start();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clan;
 use App\Models\GandaName;
 use App\Models\Phrase;
+use App\Models\Post;
 use App\Models\Story;
 use App\Models\Word;
 
@@ -38,7 +39,10 @@ class SitemapController extends Controller
             }
         }
 
-        return response()->view('sitemap', ['words' => $words, 'phrases' => $phrases, 'culture' => $culture])
+        // The blog: the list, and every published post (drafts and scheduled posts never)
+        $posts = Post::published()->orderByDesc('published_at')->get(['slug', 'updated_at']);
+
+        return response()->view('sitemap', ['words' => $words, 'phrases' => $phrases, 'culture' => $culture, 'posts' => $posts])
             ->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 }

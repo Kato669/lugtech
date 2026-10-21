@@ -1,4 +1,4 @@
-@props(['title' => null, 'wide' => false, 'description' => null, 'robots' => null, 'canonical' => null])
+@props(['title' => null, 'wide' => false, 'description' => null, 'robots' => null, 'canonical' => null, 'image' => null, 'ogType' => 'website'])
 @php $me = auth()->user(); @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -28,8 +28,15 @@
         <meta name="description" content="{{ $description }}">
         <meta property="og:title" content="{{ $title ?? config('app.name') }}">
         <meta property="og:description" content="{{ $description }}">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="{{ $ogType }}">
+        @if ($canonical)<meta property="og:url" content="{{ $canonical }}">@endif
     @endif
+    {{-- Blog posts: the cover picture when a post is shared --}}
+    @if ($image)
+        <meta property="og:image" content="{{ str_starts_with($image, 'http') ? $image : url($image) }}">
+        <meta name="twitter:card" content="summary_large_image">
+    @endif
+    @if (request()->routeIs('blog.*'))<link rel="alternate" type="application/rss+xml" title="{{ config('app.name') }} blog" href="{{ route('blog.feed') }}">@endif
     @if ($robots)<meta name="robots" content="{{ $robots }}">@endif
     @if ($canonical)<link rel="canonical" href="{{ $canonical }}">@endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -42,7 +49,7 @@
                 <span class="font-display text-xl font-bold text-bark-600">{{ config('app.name') }}</span>
             </a>
             <div class="order-last -mx-1 flex w-full flex-nowrap items-center gap-1 overflow-x-auto text-sm font-semibold whitespace-nowrap sm:order-none sm:mx-0 sm:w-auto sm:flex-1 sm:overflow-visible">
-                @foreach ([['course', 'Learn', ['course', 'lessons.*']], ['review', 'Review', ['review']], ['games.index', 'Games', ['games.*']], ['phrasebook', 'Phrasebook', ['phrasebook']], ['dictionary', 'Dictionary', ['dictionary', 'dictionary.*']], ['culture', 'Culture', ['culture', 'culture.*']]] as [$route, $label, $active])
+                @foreach ([['course', 'Learn', ['course', 'lessons.*']], ['review', 'Review', ['review']], ['games.index', 'Games', ['games.*']], ['phrasebook', 'Phrasebook', ['phrasebook']], ['dictionary', 'Dictionary', ['dictionary', 'dictionary.*']], ['culture', 'Culture', ['culture', 'culture.*']], ['blog.index', 'Blog', ['blog.*']]] as [$route, $label, $active])
                     <a href="{{ route($route) }}" class="rounded-full px-3 py-1.5 transition {{ request()->routeIs(...$active) ? 'bg-bark-600 text-white' : 'hover:bg-bark-50' }}">{{ $label }}</a>
                 @endforeach
                 @if ($me?->isContributor())

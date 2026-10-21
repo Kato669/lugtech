@@ -9,7 +9,7 @@
         @endforeach
     </div>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        @foreach (array_filter([$voiceOn ? ['studio', '🎙️', 'Recording studio', 'Record phrases one by one in the browser'] : null, $voiceOn ? ['studio.script', '📄', 'Recording script', 'Print or download every phrase with its code'] : null, $voiceOn ? ['studio.upload', '⬆️', 'Bulk upload', 'Drop in many recordings, matched by code'] : null, ['admin.audio.index', '🤖', 'Generate audio', 'Make draft recordings with a Luganda voice, to be checked'], ['check', '✓', 'Check the Luganda', 'Approve, correct or flag phrases and recordings']]) as [$route, $icon, $label, $text])
+        @foreach (array_filter([$voiceOn ? ['studio', '🎙️', 'Recording studio', 'Record phrases one by one in the browser'] : null, $voiceOn ? ['studio.script', '📄', 'Recording script', 'Print or download every phrase with its code'] : null, $voiceOn ? ['studio.upload', '⬆️', 'Bulk upload', 'Drop in many recordings, matched by code'] : null, ['admin.audio.index', '🤖', 'Generate audio', 'Make draft recordings with a Luganda voice, to be checked'], ['check', '✓', 'Check the Luganda', 'Approve, correct or flag phrases and recordings'], ['admin.blog.index', '📰', 'Blog', 'Write posts, and approve comments']]) as [$route, $icon, $label, $text])
             <a href="{{ route($route) }}" class="card !p-5 transition hover:-translate-y-0.5">
                 <span class="text-2xl">{{ $icon }}</span>
                 <p class="mt-2 font-display text-lg font-bold">{{ $label }}</p>

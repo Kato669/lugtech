@@ -415,3 +415,10 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - **Ssente · Money** is interactive now, with coin and note pictures, so every lesson is interactive.
 - Two new kinds of step: "How it works" grammar cards, and sorting words into baskets.
 - **All 35 new phrases are drafts** with a note for the reviewer; check them on the Check page under their lessons. Look first at the spellings the notes point out (Ekikopo, Ku kkono, Ku ddyo, Bodaboda, Ppaaka, Takisi, Maaso awo) and at Yimirira wano.
+
+## The blog (21 Oct 2026)
+- Run `php artisan migrate` (adds `posts` and `post_comments`), then `php artisan db:seed --class=LugandaBlogSeeder` (three starter posts, as drafts). A fresh `public/build` was copied over. `php artisan storage:link` must have been run once (covers and pictures live in `storage/app/public/blog`).
+- **Readers:** `/blog` (topics: Learning tips, Culture, News), `/blog/{post}`, and RSS at `/blog/feed.xml`. Published posts are in the sitemap.
+- **Writing (admins only):** Admin → Blog → + New post. Markdown with a toolbar (headings, bold, lists, quotes, links, pictures) and a Preview tab. Put Luganda in double brackets, `[[Webale nnyo]]`, so readers can tap each word. Choose Draft, Published, or Schedule for later (Kampala time).
+- **Comments:** registered learners can comment (not guests). A comment shows only after an admin approves it on Admin → Blog → 💬 Comments, where admins can also reply (shown at once, marked "Team") or delete.
+- **The three starter posts** ("Why learn Luganda?", "How to use this app", "Greetings in Buganda") are drafts: read them, change anything you like, and set them to Published.

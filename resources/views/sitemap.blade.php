@@ -6,6 +6,12 @@
 @foreach ($culture ?? [] as $url)
     <url><loc>{{ $url }}</loc></url>
 @endforeach
+@if (isset($posts))
+    <url><loc>{{ route('blog.index') }}</loc></url>
+@foreach ($posts as $post)
+    <url><loc>{{ route('blog.show', $post->slug) }}</loc>@if ($post->updated_at)<lastmod>{{ $post->updated_at->toDateString() }}</lastmod>@endif</url>
+@endforeach
+@endif
 @foreach ($words as $word)
     <url><loc>{{ route('dictionary.word', $word->slug) }}</loc>@if ($word->updated_at)<lastmod>{{ $word->updated_at->toDateString() }}</lastmod>@endif</url>
 @endforeach

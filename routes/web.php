@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Contributor;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CultureController;
@@ -44,6 +45,12 @@ Route::get('/culture/proverbs/{word:slug}', [CultureController::class, 'proverb'
 Route::get('/culture/clans', [CultureController::class, 'clans'])->name('culture.clans');
 Route::get('/culture/stories/{story:slug}', [CultureController::class, 'story'])->name('culture.story');
 Route::get('/culture/getting-started', [CultureController::class, 'guide'])->name('culture.guide');
+
+// The blog: public like Culture; posts by admins, comments shown once an admin approves them
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/feed.xml', [BlogController::class, 'feed'])->name('blog.feed');
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::post('/blog/{post:slug}/comments', [BlogController::class, 'comment'])->middleware(['auth', 'throttle:6,1'])->name('blog.comment');
 
 // Working offline (Phase 9): the page the service worker shows when a page isn't saved on the phone,
 // and a fresh token for sending progress that was saved offline.
@@ -144,6 +151,18 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
     Route::get('audio', [Admin\AudioController::class, 'index'])->name('audio.index');
     Route::post('audio/generate', [Admin\AudioController::class, 'generate'])->name('audio.generate');
     Route::post('audio/character-voice', [Admin\AudioController::class, 'chooseCharacterVoice'])->name('audio.character-voice');
+    Route::get('blog', [Admin\BlogController::class, 'index'])->name('blog.index');
+    Route::get('blog/create', [Admin\BlogController::class, 'create'])->name('blog.create');
+    Route::post('blog', [Admin\BlogController::class, 'store'])->name('blog.store');
+    Route::post('blog/preview', [Admin\BlogController::class, 'preview'])->name('blog.preview');
+    Route::post('blog/image', [Admin\BlogController::class, 'image'])->middleware('throttle:30,1')->name('blog.image');
+    Route::get('blog/comments', [Admin\BlogController::class, 'comments'])->name('blog.comments');
+    Route::post('blog/comments/{comment}/approve', [Admin\BlogController::class, 'approve'])->name('blog.comments.approve');
+    Route::post('blog/comments/{comment}/reply', [Admin\BlogController::class, 'reply'])->name('blog.comments.reply');
+    Route::delete('blog/comments/{comment}', [Admin\BlogController::class, 'destroyComment'])->name('blog.comments.destroy');
+    Route::get('blog/{post:id}/edit', [Admin\BlogController::class, 'edit'])->whereNumber('post')->name('blog.edit');
+    Route::put('blog/{post:id}', [Admin\BlogController::class, 'update'])->whereNumber('post')->name('blog.update');
+    Route::delete('blog/{post:id}', [Admin\BlogController::class, 'destroy'])->whereNumber('post')->name('blog.destroy');
     Route::get('people', [Admin\PeopleController::class, 'index'])->name('people.index');
     Route::patch('people/{user}', [Admin\PeopleController::class, 'update'])->name('people.update');
 });
