@@ -141,6 +141,11 @@ export default (Alpine) => {
         holds = Math.max(0, holds + (e.detail ? 1 : -1));
         apply(0.15);
     });
+    // An instrument groove on the home page: the music steps aside while it plays.
+    window.addEventListener('lug-groove', (e) => {
+        holds = Math.max(0, holds + (e.detail ? 1 : -1));
+        apply(0.15);
+    });
 
     document.addEventListener('visibilitychange', () => apply(document.hidden ? 0.3 : 1.5));
     window.addEventListener('pagehide', () => {

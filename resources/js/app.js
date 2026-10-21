@@ -249,7 +249,7 @@ const ctx = () => (audioCtx ??= new (window.AudioContext || window.webkitAudioCo
 // Five-note scale in the spirit of Kiganda tuning (roughly equal steps).
 const SCALE = [262, 300, 345, 396, 455, 524, 600, 690];
 
-function tone({ type = 'sine', from, to = from, length, volume, when = 0, attack = 0.005, filter }) {
+function tone({ type = 'sine', from, to = from, length, volume, when = 0, attack = 0.005, filter, out }) {
     const c = ctx();
     const t = c.currentTime + when;
     const osc = c.createOscillator();
@@ -267,12 +267,12 @@ function tone({ type = 'sine', from, to = from, length, volume, when = 0, attack
         f.frequency.value = filter;
         node = gain.connect(f);
     }
-    node.connect(c.destination);
+    node.connect(out ?? c.destination);
     osc.start(t);
     osc.stop(t + length + 0.05);
 }
 
-function noise({ length, volume, when = 0, band = 6000 }) {
+function noise({ length, volume, when = 0, band = 6000, out }) {
     const c = ctx();
     const t = c.currentTime + when;
     const buffer = c.createBuffer(1, c.sampleRate * length, c.sampleRate);
@@ -285,7 +285,7 @@ function noise({ length, volume, when = 0, band = 6000 }) {
     f.frequency.value = band;
     const gain = c.createGain();
     gain.gain.value = volume;
-    src.connect(f).connect(gain).connect(c.destination);
+    src.connect(f).connect(gain).connect(out ?? c.destination);
     src.start(t);
 }
 
@@ -325,6 +325,138 @@ window.playInstrument = (name, note) => {
     }
 };
 window.drum = (kind = 'boom') => window.playInstrument(kind);
+
+/**
+ * Grooves (home page, "Sounds you'll hear"): tap an instrument and it keeps playing until it is
+ * tapped again, or another instrument is tapped: its real recording on a loop when an admin has
+ * uploaded one (Admin → Instrument sounds), otherwise its own Kiganda-style pattern.
+ * Notes are scheduled a little ahead on the Web Audio clock, so the beat stays steady.
+ * The background music pauses while a groove plays (event lug-groove, resources/js/music.js).
+ */
+const strokes = {
+    // engalabi: deep "bass" in the middle of the skin, open tone at the edge, sharp slap
+    bass: (w, out) => { tone({ from: 190, to: 85, length: 0.38, volume: 0.9, when: w, out }); noise({ length: 0.03, volume: 0.12, band: 500, when: w, out }); },
+    open: (w, out) => { tone({ from: 330, to: 255, length: 0.22, volume: 0.6, when: w, out }); tone({ type: 'triangle', from: 660, to: 500, length: 0.08, volume: 0.12, when: w, out }); },
+    slap: (w, out) => { noise({ length: 0.05, volume: 0.5, band: 2600, when: w, out }); tone({ from: 560, to: 320, length: 0.07, volume: 0.3, when: w, out }); },
+    ghost: (w, out) => noise({ length: 0.025, volume: 0.15, band: 3200, when: w, out }),
+    // embuutu: big deep drum, and a rim knock
+    boom: (w, out, v = 1) => { tone({ from: 105, to: 40, length: 0.85, volume: v, when: w, out }); noise({ length: 0.06, volume: 0.18 * v, band: 300, when: w, out }); },
+    rim: (w, out) => { tone({ from: 700, to: 420, length: 0.05, volume: 0.25, when: w, out }); noise({ length: 0.02, volume: 0.2, band: 4000, when: w, out }); },
+    // amadinda: a wooden key, struck (pitched bar plus a short knock)
+    key: (n, w, out, v = 0.5) => {
+        const f = SCALE[((n % SCALE.length) + SCALE.length) % SCALE.length];
+        tone({ from: f, length: 0.32, volume: v, when: w, out });
+        tone({ type: 'triangle', from: f * 3.9, length: 0.05, volume: v * 0.35, when: w, out });
+        noise({ length: 0.015, volume: v * 0.3, band: 1800, when: w, out });
+    },
+    // endongo: a plucked string with a soft body
+    pluck: (n, w, out, v = 0.3) => {
+        const f = SCALE[((n % SCALE.length) + SCALE.length) % SCALE.length] / 2;
+        tone({ type: 'sawtooth', from: f, length: 1.1, volume: v, when: w, filter: 1300, out });
+        tone({ type: 'triangle', from: f * 2, length: 0.4, volume: v * 0.4, when: w, out });
+    },
+    // ensaasi: a gourd shaken forward (long) or back (short)
+    shake: (w, out, v = 0.5, len = 0.1) => noise({ length: len, volume: v, band: 7200, when: w, out }),
+};
+const GROOVES = {
+    engalabi: { step: 0.15, play(i, w, out) {
+        const p = ['bass', 'ghost', 'slap', 'open', 'ghost', 'slap', 'bass', 'bass', 'slap', 'open', 'slap', 'ghost'][i % 12];
+        strokes[p](w, out);
+    } },
+    embuutu: { step: 0.2, play(i, w, out) {
+        const k = i % 12;
+        if ([0, 3, 6, 8].includes(k)) strokes.boom(w, out, k === 0 ? 1 : 0.75);
+        else if ([5, 10].includes(k)) strokes.rim(w, out);
+    } },
+    endongo: { step: 0.24, play(i, w, out) {
+        const melody = [0, 2, 4, 2, 5, 4, 2, 1, 0, 2, 4, 5, 7, 5, 4, 2];
+        strokes.pluck(melody[i % 16] + 2, w, out, i % 4 === 0 ? 0.32 : 0.24);
+        if (i % 8 === 0) strokes.pluck(0, w, out, 0.22); // the low drone string
+    } },
+    amadinda: { step: 0.11, play(i, w, out) {
+        // two players interlocking: one on the even beats, one on the odd ones
+        const first = [4, 2, 5, 3, 1, 4, 2, 0, 3, 5, 1, 2];
+        const second = [1, 4, 0, 3, 5, 2, 4, 1, 0, 3, 2, 5];
+        const k = Math.floor(i / 2) % 12;
+        strokes.key(i % 2 === 0 ? first[k] : second[k] + 1, w, out, i % 2 === 0 ? 0.5 : 0.4);
+    } },
+    ensaasi: { step: 0.14, play(i, w, out) {
+        const k = i % 8;
+        if ([0, 3, 6].includes(k)) strokes.shake(w, out, 0.55, 0.13); // 3 + 3 + 2
+        else strokes.shake(w, out, 0.22, 0.06);
+    } },
+};
+let groove = null;
+const recordings = {}; // url => decoded AudioBuffer (or the promise of one)
+function stopGroove() {
+    if (!groove) return;
+    clearInterval(groove.timer);
+    const { bus, source } = groove;
+    try { bus.gain.setTargetAtTime(0, ctx().currentTime, 0.04); } catch (e) { /* ignore */ }
+    setTimeout(() => { try { source?.stop(); } catch (e) { /* already stopped */ } bus.disconnect(); }, 400);
+    groove = null;
+    window.dispatchEvent(new CustomEvent('lug-groove', { detail: false }));
+}
+/** The built-in rhythm: notes scheduled a little ahead on the Web Audio clock, so the beat stays steady. */
+function playPattern(g, pattern) {
+    const c = ctx();
+    let i = 0;
+    let next = c.currentTime + 0.06;
+    g.timer = setInterval(() => {
+        while (next < c.currentTime + 0.15) {
+            pattern.play(i++, Math.max(0, next - c.currentTime), g.bus);
+            next += pattern.step;
+        }
+    }, 25);
+}
+/** A real recording (Admin → Instrument sounds), looped without a gap until it is stopped. */
+async function playRecording(g, url, pattern) {
+    const c = ctx();
+    try {
+        recordings[url] ??= fetch(url).then((r) => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+            .then((data) => new Promise((ok, fail) => c.decodeAudioData(data, ok, fail)));
+        const buffer = await recordings[url];
+        if (groove !== g) return; // tapped again (or another one) while it was loading
+        const source = c.createBufferSource();
+        source.buffer = buffer;
+        source.loop = true;
+        source.connect(g.bus);
+        source.start();
+        g.source = source;
+    } catch (e) {
+        delete recordings[url];
+        if (groove === g) playPattern(g, pattern); // couldn't load it: play the built-in rhythm instead
+    }
+}
+function startGroove(name, url = null) {
+    stopGroove();
+    const pattern = GROOVES[name];
+    if (!pattern) return null;
+    const c = ctx();
+    c.resume?.();
+    const bus = c.createGain();
+    bus.gain.value = 0.9;
+    bus.connect(c.destination);
+    groove = { name, bus, timer: null, source: null };
+    if (url) playRecording(groove, url, pattern);
+    else playPattern(groove, pattern);
+    window.dispatchEvent(new CustomEvent('lug-groove', { detail: true }));
+    return name;
+}
+window.lugGroove = {
+    /** Start this instrument (its recording if there is one, else its rhythm), or stop it if it is already playing. Returns what is playing now. */
+    toggle(name, url = null) {
+        try {
+            return groove?.name === name ? (stopGroove(), null) : startGroove(name, url);
+        } catch (e) {
+            return null; // no Web Audio: the instruments just stay quiet
+        }
+    },
+    stop: stopGroove,
+    get playing() { return groove?.name ?? null; },
+};
+document.addEventListener('visibilitychange', () => { if (document.hidden) stopGroove(); });
+window.addEventListener('pagehide', stopGroove);
 
 /**
  * "Talking" sound for the animated characters when no recording exists yet:

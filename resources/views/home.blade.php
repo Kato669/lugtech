@@ -162,21 +162,24 @@
         </section>
 
         {{-- SOUNDS --}}
-        <section class="barkcloth mt-20 rounded-[2rem] border-4 border-bark-800 p-6 text-white sm:p-10">
+        <section id="sounds" class="barkcloth mt-20 scroll-mt-24 rounded-[2rem] border-4 border-bark-800 p-6 text-white sm:p-10">
             <div class="text-center">
                 <p class="text-sm font-bold uppercase tracking-wider text-gold-300">Sounds you'll hear</p>
                 <h2 class="mt-2 text-4xl font-bold">Drums, strings and a xylophone answer every tap.</h2>
-                <p class="mt-2 text-bark-50">Every sound in the app is a Kiganda instrument. Tap one.</p>
+                <p class="mt-2 text-bark-50">Every sound in the app is a Kiganda instrument. Tap one to hear it play, and tap it again to stop.</p>
             </div>
-            <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" x-data="{ hit: null }">
-                @foreach ([['engalabi', 'Engalabi', 'long hand drum'], ['embuutu', 'Embuutu', 'big bass drum'], ['endongo', 'Endongo', 'bowl lyre'], ['amadinda', 'Amadinda', 'log xylophone'], ['ensaasi', 'Ensaasi', 'gourd shakers']] as [$key, $name, $what])
-                    <button type="button" class="group rounded-3xl bg-cream/95 p-4 text-bark-900 shadow-[0_6px_0_#3b1f12] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none"
-                            @click="hit = '{{ $key }}'; playInstrument('{{ $key }}', Math.floor(Math.random() * 6)); setTimeout(() => hit = null, 500)">
-                        <span class="flex h-24 items-center justify-center" :class="hit === '{{ $key }}' && 'anim-wiggle'">
+            <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" x-data="{ playing: null, sounds: @js(\App\Support\InstrumentSounds::urls()), toggle(key) { this.playing = window.lugGroove?.toggle(key, this.sounds[key]) ?? null; } }"
+                 @lug-groove.window="playing = window.lugGroove?.playing ?? null">
+                {{-- Real recordings (Admin → Instrument sounds) loop until tapped again; without one, a built-in rhythm plays --}}
+                @foreach (\App\Support\InstrumentSounds::INSTRUMENTS as $key => [$name, $what])
+                    <button type="button" @click="toggle('{{ $key }}')" :aria-pressed="(playing === '{{ $key }}').toString()"
+                            class="group rounded-3xl bg-cream/95 p-4 text-bark-900 shadow-[0_6px_0_#3b1f12] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none"
+                            :class="playing === '{{ $key }}' && '!bg-gold-300 ring-4 ring-gold-300/60'">
+                        <span class="flex h-24 items-center justify-center" :class="playing === '{{ $key }}' && 'groove-on'">
                             <x-dynamic-component :component="'art.'.$key" class="h-24 w-24" />
                         </span>
                         <span class="mt-2 block font-display text-lg font-bold">{{ $name }}</span>
-                        <span class="block text-xs text-bark-500">{{ $what }}</span>
+                        <span class="block text-xs text-bark-800" x-text="playing === '{{ $key }}' ? '■ Playing: tap to stop' : '{{ $what }}'">{{ $what }}</span>
                     </button>
                 @endforeach
             </div>
