@@ -71,6 +71,16 @@
     </section>
 
     <div class="mx-auto max-w-6xl">
+        {{-- WHY IT IS FREE (after the welcome, as on Asụsụ Ọma; our own words) --}}
+        <section class="mx-auto mt-16 max-w-2xl text-center" aria-label="Why this app is free">
+            <p class="text-xl leading-relaxed text-bark-800 sm:text-2xl">Many children in Kampala and around the world grow up hearing Luganda at home, but never learn to speak it. A language lives when the next generation can reach it, and money should never stand in the way.</p>
+            <p class="mt-4 text-xl font-bold leading-relaxed text-bark-900 sm:text-2xl">That's why this app is free: every lesson, game and recording, for anyone who wants Luganda.</p>
+            <figure class="mt-8">
+                <picture><source srcset="/images/kato-james-kalemba.webp" type="image/webp"><img src="/images/kato-james-kalemba.jpg" alt="Kato James Kalemba" width="288" height="288" loading="lazy" class="mx-auto h-28 w-28 rounded-full border-4 border-white object-cover shadow-[0_6px_0_#efd9c8]"></picture>
+                <figcaption class="mt-3 text-sm italic text-bark-500">Kato James Kalemba.</figcaption>
+            </figure>
+        </section>
+
         {{-- TASTER: Mukasa and Nakato talk, then a question --}}
         @if ($conversations->isNotEmpty() && $phrases->count() >= 4)
             <section class="mt-16 grid items-center gap-8 lg:grid-cols-[1fr_1.2fr]" x-data="taster(@js($conversations), @js($phrases->pluck('english')->unique()->values()))">
@@ -204,7 +214,22 @@
                     <p class="mt-2 font-display text-3xl font-bold italic">“{{ $proverb->luganda }}”</p>
                     <p class="mt-1 text-lg text-bark-800">{{ $proverb->english }}</p>
                 @endif
-                <p class="mt-6 text-lg text-bark-800">A language lives when the next generation can reach it. Every lesson, game and recording here is free.</p>
+            </div>
+        </section>
+
+        {{-- MADE BY (near the end, as on Asụsụ Ọma; our own words) --}}
+        <section class="mt-20 grid items-center gap-8 rounded-[2rem] border-4 border-bark-800 bg-white p-8 sm:p-12 lg:grid-cols-[auto_1fr]" aria-labelledby="made-by">
+            <picture><source srcset="/images/kato-james-kalemba.webp" type="image/webp"><img src="/images/kato-james-kalemba.jpg" alt="Kato James Kalemba" width="288" height="288" loading="lazy" class="mx-auto h-40 w-40 rounded-[2rem] object-cover shadow-[0_6px_0_#efd9c8] sm:h-48 sm:w-48"></picture>
+            <div class="text-center lg:text-left">
+                <p class="text-sm font-bold uppercase tracking-wider text-leaf-600">Who is behind this</p>
+                <h2 id="made-by" class="mt-2 text-4xl font-bold">Made by Kato James Kalemba.</h2>
+                <p class="mt-4 text-lg text-bark-800">Kato James is a software developer and ICT teacher from Kyotera, Uganda. He builds the business systems and websites that people use every day.</p>
+                <p class="mt-3 text-lg text-bark-800">He built this app so that anyone, at home in Buganda or far away, can learn Luganda a few minutes a day, and share it with their family.</p>
+                <p class="mt-3 text-lg text-bark-800">The Luganda is checked by native speakers as the course grows: until a phrase has been checked, it carries a “Draft” label.</p>
+                <div class="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
+                    <a href="https://katojkalemba-5eb7e.web.app/" class="btn-primary !py-2.5" target="_blank" rel="noopener">Meet Kato James ↗</a>
+                    <a href="https://www.youtube.com/@webdesignerug" class="btn-ghost !py-2.5" target="_blank" rel="noopener">His YouTube channel ↗</a>
+                </div>
             </div>
         </section>
 
