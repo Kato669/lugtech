@@ -27,18 +27,59 @@ class CultureController extends Controller
         ]);
     }
 
+    /** Proverbs: the proverb of the day, then search, an A–Z index and themes, 24 to a page. */
     public function proverbs(Request $request)
     {
         $theme = array_key_exists($request->query('theme'), self::THEMES) ? $request->query('theme') : null;
-        $proverbs = Word::where('kind', 'proverb')->when($theme, fn ($q) => $q->where('theme', $theme))
-            ->with('currentClips')->orderBy('luganda')->get();
+        $letter = preg_match('/^[A-Z]$/', (string) $request->query('letter')) ? $request->query('letter') : null;
+        $q = trim((string) $request->query('q', ''));
+        $all = Word::where('kind', 'proverb');
+
+        $proverbs = Word::where('kind', 'proverb')->with('currentClips')
+            ->when($theme, fn ($w) => $w->where('theme', $theme))
+            ->when($letter, fn ($w) => $w->whereRaw('UPPER(SUBSTR(luganda, 1, 1)) = ?', [$letter]))
+            ->when($q !== '', fn ($w) => $w->search($q))
+            ->orderBy('luganda')->orderBy('id')->paginate(24)->withQueryString();
 
         return view('culture.proverbs', [
             'proverbs' => $proverbs,
+            'today' => Word::ofTheDay('proverb'),
             'theme' => $theme,
-            'themes' => self::THEMES,
-            'indexable' => $this->indexable($proverbs),
+            'letter' => $letter,
+            'q' => $q,
+            'themes' => collect(self::THEMES)->only((clone $all)->whereNotNull('theme')->distinct()->pluck('theme')),
+            'letters' => (clone $all)->pluck('luganda')->map(fn ($l) => mb_strtoupper(mb_substr($l, 0, 1)))->unique()->sort()->values(),
+            'total' => (clone $all)->count(),
+            'translated' => (clone $all)->where('english', '!=', '')->count(),
+            'indexable' => $this->indexable($proverbs->getCollection()),
         ]);
+    }
+
+    /** One proverb, on its own page: easy to share, with the ones before and after it. */
+    public function proverb(Word $word)
+    {
+        abort_unless($word->kind === 'proverb', 404);
+        $word->load('currentClips');
+        $order = Word::where('kind', 'proverb')->orderBy('luganda')->orderBy('id')->pluck('slug')->values();
+        $at = $order->search($word->slug);
+
+        return view('culture.proverb', [
+            'p' => $word,
+            'themes' => self::THEMES,
+            'prev' => $at > 0 ? Word::where('slug', $order[$at - 1])->first() : null,
+            'next' => $at < $order->count() - 1 ? Word::where('slug', $order[$at + 1])->first() : null,
+            'indexable' => $this->indexable(collect([$word])),
+        ]);
+    }
+
+    /** "Another proverb": a random one (translated ones first, while most still wait for English). */
+    public function randomProverb()
+    {
+        $pick = Word::where('kind', 'proverb')->where('english', '!=', '')->inRandomOrder()->first()
+            ?? Word::where('kind', 'proverb')->inRandomOrder()->first();
+        abort_unless($pick, 404);
+
+        return redirect()->route('culture.proverb', $pick->slug);
     }
 
     public function clans()

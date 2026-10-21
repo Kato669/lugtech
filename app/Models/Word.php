@@ -85,7 +85,9 @@ class Word extends Model
     /** Same entry for everyone on a given day. */
     public static function ofTheDay(string $kind = 'word', ?string $date = null): ?self
     {
-        $ids = static::where('kind', $kind)->orderBy('id')->pluck('id');
+        // Proverbs: prefer ones with an English translation (many from the user's list have none yet).
+        $translated = static::where('kind', $kind)->where('english', '!=', '')->orderBy('id')->pluck('id');
+        $ids = $translated->isNotEmpty() ? $translated : static::where('kind', $kind)->orderBy('id')->pluck('id');
         if ($ids->isEmpty()) {
             return null;
         }

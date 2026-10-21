@@ -1,0 +1,1462 @@
+[
+ {
+  "n": 1,
+  "luganda": "Akugoba, yakuwa amagezi",
+  "note": null
+ },
+ {
+  "n": 2,
+  "luganda": "Bulikuggwa, obugole ssi bumbejja",
+  "note": null
+ },
+ {
+  "n": 3,
+  "luganda": "Ebibuuka bitalaganye, bikubagana empawa",
+  "note": null
+ },
+ {
+  "n": 4,
+  "luganda": "Ekibaawo kimala, ennyindo y'enkoko kye kyenyi",
+  "note": null
+ },
+ {
+  "n": 5,
+  "luganda": "Ekimala empaka, kusirika",
+  "note": null
+ },
+ {
+  "n": 6,
+  "luganda": "Engabi eyeewala, yekaluba ennyama",
+  "note": null
+ },
+ {
+  "n": 7,
+  "luganda": "Ensiba mbi. Eddibya mutere",
+  "note": null
+ },
+ {
+  "n": 8,
+  "luganda": "Ensimbi kyeremwa, ow'enkata tazinga",
+  "note": null
+ },
+ {
+  "n": 9,
+  "luganda": "Enswa emu, ekira eddembwe",
+  "note": null
+ },
+ {
+  "n": 10,
+  "luganda": "Entubire eteekumire tekukwasa ku nkanaga",
+  "note": null
+ },
+ {
+  "n": 11,
+  "luganda": "Ezinaabala, teziranda ggobe",
+  "note": null
+ },
+ {
+  "n": 12,
+  "luganda": "Gwolya naye enkejje enjokerere, y'akuyita ddumabikalu",
+  "note": null
+ },
+ {
+  "n": 13,
+  "luganda": "Obwato bufa magoba",
+  "note": null
+ },
+ {
+  "n": 14,
+  "luganda": "Oguweddeko entonto, ennyonyi ziguyita ttale / bbali (omutuba)",
+  "note": null
+ },
+ {
+  "n": 15,
+  "luganda": "Oluyitaayita, lukira oluliira ku nkoligo",
+  "note": null
+ },
+ {
+  "n": 16,
+  "luganda": "Omunaku eyeegulira, y'alya akawera",
+  "note": null
+ },
+ {
+  "n": 17,
+  "luganda": "Omuyomjo omutono, gukyamya enkoko ekyensuti",
+  "note": null
+ },
+ {
+  "n": 18,
+  "luganda": "Ssebageya nnyonyi, nga namunye ali kunju",
+  "note": null
+ },
+ {
+  "n": 19,
+  "luganda": "Tunaagabanira mitala, yakuseera",
+  "note": null
+ },
+ {
+  "n": 20,
+  "luganda": "Zimba nnene, tagikubeera",
+  "note": null
+ },
+ {
+  "n": 21,
+  "luganda": "Abalungi mbwa yanamaaso, bwetebba n'eyigga",
+  "note": null
+ },
+ {
+  "n": 22,
+  "luganda": "Abantu balamu bitooke bisalire, tebyekwekwamu",
+  "note": null
+ },
+ {
+  "n": 23,
+  "luganda": "Abasajja mivule, giwaatula ne giggumiza",
+  "note": null
+ },
+ {
+  "n": 24,
+  "luganda": "Abikka ebibiri, tabojjerera",
+  "note": null
+ },
+ {
+  "n": 25,
+  "luganda": "Akakuli mu linnyo, tekaganya lulimi kutereera",
+  "note": null
+ },
+ {
+  "n": 26,
+  "luganda": "Akakyama amamera, bwokagolola kamenyeka bumenyesi",
+  "note": null
+ },
+ {
+  "n": 27,
+  "luganda": "Akalya amaggwa, keekamanya bwekagakyusa",
+  "note": null
+ },
+ {
+  "n": 28,
+  "luganda": "Akola bikolemu, ng'atikkula ava emugga",
+  "note": null
+ },
+ {
+  "n": 29,
+  "luganda": "Akusuubiza, akira akuma",
+  "note": null
+ },
+ {
+  "n": 30,
+  "luganda": "Alima ne bba, taba munafu",
+  "note": null
+ },
+ {
+  "n": 31,
+  "luganda": "Amasaawa, si malima",
+  "note": null
+ },
+ {
+  "n": 32,
+  "luganda": "Anaalemwa ebbuzi okutuga, nti lintuunuulidde!",
+  "note": null
+ },
+ {
+  "n": 33,
+  "luganda": "Anaatuubya engo, embuzi agisiba ku luzibaziba",
+  "note": null
+ },
+ {
+  "n": 34,
+  "luganda": "Anakuggya ennimi, ageya nnyoko ngowulira",
+  "note": null
+ },
+ {
+  "n": 35,
+  "luganda": "Asimba ensogasoga, teyeeganya mayuba",
+  "note": null
+ },
+ {
+  "n": 36,
+  "luganda": "Asimba kasooli tamulya makoola, amulinda kwengera",
+  "note": null
+ },
+ {
+  "n": 37,
+  "luganda": "Ataakwalize nganda, akulaga kifo",
+  "note": null
+ },
+ {
+  "n": 38,
+  "luganda": "Ataalukutambulire, entanda akusibira yameenvu",
+  "note": null
+ },
+ {
+  "n": 39,
+  "luganda": "Atali nannyini mbooli, asima aligguula",
+  "note": null
+ },
+ {
+  "n": 40,
+  "luganda": "Atannasesema, ye yeetenda okugonza",
+  "note": null
+ },
+ {
+  "n": 41,
+  "luganda": "Ataawone bwavu, asuubula magi nansuwa",
+  "note": null
+ },
+ {
+  "n": 42,
+  "luganda": "Atega ogumu, taliira",
+  "note": null
+ },
+ {
+  "n": 43,
+  "luganda": "Atuma omukulu, tamagamaga",
+  "note": null
+ },
+ {
+  "n": 44,
+  "luganda": "Atunda ayolesa, y'amazaawo amangu",
+  "note": null
+ },
+ {
+  "n": 45,
+  "luganda": "Atya omusana, talya bwami",
+  "note": null
+ },
+ {
+  "n": 46,
+  "luganda": "Awakula ennume, tewakula emu",
+  "note": null
+ },
+ {
+  "n": 47,
+  "luganda": "Ayeeyereza omunafu, y'amulwanya",
+  "note": null
+ },
+ {
+  "n": 48,
+  "luganda": "Baana bazannye, bwe bavaawo abayita balangira",
+  "note": null
+ },
+ {
+  "n": 49,
+  "luganda": "Bakinaanise akayagala, muk'omubbi okuzaala abalongo",
+  "note": null
+ },
+ {
+  "n": 50,
+  "luganda": "Bakiwadde munnange, bwebuggya",
+  "note": null
+ },
+ {
+  "n": 51,
+  "luganda": "Bakuseera, takwazika",
+  "note": null
+ },
+ {
+  "n": 52,
+  "luganda": "Bakuyita embuga, si buganzi",
+  "note": null
+ },
+ {
+  "n": 53,
+  "luganda": "Balikuddembe, bakudaalira ajeera",
+  "note": null
+ },
+ {
+  "n": 54,
+  "luganda": "Bandaba batya, y'afa obwavu",
+  "note": null
+ },
+ {
+  "n": 55,
+  "luganda": "Basajja mivule, giwaatula ne giggumiza",
+  "note": "Very like #23 \"Abasajja mivule, giwaatula ne giggumiza\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 56,
+  "luganda": "Batta migya, beerabira emikadde (emikwano)",
+  "note": null
+ },
+ {
+  "n": 57,
+  "luganda": "Bazibumbira kwatika, ne ziramira mu kyokero",
+  "note": null
+ },
+ {
+  "n": 58,
+  "luganda": "Bbugubbugu si muliro, essanja teriyiisa mmere",
+  "note": null
+ },
+ {
+  "n": 59,
+  "luganda": "Bukaajumbe, anaabusereka akeera",
+  "note": null
+ },
+ {
+  "n": 60,
+  "luganda": "Buyisi bwomu, nsega y'ebika",
+  "note": null
+ },
+ {
+  "n": 61,
+  "luganda": "Bwezikusanga ozigunira (ennaku), ekikere kisula kitudde",
+  "note": null
+ },
+ {
+  "n": 62,
+  "luganda": "Bwotova kumulungi, ofa owoza",
+  "note": null
+ },
+ {
+  "n": 63,
+  "luganda": "Byogerwa mpola, ngakuzaalira omukazi asera / aloga",
+  "note": null
+ },
+ {
+  "n": 64,
+  "luganda": "Ddamu mpuulire, aba anoonya byakutwala",
+  "note": null
+ },
+ {
+  "n": 65,
+  "luganda": "Ebiddawo tebyenkanankana, enkaajumbe temala nju",
+  "note": null
+ },
+ {
+  "n": 66,
+  "luganda": "Ebirungi birekwa, nsingiisira yaleka omuwemba",
+  "note": null
+ },
+ {
+  "n": 67,
+  "luganda": "Ekibojjera kulwazj, kyesiga mumwa mugumu",
+  "note": "From engero.pdf (#67): please check the spelling (a word ending in \"j\")."
+ },
+ {
+  "n": 68,
+  "luganda": "Ekiggya omanyi kinyaga bitono, ekiddukano tekinyaga byenda",
+  "note": null
+ },
+ {
+  "n": 69,
+  "luganda": "Ekinaakulyako amenvu, kisookera ku kukusa",
+  "note": null
+ },
+ {
+  "n": 70,
+  "luganda": "Ekiri mu bbanja, tekinunula mwana",
+  "note": null
+ },
+ {
+  "n": 71,
+  "luganda": "Ekisa ekitagaana, kizaala obulimba",
+  "note": null
+ },
+ {
+  "n": 72,
+  "luganda": "Ekitta obusenze, buba bunaanya",
+  "note": null
+ },
+ {
+  "n": 73,
+  "luganda": "Ekiwoomereze, kizaala enkenku",
+  "note": null
+ },
+ {
+  "n": 74,
+  "luganda": "Ekiyita waggulu otega wansi, empungu terya bire",
+  "note": null
+ },
+ {
+  "n": 75,
+  "luganda": "Ekyengera amangu, kivunda mangu",
+  "note": null
+ },
+ {
+  "n": 76,
+  "luganda": "Embiro entono, zikira okwekweka",
+  "note": null
+ },
+ {
+  "n": 77,
+  "luganda": "Emboozi endagirize, egwana bayomba",
+  "note": null
+ },
+ {
+  "n": 78,
+  "luganda": "Embuulire, tefa yonna",
+  "note": null
+ },
+ {
+  "n": 79,
+  "luganda": "Empande emu, eyiwa ekisero",
+  "note": null
+ },
+ {
+  "n": 80,
+  "luganda": "Endege ziba nyingi, ne ziyoogaana",
+  "note": null
+ },
+ {
+  "n": 81,
+  "luganda": "Enku ennyingi, zitta mutyabi",
+  "note": null
+ },
+ {
+  "n": 82,
+  "luganda": "Enkumbi okubula, ewa munafu mpoza",
+  "note": null
+ },
+ {
+  "n": 83,
+  "luganda": "Ennaku musana, tegwokya omu",
+  "note": null
+ },
+ {
+  "n": 84,
+  "luganda": "Ennimdiriza, ya mezza ssemitego",
+  "note": null
+ },
+ {
+  "n": 85,
+  "luganda": "Ennongosereza, emasula omutego",
+  "note": null
+ },
+ {
+  "n": 86,
+  "luganda": "Ennume, ekula bigwo",
+  "note": null
+ },
+ {
+  "n": 87,
+  "luganda": "Enswaswa eteeyanula, y'eeraga engalabi",
+  "note": null
+ },
+ {
+  "n": 88,
+  "luganda": "Entamu ennyangu, bagitenda ngyo",
+  "note": null
+ },
+ {
+  "n": 89,
+  "luganda": "Entamu gyewali ofumbyemu, togiyita kitamutamu",
+  "note": null
+ },
+ {
+  "n": 90,
+  "luganda": "Enzaalambi, ekira obugumba",
+  "note": null
+ },
+ {
+  "n": 91,
+  "luganda": "Eryokanga n'etonnya, netulaba ensiisira bwe zenkanya emyooyo",
+  "note": null
+ },
+ {
+  "n": 92,
+  "luganda": "Essesema erimu, terikuziza ntula",
+  "note": null
+ },
+ {
+  "n": 93,
+  "luganda": "Eyaakuze, taboola baana",
+  "note": null
+ },
+ {
+  "n": 94,
+  "luganda": "Eyeebikka ebbiri, tamanya waalumu",
+  "note": null
+ },
+ {
+  "n": 95,
+  "luganda": "Ezinunula omunaku, mukama azitunga kiro",
+  "note": null
+ },
+ {
+  "n": 96,
+  "luganda": "Eziruma munno, tezikulobera kwebaka (enjoka / ennaku)",
+  "note": null
+ },
+ {
+  "n": 97,
+  "luganda": "Gannyana, ganywebwa muwangaazi",
+  "note": null
+ },
+ {
+  "n": 98,
+  "luganda": "Ggambo bbi, wamwenge alisanga ku mwoyo",
+  "note": null
+ },
+ {
+  "n": 99,
+  "luganda": "Gujabagidde, ngomunafu azadde kaliira",
+  "note": null
+ },
+ {
+  "n": 100,
+  "luganda": "Gunsinze, aliwa bitono",
+  "note": null
+ },
+ {
+  "n": 101,
+  "luganda": "Gwe kitaliridde nnyina, nti linda bukye",
+  "note": null
+ },
+ {
+  "n": 102,
+  "luganda": "Gwomanyi enfumita, tomulinda kugalula",
+  "note": null
+ },
+ {
+  "n": 103,
+  "luganda": "Gwosussa emwanyi, omusanga ku mayanja nga awungula",
+  "note": null
+ },
+ {
+  "n": 104,
+  "luganda": "Gw'otooliyise, takwonoonera kikyo",
+  "note": null
+ },
+ {
+  "n": 105,
+  "luganda": "Gwoyigiriza ekyeso, akugobya / akutemya nkaaga",
+  "note": null
+ },
+ {
+  "n": 106,
+  "luganda": "Gwoyigiriza okulima, bw'ayaza takuwa",
+  "note": null
+ },
+ {
+  "n": 107,
+  "luganda": "Gyotosa, togelekerayo bibya",
+  "note": null
+ },
+ {
+  "n": 108,
+  "luganda": "Kabwa kabbi, kagumya mugongo",
+  "note": null
+ },
+ {
+  "n": 109,
+  "luganda": "Kaliba kasajja, akuliisa engo",
+  "note": null
+ },
+ {
+  "n": 110,
+  "luganda": "Kalonda, ngomusiri gwomunafu",
+  "note": null
+ },
+ {
+  "n": 111,
+  "luganda": "Kamaanyi, kaliibwa na mbiro",
+  "note": null
+ },
+ {
+  "n": 112,
+  "luganda": "Kanaluzaala, ngomuwuuli amulisa ku mmere",
+  "note": null
+ },
+ {
+  "n": 113,
+  "luganda": "Kawuulu kagezi, kagenda okunywa ogwobusogozi nga kamaze okweyalira",
+  "note": null
+ },
+ {
+  "n": 114,
+  "luganda": "Keezaala, kekomberera",
+  "note": null
+ },
+ {
+  "n": 115,
+  "luganda": "Keweerimidde, kakira mbegeraako",
+  "note": null
+ },
+ {
+  "n": 116,
+  "luganda": "Kifundukwa kirinsabira, talya bwami",
+  "note": null
+ },
+ {
+  "n": 117,
+  "luganda": "Kirinde kiggweyo, afumita mukira",
+  "note": null
+ },
+ {
+  "n": 118,
+  "luganda": "Kiyini kibi, kijjukirwa malima",
+  "note": null
+ },
+ {
+  "n": 119,
+  "luganda": "Kyofa togabye, walumbe yakigaba",
+  "note": null
+ },
+ {
+  "n": 120,
+  "luganda": "Kyotoowe mukulu, tokimulimba",
+  "note": null
+ },
+ {
+  "n": 121,
+  "luganda": "Lubaale mbeera, nga n'embiro kwottadde",
+  "note": null
+ },
+ {
+  "n": 122,
+  "luganda": "Mpolampola, ayiisa obusera",
+  "note": null
+ },
+ {
+  "n": 123,
+  "luganda": "Naagazina edda, bamufuuwa nkanja",
+  "note": null
+ },
+ {
+  "n": 124,
+  "luganda": "Nkuba yakiro, bwetekuba mubbi, ekuba musezi",
+  "note": null
+ },
+ {
+  "n": 125,
+  "luganda": "Nkumanyi muze, takulinda kwetonda",
+  "note": null
+ },
+ {
+  "n": 126,
+  "luganda": "Nnyama ntono, okaayana eri mu nkwawa",
+  "note": null
+ },
+ {
+  "n": 127,
+  "luganda": "Linde buwere, yawanguza buvuma",
+  "note": null
+ },
+ {
+  "n": 128,
+  "luganda": "Obuteebuza, butambuza amazzi ekiro",
+  "note": null
+ },
+ {
+  "n": 129,
+  "luganda": "Obwayiise, tebuyooleka",
+  "note": null
+ },
+ {
+  "n": 130,
+  "luganda": "Ogubula eyeeguya, tegukala / teguwangaala",
+  "note": null
+ },
+ {
+  "n": 131,
+  "luganda": "Oguli ewa munno, tegugoba ngo (omuggo)",
+  "note": null
+ },
+ {
+  "n": 132,
+  "luganda": "Oguliko omuseesa, teguzikira",
+  "note": null
+ },
+ {
+  "n": 133,
+  "luganda": "Ogwembuga, gutta ogwebuko",
+  "note": null
+ },
+ {
+  "n": 134,
+  "luganda": "Okuddiza guba mwoyo, n'owuwo akumma",
+  "note": null
+ },
+ {
+  "n": 135,
+  "luganda": "Okugulu kwomwavu, yenvujjo ye",
+  "note": null
+ },
+ {
+  "n": 136,
+  "luganda": "Olima ewatono, ne wattira",
+  "note": null
+ },
+ {
+  "n": 137,
+  "luganda": "Omufu taba munno, essanja libabula endagala",
+  "note": null
+ },
+ {
+  "n": 138,
+  "luganda": "Omugagga luba lwambuzi, etambula lwegaaya",
+  "note": null
+ },
+ {
+  "n": 139,
+  "luganda": "Omugenyi ajja nensawoye, tosooka kumugeya",
+  "note": null
+ },
+ {
+  "n": 140,
+  "luganda": "Omumpi wakoma wakwata, ensolosozi eruma atudde",
+  "note": null
+ },
+ {
+  "n": 141,
+  "luganda": "Owentono alunda zize, ebisige tebyegatta ku nviiri",
+  "note": null
+ },
+ {
+  "n": 142,
+  "luganda": "Owenyimba mbi, ayimbira mubabe",
+  "note": null
+ },
+ {
+  "n": 143,
+  "luganda": "Owoomuliraamo waaluganda, talibwako mpanga / bwafiirwa naawe tolima",
+  "note": null
+ },
+ {
+  "n": 144,
+  "luganda": "Ssebagala miryango, ne beerabira emyagaanya",
+  "note": null
+ },
+ {
+  "n": 145,
+  "luganda": "Ssebuwwufu bwango, tebuyitwamu mbwa",
+  "note": null
+ },
+ {
+  "n": 146,
+  "luganda": "Ssekamuli kansaze, nga ggwe okagagambudde",
+  "note": null
+ },
+ {
+  "n": 147,
+  "luganda": "Ssempaka ennemeremu, zikubya mukyawe",
+  "note": null
+ },
+ {
+  "n": 148,
+  "luganda": "Ssirikuleka wabi, akuleka ku mmere nnuma",
+  "note": null
+ },
+ {
+  "n": 149,
+  "luganda": "Teweetenda malima, nga ku kisambu kwebalaba",
+  "note": null
+ },
+ {
+  "n": 150,
+  "luganda": "Totta kibe nga tekinnakenena ndusu",
+  "note": null
+ },
+ {
+  "n": 151,
+  "luganda": "Tovumirira eggwa wala, bw'eyaza emmere osakayo",
+  "note": null
+ },
+ {
+  "n": 152,
+  "luganda": "Tunaayitanga babiri, nga akulabyeko akawala",
+  "note": null
+ },
+ {
+  "n": 153,
+  "luganda": "Webale webale, amala ebintu",
+  "note": null
+ },
+ {
+  "n": 154,
+  "luganda": "Wotonnava, toyonoonnawo",
+  "note": null
+ },
+ {
+  "n": 155,
+  "luganda": "Yeebase kaboleredde, ngomunafu omulekere obuliri",
+  "note": null
+ },
+ {
+  "n": 156,
+  "luganda": "Abalirira ekigula enkumbi, tawa munne ssooli ddene",
+  "note": null
+ },
+ {
+  "n": 157,
+  "luganda": "Abantu balamu magoma, gavugira aliwo",
+  "note": null
+ },
+ {
+  "n": 158,
+  "luganda": "Abataka nkwenge, gwolya naye yakutta",
+  "note": null
+ },
+ {
+  "n": 159,
+  "luganda": "Abayita ababiri bejjukanya, enviiri zikubuulira engo",
+  "note": null
+ },
+ {
+  "n": 160,
+  "luganda": "Ajjanjaba Omulwadde, Si y'amusikira",
+  "note": null
+ },
+ {
+  "n": 161,
+  "luganda": "Akamwa akangu, kakuyitabya owebbanja",
+  "note": null
+ },
+ {
+  "n": 162,
+  "luganda": "Akateeyanira, kafa omutego",
+  "note": null
+ },
+ {
+  "n": 163,
+  "luganda": "Akiika embuga, amanya ensonga",
+  "note": null
+ },
+ {
+  "n": 164,
+  "luganda": "Akwana, akira ayomba",
+  "note": null
+ },
+ {
+  "n": 165,
+  "luganda": "Alidde ggi, kwesubya muwuula",
+  "note": null
+ },
+ {
+  "n": 166,
+  "luganda": "Alikutwalako omwana, asooka tooke lya mu kibya",
+  "note": null
+ },
+ {
+  "n": 167,
+  "luganda": "Amabeere Kirevu, n'omugumba Agamera",
+  "note": null
+ },
+ {
+  "n": 168,
+  "luganda": "Anaaseera owuwe, nti leka abebweru balye",
+  "note": null
+ },
+ {
+  "n": 169,
+  "luganda": "Asiika obulamu, tassa mukono",
+  "note": null
+ },
+ {
+  "n": 170,
+  "luganda": "Atabubira nsiko ye, taliira",
+  "note": null
+ },
+ {
+  "n": 171,
+  "luganda": "Atalina mukamwana, yeekamwana yekka",
+  "note": null
+ },
+ {
+  "n": 172,
+  "luganda": "Atamanyi bifa ku myoyo gwamunne, enkumbi afulumya bbiri",
+  "note": null
+ },
+ {
+  "n": 173,
+  "luganda": "Atannafa, teyeevuma ggwanga",
+  "note": null
+ },
+ {
+  "n": 174,
+  "luganda": "Awali eddibu tewaluma, nga si ggwe balikubye",
+  "note": null
+ },
+ {
+  "n": 175,
+  "luganda": "Baazibumbira kwatika, ne ziramira mu kyokero",
+  "note": "Very like #57 \"Bazibumbira kwatika, ne ziramira mu kyokero\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 176,
+  "luganda": "Ekinyumu ekingi, kireka emmese obuwuulu",
+  "note": null
+ },
+ {
+  "n": 177,
+  "luganda": "Ekisirisa afumba, ajja okulya takimanya",
+  "note": null
+ },
+ {
+  "n": 178,
+  "luganda": "Gwosenvuza mubuto, akusenvuza mubukadde",
+  "note": null
+ },
+ {
+  "n": 179,
+  "luganda": "Kuno kwekwaffe, takubuulira wasula",
+  "note": null
+ },
+ {
+  "n": 180,
+  "luganda": "Mazzi massabe, tegamala nnyonta",
+  "note": null
+ },
+ {
+  "n": 181,
+  "luganda": "Nkwatirako, tebufuuka bumbowa",
+  "note": null
+ },
+ {
+  "n": 182,
+  "luganda": "Obulangira bwomunaku, kwekolerera",
+  "note": null
+ },
+ {
+  "n": 183,
+  "luganda": "Obuteeraba, bukuvumywa akusinga",
+  "note": null
+ },
+ {
+  "n": 184,
+  "luganda": "Obwerabize obungi, bukusabya gwe wamma",
+  "note": null
+ },
+ {
+  "n": 185,
+  "luganda": "Olya entono, nga tezirumira",
+  "note": null
+ },
+ {
+  "n": 186,
+  "luganda": "Omukwano butiko, bwobuggya tokkatira",
+  "note": null
+ },
+ {
+  "n": 187,
+  "luganda": "Omukwano kyayi kyampiso, bwekitasoobako tekitunga",
+  "note": null
+ },
+ {
+  "n": 188,
+  "luganda": "Omulalu Wakuweera, w'otwalira",
+  "note": null
+ },
+ {
+  "n": 189,
+  "luganda": "Omunafu addiƞƞana, akira omulima nabbimbi",
+  "note": null
+ },
+ {
+  "n": 190,
+  "luganda": "Owempaka, akunama ebiri",
+  "note": null
+ },
+ {
+  "n": 191,
+  "luganda": "Ziriddira mu mabidde, yeerabira enkenku",
+  "note": null
+ },
+ {
+  "n": 192,
+  "luganda": "Ababiri babibira ebigambo, abasatu basattulula",
+  "note": null
+ },
+ {
+  "n": 193,
+  "luganda": "Abagagga n'abagagga baagalana, ekirevu kiyita ku bisisge ne kigenda kyegatta nenviiri eziri ewala",
+  "note": null
+ },
+ {
+  "n": 194,
+  "luganda": "Abakadde abagalana, bebalima akambugu",
+  "note": null
+ },
+ {
+  "n": 195,
+  "luganda": "Abangi bwe bakwebaza, nga luweze",
+  "note": null
+ },
+ {
+  "n": 196,
+  "luganda": "Ab'oluganda bangi, nga tonnagwa wabi",
+  "note": null
+ },
+ {
+  "n": 197,
+  "luganda": "Ab'omugumu baba bakaaba, ng'abomutyi baseka",
+  "note": null
+ },
+ {
+  "n": 198,
+  "luganda": "Addiŋŋana amawolo, yagaggyako omukuto",
+  "note": null
+ },
+ {
+  "n": 199,
+  "luganda": "Agamyuka omutezi, nakasolo",
+  "note": null
+ },
+ {
+  "n": 200,
+  "luganda": "Aganaanyuma, tegalinda ŋŋoma",
+  "note": null
+ },
+ {
+  "n": 201,
+  "luganda": "Agatawulira mukama waago, gabikka entembo",
+  "note": null
+ },
+ {
+  "n": 202,
+  "luganda": "Akabimbi akatono, kakira ekyosi",
+  "note": null
+ },
+ {
+  "n": 203,
+  "luganda": "Akajja obunaku keemanya, ejjanzi terigenda na nzige",
+  "note": null
+ },
+ {
+  "n": 204,
+  "luganda": "Akasuka lyali nalyo, taba muti",
+  "note": null
+ },
+ {
+  "n": 205,
+  "luganda": "Akataazimbe, emmuli kazitwala bukiika",
+  "note": null
+ },
+ {
+  "n": 206,
+  "luganda": "Akivaamu, yakiyita ekyato",
+  "note": null
+ },
+ {
+  "n": 207,
+  "luganda": "Akuba owuwe, akuba awumba engalo",
+  "note": null
+ },
+ {
+  "n": 208,
+  "luganda": "Akukuba omuggo omunene, akutenda nkaaba mbi",
+  "note": null
+ },
+ {
+  "n": 209,
+  "luganda": "Akusindika okuwoza, akuwerekereza muwanga",
+  "note": null
+ },
+ {
+  "n": 210,
+  "luganda": "Akutwaala entwe, taba wawala",
+  "note": null
+ },
+ {
+  "n": 211,
+  "luganda": "Akuvuma obuto, tassako magufa",
+  "note": null
+ },
+ {
+  "n": 212,
+  "luganda": "Akuwaniriza okulinya, bwogwa akuyita kadduwanema",
+  "note": null
+ },
+ {
+  "n": 213,
+  "luganda": "Alina nyina omuto, tabulwa kitaawe",
+  "note": null
+ },
+ {
+  "n": 214,
+  "luganda": "Amaanyi ameemanye, gamala ebita embuga",
+  "note": null
+ },
+ {
+  "n": 215,
+  "luganda": "Amaanyi tegalya, ssinga embazzi yewaata",
+  "note": null
+ },
+ {
+  "n": 216,
+  "luganda": "Amaanyi, tegawala luga",
+  "note": null
+ },
+ {
+  "n": 217,
+  "luganda": "Amaaso amati, galamusa nnyinimu",
+  "note": null
+ },
+ {
+  "n": 218,
+  "luganda": "Amaddu amanji, gasuula wammese mukita",
+  "note": null
+ },
+ {
+  "n": 219,
+  "luganda": "Amagezi muliro, bwegukuzikirako ogunona ewamunno",
+  "note": null
+ },
+ {
+  "n": 220,
+  "luganda": "Amagezi ntakke, ekula y'ebuuka",
+  "note": null
+ },
+ {
+  "n": 221,
+  "luganda": "Amasonyinsonyi, gassa olugave",
+  "note": null
+ },
+ {
+  "n": 222,
+  "luganda": "Anaakugoba ku nswa, nti tolya omulalu",
+  "note": null
+ },
+ {
+  "n": 223,
+  "luganda": "Ani alimumpeera, awa wa kibungu",
+  "note": null
+ },
+ {
+  "n": 224,
+  "luganda": "Anyumiriza eggunju, aliliisa omwami",
+  "note": null
+ },
+ {
+  "n": 225,
+  "luganda": "Asugumbira okulaba ensolo, gweerya",
+  "note": null
+ },
+ {
+  "n": 226,
+  "luganda": "Asuubira, akira aloota",
+  "note": null
+ },
+ {
+  "n": 227,
+  "luganda": "Atamanyi mpewo yamagombe, yamma omufu olubugo",
+  "note": null
+ },
+ {
+  "n": 228,
+  "luganda": "Awafiira omuzira, tewaba nsitaano",
+  "note": null
+ },
+ {
+  "n": 229,
+  "luganda": "Awayira omufu, yeteesa",
+  "note": null
+ },
+ {
+  "n": 230,
+  "luganda": "Ayinayina omulogo, yamwokesa amaduudu",
+  "note": null
+ },
+ {
+  "n": 231,
+  "luganda": "Balubuliza mbazzi, luli ku muddo lulya",
+  "note": null
+ },
+ {
+  "n": 232,
+  "luganda": "Banange bangi, nga tonagwa mu kibi",
+  "note": null
+ },
+ {
+  "n": 233,
+  "luganda": "Basammula ekkere, nga ammazzi banywa",
+  "note": null
+ },
+ {
+  "n": 234,
+  "luganda": "Bwokyaawa gwoyita naye, weyongela nnaku",
+  "note": null
+ },
+ {
+  "n": 235,
+  "luganda": "Ebigambo byakuno bingi, nga nanyinimu y'asuza ababbi",
+  "note": null
+ },
+ {
+  "n": 236,
+  "luganda": "Ekikuwa obulema, kyekikuwa n'amagezi",
+  "note": null
+ },
+ {
+  "n": 237,
+  "luganda": "Ekiri ewala, mpendo (mpenduzo) yekigyayo",
+  "note": null
+ },
+ {
+  "n": 238,
+  "luganda": "Emmwanyi gye weesiga, tebaamu mulamwa",
+  "note": null
+ },
+ {
+  "n": 239,
+  "luganda": "Engabo enzira, ogirabira ku biwundu",
+  "note": null
+ },
+ {
+  "n": 240,
+  "luganda": "Enkeletanyi, bwogitega amenvu elya bibombo",
+  "note": null
+ },
+ {
+  "n": 241,
+  "luganda": "Enkoko yomwavu, teggwa meebaza",
+  "note": null
+ },
+ {
+  "n": 242,
+  "luganda": "Enkuba bwetonya, nebinamunye binaaba mu bitaba",
+  "note": null
+ },
+ {
+  "n": 243,
+  "luganda": "Enkuba elitonya ddi, bwetonya emutonya mu kamwa",
+  "note": null
+ },
+ {
+  "n": 244,
+  "luganda": "Ennyonyi eteyise, ekolera makaayi",
+  "note": null
+ },
+ {
+  "n": 245,
+  "luganda": "Ensawo yamugandawo, tekutelekera",
+  "note": null
+ },
+ {
+  "n": 246,
+  "luganda": "Entubiro etekutuge, tekukwasa ku nkanaga",
+  "note": "Very like #10 \"Entubire eteekumire tekukwasa ku nkanaga\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 247,
+  "luganda": "Eyeewa ezomumbubba, gwebazikuba",
+  "note": null
+ },
+ {
+  "n": 248,
+  "luganda": "Gwogayunjila, yakuyita nalyambe",
+  "note": null
+ },
+ {
+  "n": 249,
+  "luganda": "Kifundikwa kirinsabira, talya bwami",
+  "note": "Very like #116 \"Kifundukwa kirinsabira, talya bwami\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 250,
+  "luganda": "Kiraza mwoyo, nga eridda mu nkovu(ebbwa)",
+  "note": null
+ },
+ {
+  "n": 251,
+  "luganda": "Kiri mulaala, teyeegulira ngabo",
+  "note": null
+ },
+ {
+  "n": 252,
+  "luganda": "Kiyita waggulu, otega wansi, empungu terya bire",
+  "note": "Very like #74 \"Ekiyita waggulu otega wansi, empungu terya bire\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 253,
+  "luganda": "Kye weetema olwadde, bwowona tokiwa",
+  "note": null
+ },
+ {
+  "n": 254,
+  "luganda": "Kyolimba obukko, kyekibutta",
+  "note": null
+ },
+ {
+  "n": 255,
+  "luganda": "Lugo lugenyi, terumanya mbuzi mponge",
+  "note": null
+ },
+ {
+  "n": 256,
+  "luganda": "Mbiro ntono, zikira okwekweka",
+  "note": "Very like #76 \"Embiro entono, zikira okwekweka\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 257,
+  "luganda": "Mufu Mujja, Tamanya bili magombe",
+  "note": null
+ },
+ {
+  "n": 258,
+  "luganda": "Mugenyi alwa, yasamba omwenge",
+  "note": null
+ },
+ {
+  "n": 259,
+  "luganda": "Naamwatulira, abulako munywanyiwe",
+  "note": null
+ },
+ {
+  "n": 260,
+  "luganda": "Nantakiika, nti ebyembuga biriibwa muganzi",
+  "note": null
+ },
+ {
+  "n": 261,
+  "luganda": "Nawano lulyabirawo, nga lwamwaavu",
+  "note": null
+ },
+ {
+  "n": 262,
+  "luganda": "Nditwaala kinene, afa tatuuse ku buko",
+  "note": null
+ },
+ {
+  "n": 263,
+  "luganda": "Ndyebaza ndya, tagunjula munafu",
+  "note": null
+ },
+ {
+  "n": 264,
+  "luganda": "Nva nuungi, tezirwa kugaga",
+  "note": null
+ },
+ {
+  "n": 265,
+  "luganda": "Nviiri mbi, zikira ekiwalaata",
+  "note": null
+ },
+ {
+  "n": 266,
+  "luganda": "Obusungu mugenyi, akyala naddayo",
+  "note": null
+ },
+ {
+  "n": 267,
+  "luganda": "Ogutateganya, teguzza nvuma",
+  "note": null
+ },
+ {
+  "n": 268,
+  "luganda": "Okulya ennyingi, sikuggwa maddu",
+  "note": null
+ },
+ {
+  "n": 269,
+  "luganda": "Okuyitaba wangi, sibufuge",
+  "note": null
+ },
+ {
+  "n": 270,
+  "luganda": "Olummanyimanyi, lukwasa embwa mumannyo",
+  "note": null
+ },
+ {
+  "n": 271,
+  "luganda": "Olunatta embwa, lusooka kugiziba nnyindo",
+  "note": null
+ },
+ {
+  "n": 272,
+  "luganda": "Oluyitayita, lusinga oluliira ku nkoligo",
+  "note": "Very like #15 \"Oluyitaayita, lukira oluliira ku nkoligo\". Keep both, correct one, or delete this one."
+ },
+ {
+  "n": 273,
+  "luganda": "Olwookya enyumba, lulaga namunye ekkubo",
+  "note": null
+ },
+ {
+  "n": 274,
+  "luganda": "Omudddu awulira, yatabaaza engabo yamukamaawe",
+  "note": "From engero.pdf (#274): please check the spelling (three letters in a row)."
+ },
+ {
+  "n": 275,
+  "luganda": "Omugenyi atakyaluka, ayomba ne nnyinimu",
+  "note": null
+ },
+ {
+  "n": 276,
+  "luganda": "Omukisa nkukunyi, tegutulirwa",
+  "note": null
+ },
+ {
+  "n": 277,
+  "luganda": "Omukulu takulira mpya bbiri, endege tezivugira mu mazzi",
+  "note": null
+ },
+ {
+  "n": 278,
+  "luganda": "Omukwano gwa bato, gufa nseko",
+  "note": null
+ },
+ {
+  "n": 279,
+  "luganda": "Omukwano masavu, ogalya gakyayokya",
+  "note": null
+ },
+ {
+  "n": 280,
+  "luganda": "Omutunzi, teyeganya kusumulula",
+  "note": null
+ },
+ {
+  "n": 281,
+  "luganda": "Omwana omuwulize, yakomba ekibya",
+  "note": null
+ },
+ {
+  "n": 282,
+  "luganda": "Owakamwaake, yakagelela ennoga",
+  "note": null
+ },
+ {
+  "n": 283,
+  "luganda": "Owentono, alunda zize",
+  "note": null
+ },
+ {
+  "n": 284,
+  "luganda": "Sebuguzi bwa nnume, tebubulako nteera",
+  "note": null
+ },
+ {
+  "n": 285,
+  "luganda": "Sebuwoomi bwanswa, natalya mutima agulira omwo",
+  "note": null
+ },
+ {
+  "n": 286,
+  "luganda": "Sebwavu bwaali bwadda, yejeleza munyago",
+  "note": null
+ },
+ {
+  "n": 287,
+  "luganda": "Sekikubo kitutte ente, kyekitwala n'omulaalo",
+  "note": null
+ },
+ {
+  "n": 288,
+  "luganda": "Sematiko agajibwa omuwuulu, mufumbo yagagaba",
+  "note": null
+ },
+ {
+  "n": 289,
+  "luganda": "Tunalyaamu eyidde, nga elumye mufumbi",
+  "note": null
+ },
+ {
+  "n": 290,
+  "luganda": "Tuula.tuwaye, bwovaawo akwetissa enju",
+  "note": "From engero.pdf (#290): please check the spelling (a full stop inside a word)."
+ },
+ {
+  "n": 291,
+  "luganda": "Twalabagana obwedda, akuwa maple nkadde",
+  "note": null
+ },
+ {
+  "n": 292,
+  "luganda": "Wakasanke, afuyilira bayomba",
+  "note": null
+ }
+]

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             LugandaClassroomLessonsSeeder::class, // Phase 6: 14 more interactive lessons
             LugandaGameNamesSeeder::class,       // Phase 14: draft Luganda names for the new games
             LugandaCultureSeeder::class,         // Phase 15: proverbs, clans, names, Kintu ne Nambi (drafts)
+            LugandaProverbsSeeder::class,        // 292 engero from the user's list (drafts, no English yet)
         ]);
     }
 }

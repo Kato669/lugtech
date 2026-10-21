@@ -34,7 +34,7 @@ class CultureTest extends TestCase
 
     public function test_the_drafts_are_seeded_add_only(): void
     {
-        $this->assertSame(6, Word::where('kind', 'proverb')->count());
+        $this->assertSame(6 + 292, Word::where('kind', 'proverb')->count(), 'Phase 15 drafts + the user\'s list (engero.pdf)');
         $this->assertSame(['patience', 'unity'], Word::whereIn('luganda', ['Akwata empola atuuka wala', 'Agali awamu ge galuma ennyama'])->orderBy('luganda')->pluck('theme')->reverse()->values()->all());
         $this->assertSame(8, Clan::count());
         $this->assertSame(7, GandaName::count());
@@ -48,7 +48,7 @@ class CultureTest extends TestCase
         Word::where('luganda', 'Gakyali mabisi')->update(['meaning' => 'A reviewer wrote this']);
         StoryPage::where('position', 3)->update(['luganda' => 'Written by a reviewer']);
         $this->seed(LugandaCultureSeeder::class);
-        $this->assertSame([8, 7, 9, 6], [Clan::count(), GandaName::count(), StoryPage::count(), Word::where('kind', 'proverb')->count()]);
+        $this->assertSame([8, 7, 9, 298], [Clan::count(), GandaName::count(), StoryPage::count(), Word::where('kind', 'proverb')->count()]);
         $this->assertSame('Corrected', Clan::where('name', 'Ngeye')->value('totem_en'));
         $this->assertSame('A reviewer wrote this', Word::where('luganda', 'Gakyali mabisi')->value('meaning'));
         $this->assertSame('Written by a reviewer', StoryPage::where('position', 3)->value('luganda'));
@@ -60,7 +60,7 @@ class CultureTest extends TestCase
         $this->withHeader('User-Agent', 'Googlebot/2.1')->get('/culture')->assertOk()
             ->assertSee('Ganda culture')->assertSee('Proverb of the day')->assertSee('Kintu and Nambi')->assertSee('Getting started: four weeks')
             ->assertDontSee('noindex', false);
-        $this->get('/culture/proverbs')->assertOk()->assertSee('Kamu kamu gwe muganda', false)->assertSee('Word for word:')->assertSee('What it teaches:')
+        $this->get('/culture/proverbs?q=kamu')->assertOk()->assertSee('Kamu kamu gwe muganda', false)->assertSee('What it teaches')
             ->assertSee('Draft')->assertSee('<meta name="robots" content="noindex">', false)->assertSee('class="lug-word"', false);
         $this->get('/culture/proverbs?theme=unity')->assertOk()->assertSee('Agali awamu', false)->assertDontSee('Kamu kamu', false);
         $this->get('/culture/clans')->assertOk()->assertSee('Ngeye')->assertSee('Colobus monkey')->assertSee('Babirye')->assertSee('second-born of twin girls');

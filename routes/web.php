@@ -39,6 +39,8 @@ Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 // Phase 15: culture (public, like the dictionary): proverbs, clans and names, stories, a four-week guide.
 Route::get('/culture', [CultureController::class, 'index'])->name('culture');
 Route::get('/culture/proverbs', [CultureController::class, 'proverbs'])->name('culture.proverbs');
+Route::get('/culture/proverbs/random', [CultureController::class, 'randomProverb'])->name('culture.proverb.random');
+Route::get('/culture/proverbs/{word:slug}', [CultureController::class, 'proverb'])->name('culture.proverb');
 Route::get('/culture/clans', [CultureController::class, 'clans'])->name('culture.clans');
 Route::get('/culture/stories/{story:slug}', [CultureController::class, 'story'])->name('culture.story');
 Route::get('/culture/getting-started', [CultureController::class, 'guide'])->name('culture.guide');

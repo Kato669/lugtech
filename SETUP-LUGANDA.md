@@ -399,3 +399,8 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
   - `/culture/getting-started`: a four-week plan using the app's lessons (English only).
 - **All Luganda here is a draft.** A native speaker checks it on **Check → Culture** (story pages, clans, names: approve, correct, flag, and write the Luganda for story pages). Proverbs are checked on the main Check page with the other words. Drafts are labelled and kept out of search engines.
 - **Admin → Culture** adds clans, names and story pages (as drafts) and removes them. Proverbs: Dictionary → New entry (type Proverb) has theme, word-for-word and meaning fields.
+
+## The engero list (21 Oct 2026)
+- `php artisan db:seed --class=LugandaProverbsSeeder` adds the 292 proverbs from `engero.pdf` (cleaned into `database/seeders/data/engero.json`: only dots, commas, spacing and capitals tidied). Add-only. Also part of DatabaseSeeder.
+- They are drafts with **no English yet**: the pages say "Translation coming soon". A reviewer writes the English on the Check page (it's needed to approve). 10 arrive flagged with a note: 3 possible typing slips and 7 that are very like another proverb.
+- **Proverbs page** (`/culture/proverbs`): the proverb of the day (one with English) with Share and 🔀 Another proverb, search, A–Z, themes, 24 per page. Each proverb has its own page (`/culture/proverbs/{slug}`) with the ones before and after it.
