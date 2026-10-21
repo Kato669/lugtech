@@ -106,6 +106,11 @@ trait AddsCourseContent
                 if (isset($payload['choices'])) {
                     $payload['choices'] = array_map(fn ($c) => ['phrase' => is_int($c['phrase']) ? $c['phrase'] : $id($c['phrase'])] + $c, $payload['choices']);
                 }
+                foreach (['rows', 'groups'] as $key) { // Phase 16: pattern rows, sort groups
+                    if (isset($payload[$key])) {
+                        $payload[$key] = array_map(fn ($list) => $ids((array) $list), $payload[$key]);
+                    }
+                }
                 if (isset($payload['wrong'])) {
                     $payload['wrong'] = array_map(fn ($list) => $ids((array) $list), $payload['wrong']);
                 }

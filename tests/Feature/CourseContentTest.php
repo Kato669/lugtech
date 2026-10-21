@@ -27,9 +27,10 @@ class CourseContentTest extends TestCase
     public function test_stages_two_and_three_have_lessons(): void
     {
         $count = fn (string $slug) => Stage::where('slug', $slug)->first()->lessons()->count();
-        $this->assertSame(6, $count('ewaka'));       // + A first conversation (Phase 6)
-        $this->assertSame(5, $count('mu-ffumbiro')); // + Actions (Phase 6)
-        $this->assertSame(5, $count('mu-katale'));
+        $this->assertSame(7, $count('ewaka'));       // + A first conversation (Phase 6), One and many · People (Phase 16)
+        $this->assertSame(6, $count('mu-ffumbiro')); // + Actions (Phase 6), One and many · Things (Phase 16)
+        $this->assertSame(6, $count('mu-katale'));   // + Counting things (Phase 16)
+        $this->assertSame(3, $count('mu-kibuga'));   // Phase 16: directions, boda boda, the taxi park
         $this->assertSame(0, Phrase::where('is_reviewed', true)->count(), 'all seeded Luganda starts as a draft');
     }
 

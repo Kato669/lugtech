@@ -237,6 +237,10 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0
 .count-along .lug-pic { position: relative; }
 .find-pic .lug-pic { max-width: 9rem; gap: .2rem; }
 .find-pic .lug-pic-item { width: 1.9rem; height: 1.9rem; }
+/* Phase 16: grammar cards and sorting */
+.pattern-pic .lug-pic { max-width: 100%; gap: .15rem; }
+.pattern-pic .lug-pic-item { width: 1.6rem; height: 1.6rem; }
+.pattern-mark { background: var(--color-gold-300); color: var(--color-bark-900); border-radius: .3rem; padding: 0 .1rem; }
 .find-pic .lug-pic-item:only-child { width: 3.5rem; height: 3.5rem; } /* one object (a door, a tomato): show it big */
 
 /* Speaking practice: the red "recording" dot */

@@ -11,8 +11,10 @@ use App\Lessons\Activities\FindActivity;
 use App\Lessons\Activities\IntroActivity;
 use App\Lessons\Activities\LearnActivity;
 use App\Lessons\Activities\MatchActivity;
+use App\Lessons\Activities\PatternActivity;
 use App\Lessons\Activities\RewardActivity;
 use App\Lessons\Activities\SequenceActivity;
+use App\Lessons\Activities\SortActivity;
 use App\Lessons\Activities\SpeakActivity;
 
 /**
@@ -33,6 +35,8 @@ class ActivityRegistry
         SequenceActivity::class,
         DialogueActivity::class,
         ConverseActivity::class,
+        PatternActivity::class,  // Phase 16: grammar card
+        SortActivity::class,     // Phase 16: sort into baskets
         RewardActivity::class,
     ];
 

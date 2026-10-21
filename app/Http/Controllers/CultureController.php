@@ -131,14 +131,18 @@ class CultureController extends Controller
                 'lessons' => ['okulamusa', 'enkya-n-akawungeezi', 'amannya', 'ebigambo-ebikulu'],
                 'also' => ['Review every day (Review, at the top).', 'Play Memory match once your first lesson is done.', 'Listen to Mukasa and Nakato in the conversations, and tap any word you don\'t know.']],
             ['title' => 'Week 2 · Home and food', 'goal' => 'Talk about the people at home, and get through a meal.',
-                'lessons' => ['ab-ewaka', 'first-conversation', 'emmere', 'ku-mmeeza'],
+                'lessons' => ['ab-ewaka', 'first-conversation', 'one-and-many-people', 'emmere', 'ku-mmeeza'],
                 'also' => ['Spell it: build the words you learned.', 'Try "Say it" and record yourself.', 'Read the proverbs and pick a favourite.']],
             ['title' => 'Week 3 · In the house', 'goal' => 'Ask for a drink, name the things in a house, and follow simple instructions.',
-                'lessons' => ['ebyokunywa', 'mu-nnyumba', 'actions'],
+                'lessons' => ['ebyokunywa', 'mu-nnyumba', 'actions', 'one-and-many-things'],
                 'also' => ['Sentence bridge: put whole phrases in order.', 'Read Kintu and Nambi, the story of the first people.', 'Keep your streak: a streak freeze helps on a busy day.']],
             ['title' => 'Week 4 · At the market', 'goal' => 'Count, ask the price, bargain and buy.',
-                'lessons' => ['ennamba-1-5', 'ennamba-6-10', 'ssente', 'okugula', 'ebintu-mu-katale'],
+                'lessons' => ['ennamba-1-5', 'ennamba-6-10', 'ssente', 'okugula', 'ebintu-mu-katale', 'counting-things'],
                 'also' => ['Market run: answer every seller and fill your basket.', 'Learn your clan, or the meaning of a name in your family.', 'Treat your guides to something new in the wardrobe.']],
+            // Phase 16: after the four weeks, Stage 4 (lessons missing from the database are skipped)
+            ['title' => 'Then · Into town', 'goal' => 'Find your way, take a boda boda and catch a taxi.',
+                'lessons' => ['directions', 'boda-boda', 'taxi-park'],
+                'also' => ['Lightning round: how many can you answer in 30 seconds?', 'Review the money words before you go out.']],
         ];
     }
 }

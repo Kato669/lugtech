@@ -17,6 +17,10 @@ class Pictures
         'beans', 'rice', 'meat', 'sweet-potato', 'cassava',
         'orange', 'tomato', 'onion', 'groundnut', 'bag',
         'water', 'milk', 'juice',
+        // Phase 16: books, money (the value is written on it), getting around town
+        'book',
+        'coin-fifty', 'coin-hundred', 'coin-five-hundred', 'coin-thousand', 'note-five-thousand', 'note-ten-thousand',
+        'boda', 'taxi', 'arrow-left', 'arrow-right', 'arrow-up',
     ];
 
     public const MAX_COUNT = 10;

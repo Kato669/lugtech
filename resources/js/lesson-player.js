@@ -3,15 +3,15 @@
  * built by App\Services\LessonPlan; each step type has its own view in
  * resources/views/lesson/steps/.
  *
- *   not graded:   learn, speak, intro, dialogue, reward → "Continue"
+ *   not graded:   learn, speak, intro, dialogue, reward, pattern → "Continue"
  *   pick & check: choose, recall, listen, sequence, find, build
- *   self-graded:  converse, match (they report back with an event)
+ *   self-graded:  converse, match, sort (they report back with an event)
  *
  * Missed questions come back once at the end. Optional per-step extras:
  * step.feedback = { correct, wrong }, step.prompt, step.say, step.picture.
  */
-const UNGRADED = ['learn', 'speak', 'intro', 'dialogue', 'reward'];
-const SELF_GRADED = ['converse', 'match'];
+const UNGRADED = ['learn', 'speak', 'intro', 'dialogue', 'reward', 'pattern'];
+const SELF_GRADED = ['converse', 'match', 'sort'];
 /** Conversations show both characters themselves, so the classroom teacher steps aside. */
 const NO_TEACHER = ['dialogue', 'converse'];
 const NAMES = { mukasa: 'Mukasa', nakato: 'Nakato', ngoma: 'Ngoma' };
@@ -26,6 +26,8 @@ const TEACHER_SAYS = {
     match: 'Match each word with its meaning.',
     sequence: 'What comes next?',
     find: 'Find the right picture.',
+    pattern: 'Look at how the words change.',
+    sort: 'Put each word in its basket.',
     reward: 'Kulika! Well done!',
 };
 const ENCOURAGE = ["Not quite. That's how we learn!", 'Almost! Look at the answer below.', "Don't worry, it will come back later."];
@@ -70,6 +72,7 @@ export default (Alpine) => {
             return {
                 intro: 'happy', learn: 'pointing', speak: 'listening', reward: 'celebrating',
                 choose: 'listening', recall: 'listening', listen: 'listening', sequence: 'listening', find: 'listening', build: 'thinking', match: 'listening',
+                pattern: 'pointing', sort: 'listening',
             }[this.step?.type] ?? 'idle';
         },
         /** What is in the teacher's speech bubble. */
@@ -108,10 +111,10 @@ export default (Alpine) => {
         },
         get buttonLabel() {
             if (this.ungraded || this.checked) return 'Continue';
-            return { converse: 'Your turn ↑', match: 'Match them ↑' }[this.step?.type] ?? 'Check';
+            return { converse: 'Your turn ↑', match: 'Match them ↑', sort: 'Sort them ↑' }[this.step?.type] ?? 'Check';
         },
         get wrongText() {
-            return { converse: 'Good effort! The replies were:', match: 'Good effort! The pairs are:' }[this.step?.type] ?? 'Not quite. The answer is:';
+            return { converse: 'Good effort! The replies were:', match: 'Good effort! The pairs are:', sort: 'Good effort! They go like this:' }[this.step?.type] ?? 'Not quite. The answer is:';
         },
 
         prepare() {
@@ -164,6 +167,7 @@ export default (Alpine) => {
         },
         converseDone(detail) { this.selfGraded(detail, 'converse'); },
         matchDone(detail) { this.selfGraded(detail, 'match'); },
+        sortDone(detail) { this.selfGraded(detail, 'sort'); },
         grade(correct, echo = true) {
             this.correct = correct;
             this.checked = true;
@@ -248,6 +252,50 @@ export default (Alpine) => {
                 this.wrongTap = english;
                 playInstrument('tak');
                 setTimeout(() => (this.wrongTap = null), 500);
+            }
+        },
+    }));
+
+    /**
+     * Sort (Phase 16): tap a word, then its basket. A wrong basket wiggles; when every
+     * word is in place it dispatches `sort-done` with { correct } (no wrong baskets).
+     */
+    Alpine.data('sortStep', (step) => ({
+        bins: step.bins,
+        items: step.items,
+        placed: {},
+        chosen: null,
+        wrongBin: null,
+        mistakes: 0,
+        key: undefined,
+        init() { this.root = this.$el; },
+        sync(key, next) {
+            if (this.key === undefined) { this.key = key; return; }
+            if (key === this.key) return;
+            Object.assign(this, { key, bins: next.bins, items: next.items, placed: {}, chosen: null, wrongBin: null, mistakes: 0 });
+        },
+        get placedCount() { return Object.keys(this.placed).length; },
+        isPlaced(item) { return item.id in this.placed; },
+        placedIn(bin) { return this.items.filter((i) => this.placed[i.id] === bin); },
+        pick(item) {
+            if (this.isPlaced(item)) return;
+            this.chosen = item;
+            if (item.audio) playAudio(item.audio);
+        },
+        drop(bin) {
+            if (!this.chosen) return;
+            if (this.chosen.bin === bin) {
+                this.placed = { ...this.placed, [this.chosen.id]: bin };
+                this.chosen = null;
+                playInstrument('amadinda', this.placedCount);
+                if (this.placedCount === this.items.length) {
+                    setTimeout(() => this.root.dispatchEvent(new CustomEvent('sort-done', { detail: { correct: this.mistakes === 0 }, bubbles: true })), 300);
+                }
+            } else {
+                this.mistakes++;
+                this.wrongBin = bin;
+                playInstrument('tak');
+                setTimeout(() => (this.wrongBin = null), 500);
             }
         },
     }));

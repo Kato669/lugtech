@@ -162,7 +162,7 @@ class ScriptedLessonTest extends TestCase
         foreach (["step.type === 'intro'", "step.type === 'match'", "step.type === 'reward'", "'sequence'].includes(step.type)", 'matchStep(step)', 'Today we are learning numbers!'] as $marker) {
             $page->assertSee($marker, false);
         }
-        $this->assertSame(['intro', 'learn', 'teach', 'speak', 'choose', 'recall', 'listen', 'build', 'find', 'match', 'sequence', 'dialogue', 'converse', 'reward'], app(ActivityRegistry::class)->types());
+        $this->assertSame(['intro', 'learn', 'teach', 'speak', 'choose', 'recall', 'listen', 'build', 'find', 'match', 'sequence', 'dialogue', 'converse', 'pattern', 'sort', 'reward'], app(ActivityRegistry::class)->types());
     }
 
     public function test_automatic_lessons_are_unchanged(): void

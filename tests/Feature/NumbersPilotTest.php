@@ -117,6 +117,7 @@ class NumbersPilotTest extends TestCase
         $this->assertSame(['learn', 'learn', 'choose', 'choose'], array_slice(array_column($this->steps(), 'type'), 0, 4), 'automatic again');
         $this->assertSame(19, $this->lesson->steps()->count(), 'its steps are kept');
         $this->artisan('app:lesson-mode', ['slug' => 'ennamba-1-5', 'mode' => 'scripted'])->assertSuccessful();
+        Lesson::where('slug', 'ssente')->first()?->steps()->delete(); // Phase 16 made Ssente interactive: take its steps away
         $this->artisan('app:lesson-mode', ['slug' => 'ssente', 'mode' => 'scripted'])->expectsOutputToContain('no steps yet')->assertFailed();
     }
 

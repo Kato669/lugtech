@@ -404,3 +404,14 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - `php artisan db:seed --class=LugandaProverbsSeeder` adds the 292 proverbs from `engero.pdf` (cleaned into `database/seeders/data/engero.json`: only dots, commas, spacing and capitals tidied). Add-only. Also part of DatabaseSeeder.
 - They are drafts with **no English yet**: the pages say "Translation coming soon". A reviewer writes the English on the Check page (it's needed to approve). 10 arrive flagged with a note: 3 possible typing slips and 7 that are very like another proverb.
 - **Proverbs page** (`/culture/proverbs`): the proverb of the day (one with English) with Share and 🔀 Another proverb, search, A–Z, themes, 24 per page. Each proverb has its own page (`/culture/proverbs/{slug}`) with the ones before and after it.
+
+## Grammar and more lessons (Phase 16)
+- Run `php artisan db:seed --class=LugandaMoreLessonsSeeder` (add-only; also part of DatabaseSeeder), then `php artisan app:generate-audio --all --limit=500` to voice the new drafts. No migration.
+- **New lessons**, all interactive:
+  - Stage 1: One and many · People (omu- → aba-).
+  - Stage 2: One and many · Things (eki- → ebi-, and en- words that stay the same).
+  - Stage 3: Counting things (the number matches the thing: emicungwa esatu, amagi asatu…).
+  - Stage 4 · Mu kibuga: Directions, Boda boda, The taxi park.
+- **Ssente · Money** is interactive now, with coin and note pictures, so every lesson is interactive.
+- Two new kinds of step: "How it works" grammar cards, and sorting words into baskets.
+- **All 35 new phrases are drafts** with a note for the reviewer; check them on the Check page under their lessons. Look first at the spellings the notes point out (Ekikopo, Ku kkono, Ku ddyo, Bodaboda, Ppaaka, Takisi, Maaso awo) and at Yimirira wano.

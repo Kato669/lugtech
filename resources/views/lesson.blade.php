@@ -1,6 +1,6 @@
 <x-layouts.app :title="$lesson->title">
     <div class="mx-auto max-w-2xl" x-data="lessonPlayer(@js($steps), @js(route('lessons.complete', $lesson)), @js($teacher))" data-lesson="{{ $lesson->id }}" x-cloak
-         @converse-done="converseDone($event.detail)" @match-done="matchDone($event.detail)">
+         @converse-done="converseDone($event.detail)" @match-done="matchDone($event.detail)" @sort-done="sortDone($event.detail)">
         <h1 class="sr-only">{{ $lesson->title }}</h1>
         <div class="mb-6 flex items-center gap-4">
             <a href="{{ route('course') }}" class="text-2xl text-bark-500 hover:text-bark-800" title="Leave lesson">×</a>
@@ -22,7 +22,7 @@
         <template x-if="step && !finished">
             <div class="card anim-pop min-h-80" :key="index">
                 {{-- One view per kind of step: resources/views/lesson/steps/*.blade.php --}}
-                @foreach (['intro', 'learn', 'speak', 'choice', 'find', 'build', 'match', 'dialogue', 'converse', 'reward'] as $view)
+                @foreach (['intro', 'learn', 'speak', 'choice', 'find', 'build', 'match', 'pattern', 'sort', 'dialogue', 'converse', 'reward'] as $view)
                     @include('lesson.steps.'.$view)
                 @endforeach
             </div>
