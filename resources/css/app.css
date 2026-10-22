@@ -321,3 +321,8 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0
 @keyframes groove-sway { 0%, 100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.06); } }
 .groove-on { animation: groove-sway .6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .groove-on { animation: none; } }
+
+/* Home page: the band of phrases under the hero, scrolling right to left in a seamless loop */
+@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.marquee-track { animation: marquee linear infinite; will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }

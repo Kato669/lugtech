@@ -63,9 +63,12 @@
                 <x-dynamic-component :component="'art.'.$art" class="anim-bob {{ $size }}" style="animation-delay: {{ $delay }}" />
             </div>
         @endforeach
-        <div class="absolute inset-x-0 top-0 border-b-2 border-bark-800/40 bg-bark-800/40 py-1.5">
-            <div class="anim-drift whitespace-nowrap font-display text-lg font-bold text-gold-300" style="animation-duration: 45s; animation-direction: reverse">
-                @foreach ($phrases->take(8) as $p) {{ $p['luganda'] }} <span class="text-bark-100/70">({{ $p['english'] }})</span> · @endforeach
+        {{-- Phrases scrolling by: the list is shown twice, and moving it by half makes a seamless loop --}}
+        <div class="absolute inset-x-0 top-0 overflow-hidden border-b-2 border-bark-800/40 bg-bark-800/40 py-1.5">
+            <div class="marquee-track flex w-max whitespace-nowrap font-display text-lg font-bold text-gold-300" style="animation-duration: {{ max(30, $marquee->count() * 5) }}s">
+                @foreach ([1, 2] as $copy)
+                    <span class="flex shrink-0">@foreach ($marquee as $p)<span class="px-3">{{ $p['luganda'] }} <span class="text-bark-100/70">({{ $p['english'] }})</span></span><span aria-hidden="true">·</span>@endforeach</span>
+                @endforeach
             </div>
         </div>
     </section>
