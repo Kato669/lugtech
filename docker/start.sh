@@ -34,6 +34,9 @@ php artisan migrate --force
 if [ "${RUN_SEEDERS:-true}" = "true" ]; then
     php artisan db:seed --force
 fi
+# Recordings shipped in database/audio-pack (php artisan app:export-audio on the computer that made them).
+# Without a lasting disk their files are gone after every restart, so they are put back each time.
+php artisan app:import-audio || echo "Recordings could not be restored; the site runs without them."
 # Make an existing account an admin (register in the app first, then restart the service).
 if [ -n "$ADMIN_EMAIL" ]; then
     php artisan app:make-admin "$ADMIN_EMAIL" || true

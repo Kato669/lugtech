@@ -452,7 +452,18 @@ To try it free for a short while, change `plan: starter` to `plan: free`, delete
 
 ### Your recordings and accounts
 
-Render starts with an empty database and an empty disk. The seeders add all lessons, words and stories. Recordings you made on your computer are not copied. Either make them again with **Admin → Generate audio**, or copy your database with `pg_dump` / `pg_restore` using the "External Database URL" shown in Render.
+Render starts with an empty database and an empty disk. The seeders add all lessons, words and stories. **Recordings travel with the code:**
+
+1. On your computer (where the recordings are): `php artisan app:export-audio`
+   It copies every recording that isn't rejected (Nakato's, Mukasa's, the praise lines, the dictionary) into `database/audio-pack/`, with a list saying which phrase or word each belongs to.
+2. `git add database/audio-pack && git commit -m "Recordings" && git push`
+3. Render starts again and runs `php artisan app:import-audio`: missing recordings are added, nothing is overwritten. On the free plan the files vanish at every restart, so it puts them back at every start.
+
+Do this again whenever you make new recordings on your computer. A recording whose phrase was re-spelled on your computer only (not in the seeders) has no match on Render and is left out.
+
+Recordings made on the live site (Admin → Generate audio) are lost at the next restart on the free plan. Make them on your computer and push instead, or use a paid plan with a disk.
+
+Accounts, progress and your own blog posts are in your computer's database and are not copied. To move everything, use `pg_dump` / `pg_restore` with the "External Database URL" shown in Render.
 
 ### Updating
 

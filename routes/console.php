@@ -13,6 +13,7 @@ use App\Services\AudioGenerator;
 use App\Services\DailyReminders;
 use App\Services\LessonPlan;
 use App\Services\WebPush;
+use App\Support\AudioPack;
 use App\Support\CharacterVoices;
 use App\Support\LegacyAudioImport;
 use App\Support\ProductionCheck;
@@ -286,6 +287,24 @@ Artisan::command('app:send-reminders {--dry-run : Say who would get one, without
 
     return 0;
 })->purpose('Send the daily reminders due this hour (Phase 12)');
+
+Artisan::command('app:export-audio {--path= : Where to write the pack (default database/audio-pack)}', function (AudioPack $pack) {
+    $dir = $this->option('path') ?: AudioPack::defaultPath();
+    $stats = $pack->export($dir);
+    $this->info(sprintf('Packed %d recordings (%.1f MB) into %s.', $stats['clips'], $stats['bytes'] / 1048576, $dir));
+    if ($stats['missing_files']) {
+        $this->warn("{$stats['missing_files']} recordings were left out: their file is missing.");
+    }
+    $this->line('Commit and push the folder; the hosted site adds them at its next start.');
+})->purpose('Copy every recording (approved or waiting) into the repo, for hosting');
+
+Artisan::command('app:import-audio {--path= : The pack to read (default database/audio-pack)}', function (AudioPack $pack) {
+    $stats = $pack->import($this->option('path') ?: AudioPack::defaultPath());
+    $this->info("Recordings: {$stats['added']} added, {$stats['files']} files put back.");
+    if ($stats['no_owner']) {
+        $this->warn("{$stats['no_owner']} recordings have no matching phrase or word here (its text differs) and were left out.");
+    }
+})->purpose('Add the recordings from the repo pack (add-only; run at every start on the host)');
 
 Schedule::command('app:prune-guests')->weekly();
 Schedule::command('app:send-reminders')->hourly(); // Phase 12: daily reminders, only if keys are set
