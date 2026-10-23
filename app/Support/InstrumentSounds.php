@@ -25,7 +25,7 @@ class InstrumentSounds
         'ensaasi' => ['Ensaasi', 'gourd shakers'],
     ];
 
-    public const FILE_RULES = ['required', 'file', 'max:10240', 'mimes:mp3,m4a,mp4,ogg,oga,wav,webm,weba,aac'];
+    public const FILE_RULES = ['required', 'file', 'max:10240', 'mimes:mp3,m4a,ogg,oga,wav,webm,aac'];
 
     private const INDEX = 'instrument-sounds.json';
 

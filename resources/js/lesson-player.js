@@ -124,17 +124,11 @@ export default (Alpine) => {
             this.counted = 0;
             this.tiles = (this.step?.tiles ?? []).map((text) => ({ text, used: false }));
             const type = this.step?.type;
-            // The teacher says the line: out loud when it's Mukasa (resources/js/teacher-voice.js:
-            // his recording, or the built-in voice), otherwise only his lips move. Then the phrase plays.
+            // The teacher "says" the line (lips move even when there is no recording to play).
             this.mood = null;
-            const line = this.showTeacher ? this.bubble.text : '';
-            if (line) this.flash('speaking', sayingTime(line));
-            const phrase = ['listen', 'learn', 'speak', 'intro'].includes(type) ? this.step.phrase?.audio : null;
-            const at = this.index;
-            this.$nextTick(async () => {
-                await window.lugTeacher?.say(this.teacher, line);
-                if (phrase && this.index === at && !this.checked) playAudio(phrase);
-            });
+            if (this.showTeacher && this.bubble.text) this.flash('speaking', sayingTime(this.bubble.text));
+            if (type === 'listen' || type === 'learn' || type === 'speak') this.$nextTick(() => playAudio(this.step.phrase.audio));
+            if (type === 'intro' && this.step.phrase?.audio) this.$nextTick(() => playAudio(this.step.phrase.audio));
             if (type === 'reward') playInstrument('cheer');
         },
         /** Count-along: tap the next picture, hear a note, see its number. */
@@ -187,14 +181,10 @@ export default (Alpine) => {
                 this.flash(this.streak % 3 === 0 ? 'celebrating' : 'correct', 1600);
                 playInstrument(this.streak % 3 === 0 ? 'cheer' : 'amadinda', this.streak);
                 const echoAudio = this.step.type === 'sequence' ? this.step.next?.audio : this.step.phrase?.audio;
-                const at = this.index;
-                // Mukasa praises out loud first (when he speaks), then the phrase is heard again.
-                (window.lugTeacher?.say(this.teacher, this.showTeacher ? this.praise : '') ?? Promise.resolve())
-                    .then(() => { if (echo && echoAudio && this.index === at) setTimeout(() => playAudio(echoAudio), 250); });
+                if (echo && echoAudio) setTimeout(() => playAudio(echoAudio), 250);
             } else {
                 this.streak = 0;
                 this.encourage = this.step.feedback?.wrong || ENCOURAGE[Math.floor(Math.random() * ENCOURAGE.length)];
-                if (this.showTeacher) window.lugTeacher?.say(this.teacher, this.encourage);
                 this.flash('wrong', 1100);
                 playInstrument('tak');
                 // Missed questions come back once at the end of the lesson.
@@ -202,14 +192,12 @@ export default (Alpine) => {
             }
         },
         next() {
-            window.lugTeacher?.stop();
             if (this.step?.type === 'learn') playInstrument('engalabi');
             this.index++;
             if (this.index >= this.queue.length) return this.finish();
             this.prepare();
         },
         async finish() {
-            window.lugTeacher?.stop();
             this.finished = true;
             playInstrument('cheer');
             try {
