@@ -17,6 +17,12 @@ return [
     */
     'music' => (bool) env('LUGANDA_MUSIC', true),
     'music_file' => '/music/mpola-2.mp3', // a new piece gets a new name (files here are cached for a year)
+    // Learners choose in Settings → Sound (remembered on their device); the first is the default.
+    // Each file is levelled to a gentle loudness (Mpola −14.6 LUFS, Engoma Mix −16.4 LUFS).
+    'music_tracks' => [
+        'mpola' => ['title' => 'Mpola', 'by' => null, 'about' => 'A slow, original Kiganda-style tune made for this app.', 'file' => '/music/mpola-2.mp3'],
+        'engoma' => ['title' => 'Engoma Mix (Tribal Fusion)', 'by' => 'Sadam Seguya', 'about' => 'Drums: a livelier mix.', 'file' => '/music/engoma-mix-1.mp3'],
+    ],
 
     /*
     | Play recordings before a native speaker has checked them?

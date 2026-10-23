@@ -16,6 +16,7 @@
     <script>window.LUGANDA_VOICE = @js($voiceOn);</script>
     {{-- Background music (resources/js/music.js): never where contributors work with recordings --}}
     <script>window.LUGANDA_MUSIC = @js(config('luganda.music') && ! request()->routeIs('admin.*', 'check', 'check.*', 'studio', 'studio.*') ? config('luganda.music_file') : null);</script>
+    <script>window.LUGANDA_MUSIC_TRACKS = @js(collect(config('luganda.music_tracks', []))->map(fn ($t) => $t['file']));</script>
     @if ($voiceOn)
         @php($checker = app(\App\Audio\Stt\SttManager::class)->provider())
         <script>window.LUGANDA_SPEAK = @js(['attempts' => route('speak.attempts'), 'check' => $checker ? route('speak.check') : null, 'checker' => $checker?->label()]);</script>

@@ -46,6 +46,23 @@ class MusicTest extends TestCase
         $this->get('/settings')->assertSee('Background music')->assertSee('$store.music.setOn', false)->assertSee('Medium')->assertSee('Loud');
     }
 
+    public function test_learners_can_choose_the_engoma_mix_by_sadam_seguya(): void
+    {
+        $tracks = config('luganda.music_tracks');
+        $this->assertSame(['mpola', 'engoma'], array_keys($tracks), 'Mpola stays the default');
+        foreach ($tracks as $key => $track) {
+            $file = public_path(ltrim($track['file'], '/'));
+            $this->assertFileExists($file, $key);
+            $this->assertLessThan(2_200_000, filesize($file), "{$key}: small enough for phones");
+        }
+        $this->assertSame('Sadam Seguya', $tracks['engoma']['by']);
+
+        $html = $this->actingAs(User::factory()->create())->get('/settings')->assertOk()
+            ->assertSee('Engoma Mix (Tribal Fusion)')->assertSee('by Sadam Seguya')->assertSee('$store.music.setTrack', false)->getContent();
+        $this->assertStringContainsString('window.LUGANDA_MUSIC_TRACKS', $html);
+        $this->assertStringContainsString('engoma-mix-1.mp3', $html);
+    }
+
     public function test_no_music_where_contributors_work_with_recordings(): void
     {
         config(['luganda.voice' => true]);

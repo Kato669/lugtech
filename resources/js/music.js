@@ -1,6 +1,7 @@
 /**
- * Background music: "Mpola" (gently), an original slow piece in a Kiganda style
- * (public/music/, made for this app). Quiet, and never in the way:
+ * Background music: "Mpola" (gently), an original slow piece in a Kiganda style made for this app,
+ * or "Engoma Mix (Tribal Fusion)" by Sadam Seguya (public/music/; the learner chooses in Settings →
+ * Sound, kept on this device; config/luganda.php music_tracks). Quiet, and never in the way:
  *
  *   - On by default (medium volume); the 🎵 button in the header (and Settings) turns it off, remembered on this device.
  *   - Browsers only allow sound after a tap, so it fades in on the learner's first tap or key.
@@ -11,7 +12,8 @@
  */
 const PREF = 'lug.music';          // 'on' | 'off'
 const LEVEL = 'lug.music.level';   // 'soft' | 'medium' | 'loud'
-const AT = 'lug.music.at';         // where it got to (this tab only)
+const AT = 'lug.music.at';         // where it got to (this tab only), per piece: lug.music.at.engoma
+const TRACK = 'lug.music.track';   // which piece: 'mpola' | 'engoma' (config/luganda.php music_tracks)
 const VOLUMES = { soft: 0.4, medium: 0.7, loud: 1 }; // the file itself is mastered at normal music loudness
 const DUCKED = 0.12;               // while a recording plays: still there, well under the voice
 
@@ -19,7 +21,11 @@ const get = (k, fallback) => { try { return localStorage.getItem(k) ?? fallback;
 const set = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } };
 
 export default (Alpine) => {
-    const src = window.LUGANDA_MUSIC || null;
+    const tracks = window.LUGANDA_MUSIC_TRACKS || {};
+    const chosen = get(TRACK, '') in tracks ? get(TRACK, '') : (Object.keys(tracks)[0] ?? null);
+    // No music on this page (admin, Check, Studio, or switched off for everyone): window.LUGANDA_MUSIC is null.
+    let src = window.LUGANDA_MUSIC ? (tracks[chosen] || window.LUGANDA_MUSIC) : null;
+    const atKey = () => `${AT}.${store.track}`;
     let el = null;
     let ac = null;
     let gain = null;
@@ -30,6 +36,7 @@ export default (Alpine) => {
         available: !!src,
         on: get(PREF, 'on') !== 'off',
         level: get(LEVEL, 'medium') in VOLUMES ? get(LEVEL, 'medium') : 'medium',
+        track: chosen,
         playing: false,
         toggle() { this.setOn(!this.on); },
         setOn(on) {
@@ -39,6 +46,20 @@ export default (Alpine) => {
         },
         /** What is happening right now (for checking): volume, position, paused. */
         now() { return { volume: gain ? gain.gain.value : el?.volume ?? 0, at: el?.currentTime ?? 0, paused: el ? el.paused : true }; },
+        /** Choose the piece: switches straight away, from its start (or where it got to in this tab). */
+        setTrack(key) {
+            if (!(key in tracks) || key === this.track) return;
+            savePosition();
+            this.track = key;
+            set(TRACK, key);
+            src = tracks[key];
+            if (!el) return this.on && start();
+            const playing = !el.paused;
+            el.pause();
+            el.src = src;
+            resumeFrom();
+            if (playing || this.on) { started = true; start(); }
+        },
         setLevel(level) {
             if (!(level in VOLUMES)) return;
             this.level = level;
@@ -61,10 +82,7 @@ export default (Alpine) => {
         el.src = src;
         el.loop = true;
         el.preload = 'auto';
-        // Carry on where the last page got to (set once the file's length is known).
-        let at = 0;
-        try { at = parseFloat(sessionStorage.getItem(AT)) || 0; } catch (e) { /* nothing saved */ }
-        if (at > 0) el.addEventListener('loadedmetadata', () => { if (at < el.duration) el.currentTime = at; }, { once: true });
+        resumeFrom();
         // Web Audio for the volume: iPhones ignore an audio element's own volume.
         try {
             ac = new (window.AudioContext || window.webkitAudioContext)();
@@ -75,6 +93,16 @@ export default (Alpine) => {
             ac = null;
             el.volume = 0;
         }
+    }
+
+    /** Carry on where the last page got to with this piece (set once the file's length is known). */
+    function resumeFrom() {
+        let at = 0;
+        try { at = parseFloat(sessionStorage.getItem(atKey())) || 0; } catch (e) { /* nothing saved */ }
+        if (at > 0) el.addEventListener('loadedmetadata', () => { if (at < el.duration) el.currentTime = at; }, { once: true });
+    }
+    function savePosition() {
+        try { if (el && !el.paused) sessionStorage.setItem(atKey(), String(el.currentTime)); } catch (e) { /* ignore */ }
     }
 
     function fadeTo(volume, seconds, thenPause = false) {
@@ -148,7 +176,5 @@ export default (Alpine) => {
     });
 
     document.addEventListener('visibilitychange', () => apply(document.hidden ? 0.3 : 1.5));
-    window.addEventListener('pagehide', () => {
-        try { if (el && !el.paused) sessionStorage.setItem(AT, String(el.currentTime)); } catch (e) { /* ignore */ }
-    });
+    window.addEventListener('pagehide', savePosition);
 };

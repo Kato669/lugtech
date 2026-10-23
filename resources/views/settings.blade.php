@@ -38,10 +38,26 @@
             <h2 class="font-display text-xl font-bold">Sound</h2>
             <label class="mt-3 flex cursor-pointer items-center justify-between gap-4">
                 <span><span class="block font-semibold">🎵 Background music</span>
-                    <span class="text-sm text-bark-800">A slow Kiganda-style tune under your lessons. It goes quiet whenever Luganda is spoken, and stops while you record yourself.</span></span>
+                    <span class="text-sm text-bark-800">Kiganda music under your lessons. It goes quiet whenever Luganda is spoken, and stops while you record yourself.</span></span>
                 <input type="checkbox" class="peer sr-only" :checked="$store.music.on" @change="$store.music.setOn($event.target.checked)">
                 <span aria-hidden="true" class="relative h-7 w-12 shrink-0 rounded-full bg-bark-100 transition peer-checked:bg-leaf-500 peer-focus-visible:ring-2 peer-focus-visible:ring-bark-500 after:absolute after:left-1 after:top-1 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5"></span>
             </label>
+            @if (count(config('luganda.music_tracks', [])) > 1)
+                <fieldset class="mt-4" x-show="$store.music.on">
+                    <legend class="text-sm font-semibold text-bark-800">Music</legend>
+                    <div class="mt-2 grid gap-2 sm:grid-cols-2">
+                        @foreach (config('luganda.music_tracks') as $key => $track)
+                            <button type="button" class="rounded-2xl border-2 px-4 py-3 text-left transition"
+                                :class="$store.music.track === @js($key) ? 'border-bark-600 bg-gold-300/30' : 'border-bark-100 hover:border-bark-500'"
+                                :aria-pressed="($store.music.track === @js($key)).toString()" @click="$store.music.setTrack(@js($key))">
+                                <span class="block font-semibold">{{ $track['title'] }}</span>
+                                @if ($track['by'])<span class="block text-sm text-bark-800">by {{ $track['by'] }}</span>@endif
+                                <span class="block text-xs text-bark-500">{{ $track['about'] }}</span>
+                            </button>
+                        @endforeach
+                    </div>
+                </fieldset>
+            @endif
             <fieldset class="mt-4" x-show="$store.music.on">
                 <legend class="text-sm font-semibold text-bark-800">Volume</legend>
                 <div class="mt-2 flex gap-2">
