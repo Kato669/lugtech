@@ -7,12 +7,12 @@ services:
     runtime: docker
     dockerfilePath: ./Dockerfile
     dockerContext: .
-    plan: starter            # a persistent disk needs a paid plan; on "free" every upload is lost at each deploy
-    healthCheckPath: /up
-    disk:
-      name: luganda-files
-      mountPath: /var/www/html/storage/app   # recordings, blog pictures, instrument sounds, settings files
-      sizeGB: 1
+    plan: free               # trial. Free has no disk: recordings and uploads are lost at each restart.
+    healthCheckPath: /up     # For real use: plan "starter" and add the disk below (remove the # signs).
+    # disk:
+    #   name: luganda-files
+    #   mountPath: /var/www/html/storage/app   # recordings, blog pictures, instrument sounds, settings files
+    #   sizeGB: 1
     envVars:
       - key: APP_KEY
         generateValue: true  # docker/start.sh turns it into Laravel's key format
@@ -45,6 +45,6 @@ services:
 
 databases:
   - name: luganda-db
-    plan: basic-256mb
+    plan: free               # trial: Render deletes a free database after 30 days. For real use: basic-256mb
     databaseName: luganda
     user: luganda
