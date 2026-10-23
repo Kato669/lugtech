@@ -42,6 +42,8 @@ fi
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+# The caches above were written as root; the website runs as www-data and must be able to update them.
+chown -R www-data:www-data storage bootstrap/cache
 
 # The scheduler (daily reminders, tidying old guest accounts) runs beside the web server.
 su -s /bin/sh www-data -c "php artisan schedule:work" &
