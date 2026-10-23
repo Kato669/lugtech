@@ -1,0 +1,4281 @@
+[
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Oli otya?",
+            "english": "How are you?"
+        },
+        "slot": "normal",
+        "source": "human",
+        "provider": null,
+        "voice": null,
+        "text_snapshot": "Oli otya?",
+        "text_key": "oli otya",
+        "disk": "public",
+        "path": "audio/phrases/P0001-oli-otya-b6o5iW.webm",
+        "mime": "audio/webm",
+        "bytes": 39902,
+        "duration_ms": null,
+        "status": "approved",
+        "meta": {
+            "imported_from": "audio_path"
+        },
+        "generation_key": null
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Oli otya?",
+            "english": "How are you?"
+        },
+        "slot": "male",
+        "source": "human",
+        "provider": null,
+        "voice": "mukasa",
+        "text_snapshot": "Oli otya?",
+        "text_key": "oli otya",
+        "disk": "public",
+        "path": "audio/phrases/P0001-oli-otya-mukasa-uxwT1R.webm",
+        "mime": "audio/webm",
+        "bytes": 42800,
+        "duration_ms": null,
+        "status": "approved",
+        "meta": {
+            "imported_from": "audio_male_path"
+        },
+        "generation_key": null
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Gyendi",
+            "english": "I'm fine"
+        },
+        "slot": "slow",
+        "source": "human",
+        "provider": null,
+        "voice": null,
+        "text_snapshot": "Gyendi",
+        "text_key": "gyendi",
+        "disk": "public",
+        "path": "audio/phrases/P0003-gyendi-slow-9yB9YD.webm",
+        "mime": "audio/webm",
+        "bytes": 33140,
+        "duration_ms": null,
+        "status": "approved",
+        "meta": {
+            "imported_from": "audio_slow_path"
+        },
+        "generation_key": null
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Emu",
+            "english": "One"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Emu",
+        "text_key": "emu",
+        "disk": "public",
+        "path": "audio/generated/P0055-emu-sunbird-salt-lug-0001-uKz5et.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "approved",
+        "meta": {
+            "request_id": "e33a978f36504691bb0c9c8c7a31681b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 3,
+            "request": 1
+        },
+        "generation_key": "18c1654b4b812cb17ee67b7bd35eaa95a3c217d0"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Bbiri",
+            "english": "Two"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Bbiri",
+        "text_key": "bbiri",
+        "disk": "public",
+        "path": "audio/generated/P0056-bbiri-sunbird-salt-lug-0001-EFXuKd.wav",
+        "mime": "audio/wav",
+        "bytes": 36908,
+        "duration_ms": 768,
+        "status": "approved",
+        "meta": {
+            "request_id": "b7649fd057c24e38bf243eed4c1a66d5",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 2
+        },
+        "generation_key": "4ae757f000adc65f2eb3d5a3498ac76bbc1b5687"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ssatu",
+            "english": "Three"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ssatu",
+        "text_key": "ssatu",
+        "disk": "public",
+        "path": "audio/generated/P0057-ssatu-sunbird-salt-lug-0001-iqE8tX.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "approved",
+        "meta": {
+            "request_id": "6aa2b47356c741eeb327f462694db9af",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 3
+        },
+        "generation_key": "13312be9cf9e0c6ad9b400da26d76266381c3a64"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nnya",
+            "english": "Four"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nnya",
+        "text_key": "nnya",
+        "disk": "public",
+        "path": "audio/generated/P0058-nnya-sunbird-salt-lug-0001-zXVxnd.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "approved",
+        "meta": {
+            "request_id": "b3a4ccb90a844aedaa7f48ecc07b86a6",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 4
+        },
+        "generation_key": "4d4523c251da07c387c7930c7a8c05420d246bdd"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ttaano",
+            "english": "Five"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ttaano",
+        "text_key": "ttaano",
+        "disk": "public",
+        "path": "audio/generated/P0059-ttaano-sunbird-salt-lug-0001-Sftgad.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "approved",
+        "meta": {
+            "request_id": "b5ce80978f5e4620b13ac6ba2d403532",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 5
+        },
+        "generation_key": "1428a23aa53ef492f2087b736f7563e289dbd51e"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Bulungi",
+            "english": "Fine / Good"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Bulungi",
+        "text_key": "bulungi",
+        "disk": "public",
+        "path": "audio/generated/P0002-bulungi-sunbird-salt-lug-0001-34xFQJ.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "approved",
+        "meta": {
+            "request_id": "b1755d5258804e05a4c317285d43b28a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 6
+        },
+        "generation_key": "f2d119cdf352b30d86bf138425931ad520319e64"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Gyendi",
+            "english": "I'm fine"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Gyendi",
+        "text_key": "gyendi",
+        "disk": "public",
+        "path": "audio/generated/P0003-gyendi-sunbird-salt-lug-0001-kw1Co2.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "approved",
+        "meta": {
+            "request_id": "bcd7b02d1f4e4fca9b64912342b97e42",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 7
+        },
+        "generation_key": "375d9813e589072dc9811e1d9c9dc23ca3a75798"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Webale",
+            "english": "Thank you"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Webale",
+        "text_key": "webale",
+        "disk": "public",
+        "path": "audio/generated/P0005-webale-sunbird-salt-lug-0001-gSvCkW.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "43ffb744651f4ae7a2704e8e919f25ac",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 9
+        },
+        "generation_key": "521d81a693473c20a08c7703d6700a732d024c3c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Webale nnyo",
+            "english": "Thank you very much"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Webale nnyo",
+        "text_key": "webale nnyo",
+        "disk": "public",
+        "path": "audio/generated/P0006-webale-nnyo-sunbird-salt-lug-0001-FOa16Z.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "4f54f6cd9e9848f684726c402274bdf9",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 11,
+            "request": 10
+        },
+        "generation_key": "b14e7ec64121030412445afa033676a20b9b499d"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Wasuze otya?",
+            "english": "Good morning"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Wasuze otya?",
+        "text_key": "wasuze otya",
+        "disk": "public",
+        "path": "audio/generated/P0007-wasuze-otya-sunbird-salt-lug-0001-ByOX3u.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "0bec065eb08048fb9e1b79d411fa78c2",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 12,
+            "request": 11
+        },
+        "generation_key": "f3101096ca3ef90333d23a0ed2dcb7a88220b34d"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Osiibye otya?",
+            "english": "Good afternoon / Good evening"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Osiibye otya?",
+        "text_key": "osiibye otya",
+        "disk": "public",
+        "path": "audio/generated/P0009-osiibye-otya-sunbird-salt-lug-0001-iARa4T.wav",
+        "mime": "audio/wav",
+        "bytes": 73772,
+        "duration_ms": 1536,
+        "status": "pending",
+        "meta": {
+            "request_id": "1a027412fe604cdaa0a446530db6fbda",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 13
+        },
+        "generation_key": "e5d1e15e58cb6eaf16cbf8060bb1946566604269"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nsiibye bulungi",
+            "english": "My day has been good"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nsiibye bulungi",
+        "text_key": "nsiibye bulungi",
+        "disk": "public",
+        "path": "audio/generated/P0010-nsiibye-bulungi-sunbird-salt-lug-0001-FRklWp.wav",
+        "mime": "audio/wav",
+        "bytes": 81964,
+        "duration_ms": 1707,
+        "status": "pending",
+        "meta": {
+            "request_id": "fa6dad4bf42c4961ac3c72c095d53d6d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 15,
+            "request": 14
+        },
+        "generation_key": "56540d9a42be07e44e6fb7cafae8ebe9a61ea349"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Weeraba",
+            "english": "Goodbye"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Weeraba",
+        "text_key": "weeraba",
+        "disk": "public",
+        "path": "audio/generated/P0011-weeraba-sunbird-salt-lug-0001-7dq1Zb.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "8268d8f3c728474f8c7c30b7f57a7903",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 15
+        },
+        "generation_key": "d9ed7ed19e40f3f50a05ad2ad33c72e33c3bc45d"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Tunaalabagana",
+            "english": "See you"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Tunaalabagana",
+        "text_key": "tunaalabagana",
+        "disk": "public",
+        "path": "audio/generated/P0012-tunaalabagana-sunbird-salt-lug-0001-3zqwhI.wav",
+        "mime": "audio/wav",
+        "bytes": 217132,
+        "duration_ms": 4523,
+        "status": "pending",
+        "meta": {
+            "request_id": "e5b0301f05aa4ead8f9fd0287760c723",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 16
+        },
+        "generation_key": "6406aaf1db45407cf0448f2005153ad2a2a6c64b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Erinnya lyo ggwe ani?",
+            "english": "What is your name?"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Erinnya lyo ggwe ani?",
+        "text_key": "erinnya lyo ggwe ani",
+        "disk": "public",
+        "path": "audio/generated/P0013-erinnya-lyo-ggwe-ani-sunbird-salt-lug-0001-iazPkW.wav",
+        "mime": "audio/wav",
+        "bytes": 114732,
+        "duration_ms": 2389,
+        "status": "pending",
+        "meta": {
+            "request_id": "0b93655b412b44819542211b054c0134",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 21,
+            "request": 17
+        },
+        "generation_key": "d96029a85103dae2613ad23218ff299021fbea6e"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nze Kato",
+            "english": "I am Kato"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nze Kato",
+        "text_key": "nze kato",
+        "disk": "public",
+        "path": "audio/generated/P0014-nze-kato-sunbird-salt-lug-0001-qJJ8PL.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "51a671de100d4591ac8d9ce84a904a3d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 18
+        },
+        "generation_key": "9c423a4590af901c53899b26473dc75d6363629c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nsanyuse okukulaba",
+            "english": "I'm happy to see you"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nsanyuse okukulaba",
+        "text_key": "nsanyuse okukulaba",
+        "disk": "public",
+        "path": "audio/generated/P0015-nsanyuse-okukulaba-sunbird-salt-lug-0001-wCprs1.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "0139d28f32054c66859da8c37b73c888",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 18,
+            "request": 19
+        },
+        "generation_key": "8e455595275510fd9dc3175733afbbc63a0437f4"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ssebo",
+            "english": "Sir"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ssebo",
+        "text_key": "ssebo",
+        "disk": "public",
+        "path": "audio/generated/P0016-ssebo-sunbird-salt-lug-0001-NikFfB.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "99213a8b7ebe4c66b24204092ee92614",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 20
+        },
+        "generation_key": "7cfef12f4662dabd7ede925e676147f288a82240"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nnyabo",
+            "english": "Madam"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nnyabo",
+        "text_key": "nnyabo",
+        "disk": "public",
+        "path": "audio/generated/P0017-nnyabo-sunbird-salt-lug-0001-jgzJds.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "9d3920f9eff34b489763f370bb6bf028",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 21
+        },
+        "generation_key": "e4db5fd9e8afb15329cefcd8d703d6bf4cb0003a"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Yee",
+            "english": "Yes"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Yee",
+        "text_key": "yee",
+        "disk": "public",
+        "path": "audio/generated/P0018-yee-sunbird-salt-lug-0001-YvjgoR.wav",
+        "mime": "audio/wav",
+        "bytes": 94252,
+        "duration_ms": 1963,
+        "status": "pending",
+        "meta": {
+            "request_id": "746aac419229443ba07b4b1ad8b5001c",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 3,
+            "request": 22
+        },
+        "generation_key": "64ebc13768e1068c4752e9e5c6ef2534253c5c0f"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nedda",
+            "english": "No"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nedda",
+        "text_key": "nedda",
+        "disk": "public",
+        "path": "audio/generated/P0019-nedda-sunbird-salt-lug-0001-qQGMya.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "b74c5b8a7bc94850b121666c4ba5c787",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 23
+        },
+        "generation_key": "91769369813e5e11797e50a717150a15923314cb"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kale",
+            "english": "Okay"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kale",
+        "text_key": "kale",
+        "disk": "public",
+        "path": "audio/generated/P0020-kale-sunbird-salt-lug-0001-AoyXeD.wav",
+        "mime": "audio/wav",
+        "bytes": 32812,
+        "duration_ms": 683,
+        "status": "pending",
+        "meta": {
+            "request_id": "29fc3593a31a47c48e9ad7e5a5c77cc2",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 24
+        },
+        "generation_key": "2e1039187cb23729730157095149d540b4c78f64"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "bambi",
+            "english": "Please"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "bambi",
+        "text_key": "bambi",
+        "disk": "public",
+        "path": "audio/generated/P0021-bambi-sunbird-salt-lug-0001-8jjn22.wav",
+        "mime": "audio/wav",
+        "bytes": 151596,
+        "duration_ms": 3157,
+        "status": "pending",
+        "meta": {
+            "request_id": "10895ec15b5d49168ac06fc369288ddb",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 25
+        },
+        "generation_key": "65dc10c3b840f38faf5a13eb8f5d954f180ab993"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nsonyiwa",
+            "english": "Sorry / Forgive me"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nsonyiwa",
+        "text_key": "nsonyiwa",
+        "disk": "public",
+        "path": "audio/generated/P0022-nsonyiwa-sunbird-salt-lug-0001-7aFWqL.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "6774a83834744d2488943e1fe96ddd9b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 26
+        },
+        "generation_key": "e94bd7aa8775803084bbc643e203438a507417cb"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Maama",
+            "english": "Mother"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Maama",
+        "text_key": "maama",
+        "disk": "public",
+        "path": "audio/generated/P0023-maama-sunbird-salt-lug-0001-Yvw3xr.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "106baf65447d4cb3b3f41d53e2e86c29",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 27
+        },
+        "generation_key": "7103e892cf17c243894bf963c9104359b915aa22"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Taata",
+            "english": "Father"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Taata",
+        "text_key": "taata",
+        "disk": "public",
+        "path": "audio/generated/P0024-taata-sunbird-salt-lug-0001-1x3eap.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "0a27755253ae4cf29d85d261b193c243",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 28
+        },
+        "generation_key": "488a3c22c814b1fd26090643b5482d2fe78d280e"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Omwana",
+            "english": "Child"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Omwana",
+        "text_key": "omwana",
+        "disk": "public",
+        "path": "audio/generated/P0025-omwana-sunbird-salt-lug-0001-G9bmHu.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "9ae1dd240a134cb7974636968b45bd6a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 29
+        },
+        "generation_key": "99acc323fc3c23049b86b08917afb2964058f5b6"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Mukwano gwange",
+            "english": "My friend"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Mukwano gwange",
+        "text_key": "mukwano gwange",
+        "disk": "public",
+        "path": "audio/generated/P0026-mukwano-gwange-sunbird-salt-lug-0001-XTbbdR.wav",
+        "mime": "audio/wav",
+        "bytes": 81964,
+        "duration_ms": 1707,
+        "status": "pending",
+        "meta": {
+            "request_id": "4e1ce78d75714daa9620e872f09365f6",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 14,
+            "request": 30
+        },
+        "generation_key": "d0f9488626334f452044ce49dfe9549b6ea8bc1f"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Jjangu",
+            "english": "Come"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Jjangu",
+        "text_key": "jjangu",
+        "disk": "public",
+        "path": "audio/generated/P0027-jjangu-sunbird-salt-lug-0001-xh8Vus.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "184fd903e7034c61a6962d78b464ab56",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 31
+        },
+        "generation_key": "f3a995fbf75e3ff2513866405ac9136fa2a7a3d7"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Emmere",
+            "english": "Food"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Emmere",
+        "text_key": "emmere",
+        "disk": "public",
+        "path": "audio/generated/P0028-emmere-sunbird-salt-lug-0001-ofdRR1.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "12436b078cf6460bacb16600e799bbbe",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 32
+        },
+        "generation_key": "03dd1a6a635f7cc11752f4a09ee27ee9919afc44"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nfumba Matooke",
+            "english": "Cooking bananas"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nfumba Matooke",
+        "text_key": "nfumba matooke",
+        "disk": "public",
+        "path": "audio/generated/P0029-nfumba-matooke-sunbird-salt-lug-0001-3ZvEMP.wav",
+        "mime": "audio/wav",
+        "bytes": 147500,
+        "duration_ms": 3072,
+        "status": "pending",
+        "meta": {
+            "request_id": "7742b9f072d44cf191b112ad721f6610",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 14,
+            "request": 33
+        },
+        "generation_key": "19b8fdf543751d053e03f594af6b6cdc0ddd45ba"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Lumonde",
+            "english": "Sweet potatoes"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Lumonde",
+        "text_key": "lumonde",
+        "disk": "public",
+        "path": "audio/generated/P0030-lumonde-sunbird-salt-lug-0001-Nt7OzI.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "49f18cd2ac2c4a0ab96b21981f7e8ede",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 34
+        },
+        "generation_key": "f3654b05057554978b14edea2449e0b45c153833"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Muwogo",
+            "english": "Cassava"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Muwogo",
+        "text_key": "muwogo",
+        "disk": "public",
+        "path": "audio/generated/P0031-muwogo-sunbird-salt-lug-0001-nqnHzq.wav",
+        "mime": "audio/wav",
+        "bytes": 81964,
+        "duration_ms": 1707,
+        "status": "pending",
+        "meta": {
+            "request_id": "6cf6a58c58f0422fa9f67513d351b4f6",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 35
+        },
+        "generation_key": "cd8333546baf8707d6724194552519f0c451d00b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ebijanjaalo",
+            "english": "Beans"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ebijanjaalo",
+        "text_key": "ebijanjaalo",
+        "disk": "public",
+        "path": "audio/generated/P0032-ebijanjaalo-sunbird-salt-lug-0001-qrdK1J.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "71efa088c4f04e04966aa612a553b225",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 11,
+            "request": 36
+        },
+        "generation_key": "dd1dc53d3874c6e3f83aa4f96d3f9166f571092c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Omuceere",
+            "english": "Rice"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Omuceere",
+        "text_key": "omuceere",
+        "disk": "public",
+        "path": "audio/generated/P0033-omuceere-sunbird-salt-lug-0001-GUwZOY.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "1e8a08c8286e4d62a827ee4a5df209f4",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 37
+        },
+        "generation_key": "4da560a51f6e0134e5bb68723cb11ca7bf6c618d"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ennyama",
+            "english": "Meat"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ennyama",
+        "text_key": "ennyama",
+        "disk": "public",
+        "path": "audio/generated/P0034-ennyama-sunbird-salt-lug-0001-hlZiWh.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "34314f2a71d44ba680f662d301727880",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 38
+        },
+        "generation_key": "e17345bbd5b6338846e55a9e51f2312e52b4c84e"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Jjangu tulye!",
+            "english": "Come, let's eat!"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Jjangu tulye!",
+        "text_key": "jjangu tulye",
+        "disk": "public",
+        "path": "audio/generated/P0035-jjangu-tulye-sunbird-salt-lug-0001-g5QnTJ.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "924e62134910487f9019692017d2898e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 39
+        },
+        "generation_key": "de93a820681c798c149775e01064a96234dde70d"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nnina enjala",
+            "english": "I'm hungry"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nnina enjala",
+        "text_key": "nnina enjala",
+        "disk": "public",
+        "path": "audio/generated/P0036-nnina-enjala-sunbird-salt-lug-0001-890sQq.wav",
+        "mime": "audio/wav",
+        "bytes": 86060,
+        "duration_ms": 1792,
+        "status": "pending",
+        "meta": {
+            "request_id": "de4acd280f0f43948cdca2935283f522",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 12,
+            "request": 40
+        },
+        "generation_key": "d6379b05d8aa7eecd642204f268157dfb4e04e61"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Mpa amazzi",
+            "english": "Give me water"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Mpa amazzi",
+        "text_key": "mpa amazzi",
+        "disk": "public",
+        "path": "audio/generated/P0037-mpa-amazzi-sunbird-salt-lug-0001-B6uutZ.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "4d23726f9eb04c179f002bfe6e41d66e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 41
+        },
+        "generation_key": "9a8836591bd6a75db7d821b43a2e393e7432c4ec"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kiwoomu nnyo",
+            "english": "It's very sweet"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kiwoomu nnyo",
+        "text_key": "kiwoomu nnyo",
+        "disk": "public",
+        "path": "audio/generated/P0038-kiwoomu-nnyo-sunbird-salt-lug-0001-wmMtgN.wav",
+        "mime": "audio/wav",
+        "bytes": 69676,
+        "duration_ms": 1451,
+        "status": "pending",
+        "meta": {
+            "request_id": "bf2938dc0f4247709b5bfa0b1b8a125a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 12,
+            "request": 42
+        },
+        "generation_key": "b4d039a1d193fe4d7ca6914fb06abf8dc3a515dc"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nzikuse",
+            "english": "I'm full"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nzikuse",
+        "text_key": "nzikuse",
+        "disk": "public",
+        "path": "audio/generated/P0039-nzikuse-sunbird-salt-lug-0001-0qYBBC.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "898cf4e35fc04ac8b2db91c1031f67b8",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 43
+        },
+        "generation_key": "c8d1df230bbce511ef98e9e5a078766d87e63a13"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Webale kufumba",
+            "english": "Thank you for cooking"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Webale kufumba",
+        "text_key": "webale kufumba",
+        "disk": "public",
+        "path": "audio/generated/P0040-webale-kufumba-sunbird-salt-lug-0001-1NxtJp.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "073ca3c4bdd645cbba549e19a761b5ec",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 14,
+            "request": 44
+        },
+        "generation_key": "ee826ff4424e4c5155446be1689b099eb8ef84b0"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Amazzi",
+            "english": "Water"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Amazzi",
+        "text_key": "amazzi",
+        "disk": "public",
+        "path": "audio/generated/P0041-amazzi-sunbird-salt-lug-0001-nArcTc.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "7184ea4efdcf44aabe53b23da63d0cbe",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 45
+        },
+        "generation_key": "6b31d6dc493f9faaf0b2d082ffacf7bdea61ed7a"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Amata",
+            "english": "Milk"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Amata",
+        "text_key": "amata",
+        "disk": "public",
+        "path": "audio/generated/P0042-amata-sunbird-salt-lug-0001-FoJl5y.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "1879321053174171bd89ceb71ec95de5",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 46
+        },
+        "generation_key": "350e2b6430ac88ad04d94162f8001acab2dddaf6"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Caayi",
+            "english": "Tea"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Caayi",
+        "text_key": "caayi",
+        "disk": "public",
+        "path": "audio/generated/P0043-caayi-sunbird-salt-lug-0001-PTCjir.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "c3922297c8854e3d9ce1a85b88fd83e1",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 47
+        },
+        "generation_key": "9de26bc2bcbee9a6acccf26baff45ec530fa71de"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kaawa",
+            "english": "Coffee"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kaawa",
+        "text_key": "kaawa",
+        "disk": "public",
+        "path": "audio/generated/P0044-kaawa-sunbird-salt-lug-0001-JqxZn6.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "f8ef0b6ad81242ee8d3862479a46f4b6",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 48
+        },
+        "generation_key": "ff5d9242bf20bb96357b5e95b4bab9a32347dce5"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Omubisi",
+            "english": "Juice"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Omubisi",
+        "text_key": "omubisi",
+        "disk": "public",
+        "path": "audio/generated/P0045-omubisi-sunbird-salt-lug-0001-5P1zhn.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "5fb7951e72be4f90b57ba5b3524f60b1",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 49
+        },
+        "generation_key": "b9a32554ecfe5ce828b683650ac415952a153199"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Njagala caayi",
+            "english": "I want tea"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Njagala caayi",
+        "text_key": "njagala caayi",
+        "disk": "public",
+        "path": "audio/generated/P0046-njagala-caayi-sunbird-salt-lug-0001-uqn3nm.wav",
+        "mime": "audio/wav",
+        "bytes": 73772,
+        "duration_ms": 1536,
+        "status": "pending",
+        "meta": {
+            "request_id": "5aaf57f2ad914f1fbcbfc4705e8b8b2b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 50
+        },
+        "generation_key": "5963fd23b163fa87329260ba84827ab5e900a2dc"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Saagala",
+            "english": "I don't want (it)"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Saagala",
+        "text_key": "saagala",
+        "disk": "public",
+        "path": "audio/generated/P0047-saagala-sunbird-salt-lug-0001-pn5vBw.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "e84ffc1133374693a497b0f7e9667fbd",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 51
+        },
+        "generation_key": "ec20db181c68131da7fa9ed3da594bf79fce4734"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ennyumba",
+            "english": "House"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ennyumba",
+        "text_key": "ennyumba",
+        "disk": "public",
+        "path": "audio/generated/P0048-ennyumba-sunbird-salt-lug-0001-qPjUlM.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "8442c1c26d6e47f698af66920d319b29",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 52
+        },
+        "generation_key": "be57f2b282888f1d5928aee2e33fff67b78a7be5"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Effumbiro",
+            "english": "Kitchen"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Effumbiro",
+        "text_key": "effumbiro",
+        "disk": "public",
+        "path": "audio/generated/P0049-effumbiro-sunbird-salt-lug-0001-BUZuQK.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "daefad45f2924c9288d2e6296fce4f12",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 53
+        },
+        "generation_key": "6e84775b2eb86dd8ca5d406bf603743f90e49b16"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Omulyango",
+            "english": "Door"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Omulyango",
+        "text_key": "omulyango",
+        "disk": "public",
+        "path": "audio/generated/P0050-omulyango-sunbird-salt-lug-0001-Z5wmIb.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "5e86281609974548870573994a34b3e1",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 54
+        },
+        "generation_key": "b7b0502a030fc3890861b24c322ef7342e7cff0b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Eddirisa",
+            "english": "Window"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Eddirisa",
+        "text_key": "eddirisa",
+        "disk": "public",
+        "path": "audio/generated/P0051-eddirisa-sunbird-salt-lug-0001-EEQBKj.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "5c29ab0d84764e15aa9d854d6065611f",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 55
+        },
+        "generation_key": "673c0349e6a5394dd0915aaec8ba3077c9da429c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Entebe",
+            "english": "Chair"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Entebe",
+        "text_key": "entebe",
+        "disk": "public",
+        "path": "audio/generated/P0052-entebe-sunbird-salt-lug-0001-cHd0qb.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "54facfdf05754920b62e30c1d8b04195",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 56
+        },
+        "generation_key": "f291dc1f2c3e32e2f0193d1ccc9b2ad923735970"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Emmeeza",
+            "english": "Table"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Emmeeza",
+        "text_key": "emmeeza",
+        "disk": "public",
+        "path": "audio/generated/P0053-emmeeza-sunbird-salt-lug-0001-aat3ZQ.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "4ab73493cbc143a7b3b37b5dfcf9ad4b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 57
+        },
+        "generation_key": "f934771fa87cc6e8b28ca1b4701ed09fb592da8b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ekitanda",
+            "english": "Bed"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ekitanda",
+        "text_key": "ekitanda",
+        "disk": "public",
+        "path": "audio/generated/P0054-ekitanda-sunbird-salt-lug-0001-ADK7vq.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "1f39ba699d664ac0b29369209d41b564",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 58
+        },
+        "generation_key": "dac04a96c39c965d432106733ca23061f4830fe0"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Mukaaga",
+            "english": "Six"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Mukaaga",
+        "text_key": "mukaaga",
+        "disk": "public",
+        "path": "audio/generated/P0060-mukaaga-sunbird-salt-lug-0001-m5GuPz.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "b1d741f259264d25a31598dc1913879c",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 59
+        },
+        "generation_key": "4ee6e2553e8f9efd6203f20fba58abfbafa78842"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Musanvu",
+            "english": "Seven"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Musanvu",
+        "text_key": "musanvu",
+        "disk": "public",
+        "path": "audio/generated/P0061-musanvu-sunbird-salt-lug-0001-V1kAW8.wav",
+        "mime": "audio/wav",
+        "bytes": 131116,
+        "duration_ms": 2731,
+        "status": "pending",
+        "meta": {
+            "request_id": "12bbabeea5bc403c8becbccffbabe694",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 60
+        },
+        "generation_key": "1dc71c6091d0b2ce368c4437ea2cd34536fd09ab"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Munaana",
+            "english": "Eight"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Munaana",
+        "text_key": "munaana",
+        "disk": "public",
+        "path": "audio/generated/P0062-munaana-sunbird-salt-lug-0001-h674XF.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "202226a8dad04d4eb2182e83638b58d1",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 61
+        },
+        "generation_key": "79033973bb5c5d27b7bacb00e960d679be8be89b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Mwenda",
+            "english": "Nine"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Mwenda",
+        "text_key": "mwenda",
+        "disk": "public",
+        "path": "audio/generated/P0063-mwenda-sunbird-salt-lug-0001-W87sEI.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "54dd1f97a2244a2d9d0edf347280eedf",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 62
+        },
+        "generation_key": "592bf81edd270c5ceb5a1629b61c34d643ab3b2e"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kkumi",
+            "english": "Ten"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kkumi",
+        "text_key": "kkumi",
+        "disk": "public",
+        "path": "audio/generated/P0064-kkumi-sunbird-salt-lug-0001-QaANsr.wav",
+        "mime": "audio/wav",
+        "bytes": 32812,
+        "duration_ms": 683,
+        "status": "pending",
+        "meta": {
+            "request_id": "53f269ef6ebc435bac966e194a336763",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 63
+        },
+        "generation_key": "bc1daae53d32d4b50a1a2bcb8a04388165677f0b"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ssente",
+            "english": "Money"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ssente",
+        "text_key": "ssente",
+        "disk": "public",
+        "path": "audio/generated/P0065-ssente-sunbird-salt-lug-0001-byGKB5.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "cf900d843da5439b8790a272ad3f9848",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 64
+        },
+        "generation_key": "151bd8ce793bd6dfe4ea2d585a5e55e815dd36a6"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Amakumi abiri",
+            "english": "Twenty"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Amakumi abiri",
+        "text_key": "amakumi abiri",
+        "disk": "public",
+        "path": "audio/generated/P0066-amakumi-abiri-sunbird-salt-lug-0001-4OtQG8.wav",
+        "mime": "audio/wav",
+        "bytes": 69676,
+        "duration_ms": 1451,
+        "status": "pending",
+        "meta": {
+            "request_id": "c5342969da994dc283be8ddcef665669",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 65
+        },
+        "generation_key": "c5b68d6e67fd0dac81ebfd7c4593acde286b2de8"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Amakumi ataano",
+            "english": "Fifty"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Amakumi ataano",
+        "text_key": "amakumi ataano",
+        "disk": "public",
+        "path": "audio/generated/P0067-amakumi-ataano-sunbird-salt-lug-0001-fuhu3j.wav",
+        "mime": "audio/wav",
+        "bytes": 73772,
+        "duration_ms": 1536,
+        "status": "pending",
+        "meta": {
+            "request_id": "5803c01caa6a4b7e8e0dc50d7ab1b3e7",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 14,
+            "request": 66
+        },
+        "generation_key": "d556a78dc98d7fcf6955320b6e3b15ec7b651e11"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kikumi",
+            "english": "One hundred"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kikumi",
+        "text_key": "kikumi",
+        "disk": "public",
+        "path": "audio/generated/P0068-kikumi-sunbird-salt-lug-0001-MKP09D.wav",
+        "mime": "audio/wav",
+        "bytes": 24620,
+        "duration_ms": 512,
+        "status": "pending",
+        "meta": {
+            "request_id": "3274daabe68c4c9fb8e4c234468fb6a2",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 67
+        },
+        "generation_key": "551a715f29b2d0f6bc58a6ca7641baeaae85e6ca"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Lukumi",
+            "english": "One thousand"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Lukumi",
+        "text_key": "lukumi",
+        "disk": "public",
+        "path": "audio/generated/P0069-lukumi-sunbird-salt-lug-0001-QPU0Wj.wav",
+        "mime": "audio/wav",
+        "bytes": 167980,
+        "duration_ms": 3499,
+        "status": "pending",
+        "meta": {
+            "request_id": "40e2c269c601419e9fdd96a6447ebf63",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 68
+        },
+        "generation_key": "a9fc6d8428622b4cecdd288caaa6a64c0d8c4e5f"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Mutwalo",
+            "english": "Ten thousand"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Mutwalo",
+        "text_key": "mutwalo",
+        "disk": "public",
+        "path": "audio/generated/P0070-mutwalo-sunbird-salt-lug-0001-lKl5pK.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "1a8b8123e778423090c5ba3fc09ba821",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 69
+        },
+        "generation_key": "418235f8a85af5ba56917a14b6c7c7e4bd8f0d99"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ssente mmeka?",
+            "english": "How much (money)?"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ssente mmeka?",
+        "text_key": "ssente mmeka",
+        "disk": "public",
+        "path": "audio/generated/P0071-ssente-mmeka-sunbird-salt-lug-0001-EGJtqy.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "fa93ab6c85d643a6b7f3d7d3d023646d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 13,
+            "request": 70
+        },
+        "generation_key": "138212dc76ebf464296b84b81ed1b57a00ea9043"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kino kya ssente mmeka?",
+            "english": "How much is this?"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kino kya ssente mmeka?",
+        "text_key": "kino kya ssente mmeka",
+        "disk": "public",
+        "path": "audio/generated/P0072-kino-kya-ssente-mmeka-sunbird-salt-lug-0001-p9GsnK.wav",
+        "mime": "audio/wav",
+        "bytes": 86060,
+        "duration_ms": 1792,
+        "status": "pending",
+        "meta": {
+            "request_id": "d10a9296c7694991bfc5bfaa76d639b6",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 22,
+            "request": 71
+        },
+        "generation_key": "cc85502fe738cf81f8cc11734c256a4a4336ddaf"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Njagala kino",
+            "english": "I want this one"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Njagala kino",
+        "text_key": "njagala kino",
+        "disk": "public",
+        "path": "audio/generated/P0073-njagala-kino-sunbird-salt-lug-0001-SVAU0E.wav",
+        "mime": "audio/wav",
+        "bytes": 81964,
+        "duration_ms": 1707,
+        "status": "pending",
+        "meta": {
+            "request_id": "9b3ae531966b477cb683e0be5a9a629d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 12,
+            "request": 72
+        },
+        "generation_key": "c7dc48c492ec38e29207af47781d7a80526cb339"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kya bbeeyi nnyo",
+            "english": "It's very expensive"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kya bbeeyi nnyo",
+        "text_key": "kya bbeeyi nnyo",
+        "disk": "public",
+        "path": "audio/generated/P0074-kya-bbeeyi-nnyo-sunbird-salt-lug-0001-VcMH5V.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "c8d3500b36a64db6b40440029247d112",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 15,
+            "request": 73
+        },
+        "generation_key": "a0e7274018e690ad6c55d87ec9c23793f04007ca"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kendeezaako",
+            "english": "Reduce it a little"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kendeezaako",
+        "text_key": "kendeezaako",
+        "disk": "public",
+        "path": "audio/generated/P0075-kendeezaako-sunbird-salt-lug-0001-NEPiVf.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "c089ac6b9b264525ac9eee4a39e12c41",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 11,
+            "request": 74
+        },
+        "generation_key": "72525fee8f8b70fbce22365783953f60deec6017"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Kale, nja kukitwala",
+            "english": "Okay, I'll take it"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Kale, nja kukitwala",
+        "text_key": "kale nja kukitwala",
+        "disk": "public",
+        "path": "audio/generated/P0076-kale-nja-kukitwala-sunbird-salt-lug-0001-2EiEhs.wav",
+        "mime": "audio/wav",
+        "bytes": 81964,
+        "duration_ms": 1707,
+        "status": "pending",
+        "meta": {
+            "request_id": "50382bdb2cba40b6a6cc68424d06c859",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 19,
+            "request": 75
+        },
+        "generation_key": "9b6878cbfe7a2b10da93df1910d7979cba4a1840"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Emicungwa",
+            "english": "Oranges"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Emicungwa",
+        "text_key": "emicungwa",
+        "disk": "public",
+        "path": "audio/generated/P0077-emicungwa-sunbird-salt-lug-0001-sjqqbE.wav",
+        "mime": "audio/wav",
+        "bytes": 163884,
+        "duration_ms": 3413,
+        "status": "pending",
+        "meta": {
+            "request_id": "f5de63372e8c4363a241662e01d92234",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 76
+        },
+        "generation_key": "54e15d7cc2e234a5cf820218944db94b1dde597c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ennyaanya",
+            "english": "Tomatoes"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ennyaanya",
+        "text_key": "ennyaanya",
+        "disk": "public",
+        "path": "audio/generated/P0078-ennyaanya-sunbird-salt-lug-0001-QwhoS4.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "55e301dee30f4b2790f06dbc3efba0f7",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 77
+        },
+        "generation_key": "2bd28cc4a493ed8b37f20ccd63b710f82389aee0"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Obutungulu",
+            "english": "Onions"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Obutungulu",
+        "text_key": "obutungulu",
+        "disk": "public",
+        "path": "audio/generated/P0079-obutungulu-sunbird-salt-lug-0001-UAVCoL.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "a656d1b1a3cb4ab9982b26db78e40170",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 78
+        },
+        "generation_key": "cded1e03bf11a8dd4e4f7027f1a59234d3b3a018"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ebinyeebwa",
+            "english": "Groundnuts"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ebinyeebwa",
+        "text_key": "ebinyeebwa",
+        "disk": "public",
+        "path": "audio/generated/P0080-ebinyeebwa-sunbird-salt-lug-0001-UNOWlO.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "18acc6a61a8c422cb5b52f81c8bf5635",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 79
+        },
+        "generation_key": "8f6918fac650a8e46ed8d34cb9d4b8fb0006a7b5"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Amagi",
+            "english": "Eggs"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Amagi",
+        "text_key": "amagi",
+        "disk": "public",
+        "path": "audio/generated/P0081-amagi-sunbird-salt-lug-0001-S4AuHG.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "5948982a845a45f28e13bac450fe3f8f",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 80
+        },
+        "generation_key": "12460a91ae9b235500b56450d408fc19247e0060"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Ensawo",
+            "english": "Bag"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Ensawo",
+        "text_key": "ensawo",
+        "disk": "public",
+        "path": "audio/generated/P0082-ensawo-sunbird-salt-lug-0001-BqsX5H.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "1ca0903a336c4c00b33c7b5e78b03e62",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 81
+        },
+        "generation_key": "31f5aace7731e0663d374d61e07b461f6b02ac98"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "Agali awamu ge galuma ennyama",
+            "english": "Teeth that work together are the ones that bite the meat. (Unity is strength.)",
+            "kind": "proverb"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Agali awamu ge galuma ennyama",
+        "text_key": "agali awamu ge galuma ennyama",
+        "disk": "public",
+        "path": "audio/generated/W0035-agali-awamu-ge-galuma-ennyama-sunbird-salt-lug-0001-NX68eu.wav",
+        "mime": "audio/wav",
+        "bytes": 90156,
+        "duration_ms": 1877,
+        "status": "pending",
+        "meta": {
+            "request_id": "8f1d2c583fde4a42a9958fe7e4a1bbd3",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 29,
+            "request": 82
+        },
+        "generation_key": "2fcf15f99eed5798ba150434792a4f15b7403ae1"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "Akwata empola atuuka wala",
+            "english": "One who goes slowly reaches far.",
+            "kind": "proverb"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Akwata empola atuuka wala",
+        "text_key": "akwata empola atuuka wala",
+        "disk": "public",
+        "path": "audio/generated/W0034-akwata-empola-atuuka-wala-sunbird-salt-lug-0001-pJYK8m.wav",
+        "mime": "audio/wav",
+        "bytes": 106540,
+        "duration_ms": 2219,
+        "status": "pending",
+        "meta": {
+            "request_id": "799eb6977124426497ddbdc069d6db28",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 25,
+            "request": 83
+        },
+        "generation_key": "f2147bbf11d5e0b43ecaea52f987a2de612ec1c6"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "abaana",
+            "english": "children",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "abaana",
+        "text_key": "abaana",
+        "disk": "public",
+        "path": "audio/generated/W0006-abaana-sunbird-salt-lug-0001-NkM0Y7.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "6393e49613514326b6f29e7824a6cd17",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 84
+        },
+        "generation_key": "dcc3344ed50059cde77012d9804917ce39e376a6"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "akatale",
+            "english": "market",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "akatale",
+        "text_key": "akatale",
+        "disk": "public",
+        "path": "audio/generated/W0010-akatale-sunbird-salt-lug-0001-kAHnhe.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "157512e83a0c4ac7a2edf4981c87f665",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 85
+        },
+        "generation_key": "d99ddb81e07ecc1d71318cdc3e9f200ef27a4652"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "amagi",
+            "english": "eggs",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "amagi",
+        "text_key": "amagi",
+        "disk": "public",
+        "path": "audio/generated/W0058-amagi-sunbird-salt-lug-0001-o9cPHA.wav",
+        "mime": "audio/wav",
+        "bytes": 36908,
+        "duration_ms": 768,
+        "status": "pending",
+        "meta": {
+            "request_id": "9f8fdad275f840449dc5bd124cb34576",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 86
+        },
+        "generation_key": "12460a91ae9b235500b56450d408fc19247e0060"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "amata",
+            "english": "milk",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "amata",
+        "text_key": "amata",
+        "disk": "public",
+        "path": "audio/generated/W0041-amata-sunbird-salt-lug-0001-ATFoNc.wav",
+        "mime": "audio/wav",
+        "bytes": 86060,
+        "duration_ms": 1792,
+        "status": "pending",
+        "meta": {
+            "request_id": "d4722f7b8f684f2382b7bcd7b58218cc",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 87
+        },
+        "generation_key": "350e2b6430ac88ad04d94162f8001acab2dddaf6"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "amazzi",
+            "english": "water",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "amazzi",
+        "text_key": "amazzi",
+        "disk": "public",
+        "path": "audio/generated/W0001-amazzi-sunbird-salt-lug-0001-0bAdJ1.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "5a1b1966b1e4497b88da1b101fa0be03",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 88
+        },
+        "generation_key": "6b31d6dc493f9faaf0b2d082ffacf7bdea61ed7a"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "bbiri",
+            "english": "two",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "bbiri",
+        "text_key": "bbiri",
+        "disk": "public",
+        "path": "audio/generated/W0023-bbiri-sunbird-salt-lug-0001-ybAU9N.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "bbb26edbcc0d488885394f76d22691ff",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 89
+        },
+        "generation_key": "4ae757f000adc65f2eb3d5a3498ac76bbc1b5687"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "caayi",
+            "english": "tea",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "caayi",
+        "text_key": "caayi",
+        "disk": "public",
+        "path": "audio/generated/W0018-caayi-sunbird-salt-lug-0001-dstvOF.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "c6bf03aa963c44d5bfec60a029bdf657",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 90
+        },
+        "generation_key": "9de26bc2bcbee9a6acccf26baff45ec530fa71de"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ebijanjaalo",
+            "english": "beans",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ebijanjaalo",
+        "text_key": "ebijanjaalo",
+        "disk": "public",
+        "path": "audio/generated/W0038-ebijanjaalo-sunbird-salt-lug-0001-U8hetu.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "7a4cf448162b4a428c81d352752a7fc4",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 11,
+            "request": 91
+        },
+        "generation_key": "dd1dc53d3874c6e3f83aa4f96d3f9166f571092c"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ebinyeebwa",
+            "english": "groundnuts",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ebinyeebwa",
+        "text_key": "ebinyeebwa",
+        "disk": "public",
+        "path": "audio/generated/W0057-ebinyeebwa-sunbird-salt-lug-0001-3hLXr3.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "5f4a62fb757047e9b6dbf8fe05d2293c",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 92
+        },
+        "generation_key": "8f6918fac650a8e46ed8d34cb9d4b8fb0006a7b5"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "eddirisa",
+            "english": "window",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "eddirisa",
+        "text_key": "eddirisa",
+        "disk": "public",
+        "path": "audio/generated/W0045-eddirisa-sunbird-salt-lug-0001-8dPCBa.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "8e87261b4863449cb71838a88ddfb9d8",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 93
+        },
+        "generation_key": "673c0349e6a5394dd0915aaec8ba3077c9da429c"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "effumbiro",
+            "english": "kitchen",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "effumbiro",
+        "text_key": "effumbiro",
+        "disk": "public",
+        "path": "audio/generated/W0043-effumbiro-sunbird-salt-lug-0001-HUsR4A.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "6e4817276d7f474fb3156dd9b7a32abf",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 94
+        },
+        "generation_key": "6e84775b2eb86dd8ca5d406bf603743f90e49b16"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ekiro",
+            "english": "night",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ekiro",
+        "text_key": "ekiro",
+        "disk": "public",
+        "path": "audio/generated/W0020-ekiro-sunbird-salt-lug-0001-WUXjAL.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "54f2b44a669f44af93ecb53fb97f174e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 95
+        },
+        "generation_key": "9e97912c4fb90a60bfd6f39ed68fded951b3ac12"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ekitabo",
+            "english": "book",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ekitabo",
+        "text_key": "ekitabo",
+        "disk": "public",
+        "path": "audio/generated/W0012-ekitabo-sunbird-salt-lug-0001-PXV00f.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "31d9fed5bed9463e8e3c17a35107e387",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 96
+        },
+        "generation_key": "e918d8a33f2c75e8ea050cd007a80dd9c907eef9"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ekitanda",
+            "english": "bed",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ekitanda",
+        "text_key": "ekitanda",
+        "disk": "public",
+        "path": "audio/generated/W0048-ekitanda-sunbird-salt-lug-0001-S00HVq.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "a3660e1f9bce4543a1012fb3656df370",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 97
+        },
+        "generation_key": "dac04a96c39c965d432106733ca23061f4830fe0"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "embwa",
+            "english": "dog",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "embwa",
+        "text_key": "embwa",
+        "disk": "public",
+        "path": "audio/generated/W0015-embwa-sunbird-salt-lug-0001-xmlJtD.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "02c650504e384322bf815fbf33910a9b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 98
+        },
+        "generation_key": "f1b0cc270cbd214e4b00907a54f0a9ff8acff59b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "emicungwa",
+            "english": "oranges",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "emicungwa",
+        "text_key": "emicungwa",
+        "disk": "public",
+        "path": "audio/generated/W0054-emicungwa-sunbird-salt-lug-0001-GMimW1.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "eab5bf037f864e37acb51f5176b667ce",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 99
+        },
+        "generation_key": "54e15d7cc2e234a5cf820218944db94b1dde597c"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "emmeeza",
+            "english": "table",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "emmeeza",
+        "text_key": "emmeeza",
+        "disk": "public",
+        "path": "audio/generated/W0047-emmeeza-sunbird-salt-lug-0001-xh7Imv.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "10da705928ec4e698e806f98ab6aa938",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 100
+        },
+        "generation_key": "f934771fa87cc6e8b28ca1b4701ed09fb592da8b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "emmere",
+            "english": "food",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "emmere",
+        "text_key": "emmere",
+        "disk": "public",
+        "path": "audio/generated/W0002-emmere-sunbird-salt-lug-0001-Mi3nrF.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "8cf51325c04f45d1b39ee06a5871a582",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 101
+        },
+        "generation_key": "03dd1a6a635f7cc11752f4a09ee27ee9919afc44"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "emu",
+            "english": "one",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "emu",
+        "text_key": "emu",
+        "disk": "public",
+        "path": "audio/generated/W0022-emu-sunbird-salt-lug-0001-0rDsU4.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "c046bd1b0b8c4cbf99856b67eb15c14a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 3,
+            "request": 102
+        },
+        "generation_key": "18c1654b4b812cb17ee67b7bd35eaa95a3c217d0"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "enjala",
+            "english": "hunger",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "enjala",
+        "text_key": "enjala",
+        "disk": "public",
+        "path": "audio/generated/W0049-enjala-sunbird-salt-lug-0001-KCsK7E.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "9d28a3398d814affb473f7bb099fde90",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 103
+        },
+        "generation_key": "499073240204b238463f5861a85c1e4100561408"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "enkoko",
+            "english": "chicken",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "enkoko",
+        "text_key": "enkoko",
+        "disk": "public",
+        "path": "audio/generated/W0016-enkoko-sunbird-salt-lug-0001-ZhWBDu.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "492a3f2f4f2f467ba0aa4772eae6ba32",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 104
+        },
+        "generation_key": "ed909a99bc04c12e015a59322cf3c840b9354121"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "enkya",
+            "english": "morning; tomorrow",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "enkya",
+        "text_key": "enkya",
+        "disk": "public",
+        "path": "audio/generated/W0021-enkya-sunbird-salt-lug-0001-R0zs78.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "6c92af0640fe4e069cfb01d2a74aa47d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 105
+        },
+        "generation_key": "cd3dd551d00f419706d47572389d2fad93084dfb"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ennyaanya",
+            "english": "tomatoes",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ennyaanya",
+        "text_key": "ennyaanya",
+        "disk": "public",
+        "path": "audio/generated/W0055-ennyaanya-sunbird-salt-lug-0001-BzjiDH.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "6ac7d3435a3f48bbac07a79bf712c546",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 106
+        },
+        "generation_key": "2bd28cc4a493ed8b37f20ccd63b710f82389aee0"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ennyama",
+            "english": "meat",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ennyama",
+        "text_key": "ennyama",
+        "disk": "public",
+        "path": "audio/generated/W0040-ennyama-sunbird-salt-lug-0001-mbdvtG.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "8533eb531b694f249409ec9b4974f6a5",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 107
+        },
+        "generation_key": "e17345bbd5b6338846e55a9e51f2312e52b4c84e"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ennyumba",
+            "english": "house",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ennyumba",
+        "text_key": "ennyumba",
+        "disk": "public",
+        "path": "audio/generated/W0004-ennyumba-sunbird-salt-lug-0001-cq79sG.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "24d4092783bd49f482956e57f1b92675",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 108
+        },
+        "generation_key": "be57f2b282888f1d5928aee2e33fff67b78a7be5"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ensawo",
+            "english": "bag",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ensawo",
+        "text_key": "ensawo",
+        "disk": "public",
+        "path": "audio/generated/W0059-ensawo-sunbird-salt-lug-0001-U7WDyT.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "195a0193b14a4acebbe136b399d6615e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 109
+        },
+        "generation_key": "31f5aace7731e0663d374d61e07b461f6b02ac98"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ente",
+            "english": "cow",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ente",
+        "text_key": "ente",
+        "disk": "public",
+        "path": "audio/generated/W0014-ente-sunbird-salt-lug-0001-uc32du.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "b84ecf300b984bdbace7022de4c22e2e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 110
+        },
+        "generation_key": "32555c679149d5bf05bc1f47eaeec1e40c1f670c"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "entebe",
+            "english": "chair",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "entebe",
+        "text_key": "entebe",
+        "disk": "public",
+        "path": "audio/generated/W0046-entebe-sunbird-salt-lug-0001-QU0tmR.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "afc19fc24fcc4e5e8db3f7593bad3486",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 111
+        },
+        "generation_key": "f291dc1f2c3e32e2f0193d1ccc9b2ad923735970"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "essomero",
+            "english": "school",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "essomero",
+        "text_key": "essomero",
+        "disk": "public",
+        "path": "audio/generated/W0011-essomero-sunbird-salt-lug-0001-YAhuNd.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "f1d619b0d56449dbbdacf64d7773fa5b",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 112
+        },
+        "generation_key": "3c20c02923c8983dd8033bf1c9a7f612cb628744"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "kaawa",
+            "english": "coffee",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "kaawa",
+        "text_key": "kaawa",
+        "disk": "public",
+        "path": "audio/generated/W0017-kaawa-sunbird-salt-lug-0001-FC9UjX.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "31b5d0a01cbd4758916f4904b59b8500",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 113
+        },
+        "generation_key": "ff5d9242bf20bb96357b5e95b4bab9a32347dce5"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "kale",
+            "english": "okay",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "kale",
+        "text_key": "kale",
+        "disk": "public",
+        "path": "audio/generated/W0033-kale-sunbird-salt-lug-0001-feikgD.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "211e224cb6b3492785ebe04faeefd60a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 114
+        },
+        "generation_key": "2e1039187cb23729730157095149d540b4c78f64"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "kikumi",
+            "english": "one hundred",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "kikumi",
+        "text_key": "kikumi",
+        "disk": "public",
+        "path": "audio/generated/W0051-kikumi-sunbird-salt-lug-0001-bVPuRd.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "c3899a8a052f454eb3bc9edebd64b270",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 115
+        },
+        "generation_key": "551a715f29b2d0f6bc58a6ca7641baeaae85e6ca"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "kiwoomu",
+            "english": "tasty, sweet",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "kiwoomu",
+        "text_key": "kiwoomu",
+        "disk": "public",
+        "path": "audio/generated/W0050-kiwoomu-sunbird-salt-lug-0001-PAkhlr.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "20eabe76c61f48ca905511647ee24814",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 116
+        },
+        "generation_key": "93fda014cd1d4bd8b181d98da1d24d09350c98f2"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "kkumi",
+            "english": "ten",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "kkumi",
+        "text_key": "kkumi",
+        "disk": "public",
+        "path": "audio/generated/W0031-kkumi-sunbird-salt-lug-0001-gA9lZw.wav",
+        "mime": "audio/wav",
+        "bytes": 32812,
+        "duration_ms": 683,
+        "status": "pending",
+        "meta": {
+            "request_id": "0fd1afab9f1249ed90c942ee0702b9c9",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 117
+        },
+        "generation_key": "bc1daae53d32d4b50a1a2bcb8a04388165677f0b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "lukumi",
+            "english": "one thousand",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "lukumi",
+        "text_key": "lukumi",
+        "disk": "public",
+        "path": "audio/generated/W0052-lukumi-sunbird-salt-lug-0001-GP1aO4.wav",
+        "mime": "audio/wav",
+        "bytes": 118828,
+        "duration_ms": 2475,
+        "status": "pending",
+        "meta": {
+            "request_id": "876017f25e0243c4b9cbd73069eb7b47",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 118
+        },
+        "generation_key": "a9fc6d8428622b4cecdd288caaa6a64c0d8c4e5f"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "lumonde",
+            "english": "sweet potato",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "lumonde",
+        "text_key": "lumonde",
+        "disk": "public",
+        "path": "audio/generated/W0036-lumonde-sunbird-salt-lug-0001-Z8inLS.wav",
+        "mime": "audio/wav",
+        "bytes": 122924,
+        "duration_ms": 2560,
+        "status": "pending",
+        "meta": {
+            "request_id": "5fbe73a2097642ddbe67a5d80c7e44c0",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 119
+        },
+        "generation_key": "f3654b05057554978b14edea2449e0b45c153833"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "matooke",
+            "english": "cooking bananas (plantain)",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "matooke",
+        "text_key": "matooke",
+        "disk": "public",
+        "path": "audio/generated/W0003-matooke-sunbird-salt-lug-0001-oUAWQd.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "6db84e0cc4d84b4d9c2512120622e3c7",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 120
+        },
+        "generation_key": "d12f37ad9237c639805910c12b75feb9c94211d8"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "mukaaga",
+            "english": "six",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "mukaaga",
+        "text_key": "mukaaga",
+        "disk": "public",
+        "path": "audio/generated/W0027-mukaaga-sunbird-salt-lug-0001-ceHL29.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "f39e35021927420aac16fe62cfd705db",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 121
+        },
+        "generation_key": "4ee6e2553e8f9efd6203f20fba58abfbafa78842"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "munaana",
+            "english": "eight",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "munaana",
+        "text_key": "munaana",
+        "disk": "public",
+        "path": "audio/generated/W0029-munaana-sunbird-salt-lug-0001-0ZMgzh.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "7f70158a1773420ba28c85cf11862b82",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 122
+        },
+        "generation_key": "79033973bb5c5d27b7bacb00e960d679be8be89b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "musanvu",
+            "english": "seven",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "musanvu",
+        "text_key": "musanvu",
+        "disk": "public",
+        "path": "audio/generated/W0028-musanvu-sunbird-salt-lug-0001-4ofotk.wav",
+        "mime": "audio/wav",
+        "bytes": 122924,
+        "duration_ms": 2560,
+        "status": "pending",
+        "meta": {
+            "request_id": "9ebf37df0dba4fd1a2c42b8e9ad1e39e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 123
+        },
+        "generation_key": "1dc71c6091d0b2ce368c4437ea2cd34536fd09ab"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "muwogo",
+            "english": "cassava",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "muwogo",
+        "text_key": "muwogo",
+        "disk": "public",
+        "path": "audio/generated/W0037-muwogo-sunbird-salt-lug-0001-yND5Yv.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "e17c780b99a74c97aa8ccd2f9ef80048",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 124
+        },
+        "generation_key": "cd8333546baf8707d6724194552519f0c451d00b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "mwenda",
+            "english": "nine",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "mwenda",
+        "text_key": "mwenda",
+        "disk": "public",
+        "path": "audio/generated/W0030-mwenda-sunbird-salt-lug-0001-B5YF5i.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "7902ab9e17d34259aff5157cf91ea5d9",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 125
+        },
+        "generation_key": "592bf81edd270c5ceb5a1629b61c34d643ab3b2e"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "nnya",
+            "english": "four",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "nnya",
+        "text_key": "nnya",
+        "disk": "public",
+        "path": "audio/generated/W0025-nnya-sunbird-salt-lug-0001-XjljKU.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "75c955b53a204b398e594b3ad72eaf29",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 126
+        },
+        "generation_key": "4d4523c251da07c387c7930c7a8c05420d246bdd"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "obutungulu",
+            "english": "onions",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "obutungulu",
+        "text_key": "obutungulu",
+        "disk": "public",
+        "path": "audio/generated/W0056-obutungulu-sunbird-salt-lug-0001-eIzmrL.wav",
+        "mime": "audio/wav",
+        "bytes": 86060,
+        "duration_ms": 1792,
+        "status": "pending",
+        "meta": {
+            "request_id": "8d19735d9a0549eb9d565060ab689606",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 127
+        },
+        "generation_key": "cded1e03bf11a8dd4e4f7027f1a59234d3b3a018"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "okufumba",
+            "english": "to cook",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "okufumba",
+        "text_key": "okufumba",
+        "disk": "public",
+        "path": "audio/generated/W0064-okufumba-sunbird-salt-lug-0001-Du6ein.wav",
+        "mime": "audio/wav",
+        "bytes": 73772,
+        "duration_ms": 1536,
+        "status": "pending",
+        "meta": {
+            "request_id": "7f593a559d464dd0b5ce28cc2d257838",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 128
+        },
+        "generation_key": "2bd76411778b347ff64baa17231eb0d8bc7d68ed"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "okugula",
+            "english": "to buy",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "okugula",
+        "text_key": "okugula",
+        "disk": "public",
+        "path": "audio/generated/W0062-okugula-sunbird-salt-lug-0001-fsLXOL.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "a685fa3504774904b8663c7df547b3f3",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 129
+        },
+        "generation_key": "a66217ef26c3d2746ec7ebdf88085f6f7091a9b0"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "okulya",
+            "english": "to eat",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "okulya",
+        "text_key": "okulya",
+        "disk": "public",
+        "path": "audio/generated/W0060-okulya-sunbird-salt-lug-0001-OMNkH9.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "d8d3469958d54a86a3e7da3a47dd465c",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 130
+        },
+        "generation_key": "33f6e61159ffb644ec18cbe3d52bf5f74e029ab1"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "okunywa",
+            "english": "to drink",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "okunywa",
+        "text_key": "okunywa",
+        "disk": "public",
+        "path": "audio/generated/W0061-okunywa-sunbird-salt-lug-0001-ZRuYz8.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "3a71bb5b33b54477b277db8ec153d11e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 131
+        },
+        "generation_key": "f188a96cd8e0e560a49206fabe1150251bd4b855"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "okutunda",
+            "english": "to sell",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "okutunda",
+        "text_key": "okutunda",
+        "disk": "public",
+        "path": "audio/generated/W0063-okutunda-sunbird-salt-lug-0001-hxZA9f.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "1e3fd0376ba04141806fa5b0199fafe0",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 132
+        },
+        "generation_key": "fe3b6334985dbfa8cf83e0031c1f20e592c1b2c8"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "olunaku",
+            "english": "day",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "olunaku",
+        "text_key": "olunaku",
+        "disk": "public",
+        "path": "audio/generated/W0019-olunaku-sunbird-salt-lug-0001-JHXEy1.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "4805ba996b5647e2900b0836cd5dbb94",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 133
+        },
+        "generation_key": "780c4f2194be4e91e0dab48890ea47d4db915b22"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omubisi",
+            "english": "juice",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omubisi",
+        "text_key": "omubisi",
+        "disk": "public",
+        "path": "audio/generated/W0042-omubisi-sunbird-salt-lug-0001-xYWCoN.wav",
+        "mime": "audio/wav",
+        "bytes": 86060,
+        "duration_ms": 1792,
+        "status": "pending",
+        "meta": {
+            "request_id": "8cf84a29d89b4e3ca1007be86f69abd8",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 134
+        },
+        "generation_key": "b9a32554ecfe5ce828b683650ac415952a153199"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omuceere",
+            "english": "rice",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omuceere",
+        "text_key": "omuceere",
+        "disk": "public",
+        "path": "audio/generated/W0039-omuceere-sunbird-salt-lug-0001-Dumk75.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "ea77e7e5c5ad457e9e786647af9def3d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 135
+        },
+        "generation_key": "4da560a51f6e0134e5bb68723cb11ca7bf6c618d"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omukazi",
+            "english": "woman",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omukazi",
+        "text_key": "omukazi",
+        "disk": "public",
+        "path": "audio/generated/W0008-omukazi-sunbird-salt-lug-0001-b2ZqLO.wav",
+        "mime": "audio/wav",
+        "bytes": 77868,
+        "duration_ms": 1621,
+        "status": "pending",
+        "meta": {
+            "request_id": "95cfc218e1394444b8117294e267c409",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 7,
+            "request": 136
+        },
+        "generation_key": "e6ec0497e0fec2b4af618b2b439340c76bac8163"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omulyango",
+            "english": "door",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omulyango",
+        "text_key": "omulyango",
+        "disk": "public",
+        "path": "audio/generated/W0044-omulyango-sunbird-salt-lug-0001-YHaHNo.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "b102548f495b44188e9813a2624676e2",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 137
+        },
+        "generation_key": "b7b0502a030fc3890861b24c322ef7342e7cff0b"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omusajja",
+            "english": "man",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omusajja",
+        "text_key": "omusajja",
+        "disk": "public",
+        "path": "audio/generated/W0007-omusajja-sunbird-salt-lug-0001-p8hVMD.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "8aaa3cbe29b84fdba45a0c51763b4416",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 138
+        },
+        "generation_key": "f9bdd3a1c6d249c8457f0ac4829a481e809c1421"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omusomesa",
+            "english": "teacher",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omusomesa",
+        "text_key": "omusomesa",
+        "disk": "public",
+        "path": "audio/generated/W0013-omusomesa-sunbird-salt-lug-0001-QhUvYq.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "442d7436df58457cb1fdc9a3f3143f16",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 9,
+            "request": 139
+        },
+        "generation_key": "ea788890d179f7d379ef3a58cb5a472dc0a15be4"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omutwalo",
+            "english": "ten thousand",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omutwalo",
+        "text_key": "omutwalo",
+        "disk": "public",
+        "path": "audio/generated/W0053-omutwalo-sunbird-salt-lug-0001-cc0wT3.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "e99cc11d84b7409e8e8216defe6fa8bc",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 140
+        },
+        "generation_key": "b72fec6e54bc9cd974a57a98e688aa4d0f62555c"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "omwana",
+            "english": "child",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "omwana",
+        "text_key": "omwana",
+        "disk": "public",
+        "path": "audio/generated/W0005-omwana-sunbird-salt-lug-0001-opu4TD.wav",
+        "mime": "audio/wav",
+        "bytes": 61484,
+        "duration_ms": 1280,
+        "status": "pending",
+        "meta": {
+            "request_id": "33bb07dab121423b9e8ab2b0f056d427",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 141
+        },
+        "generation_key": "99acc323fc3c23049b86b08917afb2964058f5b6"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ssatu",
+            "english": "three",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ssatu",
+        "text_key": "ssatu",
+        "disk": "public",
+        "path": "audio/generated/W0024-ssatu-sunbird-salt-lug-0001-DUjC6o.wav",
+        "mime": "audio/wav",
+        "bytes": 45100,
+        "duration_ms": 939,
+        "status": "pending",
+        "meta": {
+            "request_id": "3b45df521f2d40cca3d9d3c6078cce1e",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 142
+        },
+        "generation_key": "13312be9cf9e0c6ad9b400da26d76266381c3a64"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ssente",
+            "english": "money",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ssente",
+        "text_key": "ssente",
+        "disk": "public",
+        "path": "audio/generated/W0009-ssente-sunbird-salt-lug-0001-Q9fFdR.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "1b0e7d928ce540ddb3bf85b9ee319b71",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 143
+        },
+        "generation_key": "151bd8ce793bd6dfe4ea2d585a5e55e815dd36a6"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "ttaano",
+            "english": "five",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "ttaano",
+        "text_key": "ttaano",
+        "disk": "public",
+        "path": "audio/generated/W0026-ttaano-sunbird-salt-lug-0001-bW8pgR.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "4a8789a95c0047d68322be0a54dbbff8",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 144
+        },
+        "generation_key": "1428a23aa53ef492f2087b736f7563e289dbd51e"
+    },
+    {
+        "owner": {
+            "type": "word",
+            "luganda": "webale",
+            "english": "thank you",
+            "kind": "word"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "webale",
+        "text_key": "webale",
+        "disk": "public",
+        "path": "audio/generated/W0032-webale-sunbird-salt-lug-0001-d15VdS.wav",
+        "mime": "audio/wav",
+        "bytes": 90156,
+        "duration_ms": 1877,
+        "status": "pending",
+        "meta": {
+            "request_id": "9e4895fd06d44eab90161f40e89bb288",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 6,
+            "request": 145
+        },
+        "generation_key": "521d81a693473c20a08c7703d6700a732d024c3c"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nze Nakato",
+            "english": "I am Nakato"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nze Nakato",
+        "text_key": "nze nakato",
+        "disk": "public",
+        "path": "audio/generated/P0083-nze-nakato-sunbird-salt-lug-0001-f2zGsy.wav",
+        "mime": "audio/wav",
+        "bytes": 53292,
+        "duration_ms": 1109,
+        "status": "pending",
+        "meta": {
+            "request_id": "69367b348231497b8e48e666a4411c8d",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 146
+        },
+        "generation_key": "da4b8a574c3520d8fc77238ea47c23f8383e1243"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nze Mukasa",
+            "english": "I am Mukasa"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nze Mukasa",
+        "text_key": "nze mukasa",
+        "disk": "public",
+        "path": "audio/generated/P0084-nze-mukasa-sunbird-salt-lug-0001-9Wr4wr.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "ecef0d108c204613aac6a3cc83905b67",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 10,
+            "request": 147
+        },
+        "generation_key": "30b25a6e5e79519ade7fd6520e5e10e20ae481a0"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Genda",
+            "english": "Go"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Genda",
+        "text_key": "genda",
+        "disk": "public",
+        "path": "audio/generated/P0085-genda-sunbird-salt-lug-0001-dgckIl.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "378b32f1e0d94674868851f3a5a07b36",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 148
+        },
+        "generation_key": "9db598825d44e909648e8ad37d5121852b718383"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Tuula",
+            "english": "Sit (down)"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Tuula",
+        "text_key": "tuula",
+        "disk": "public",
+        "path": "audio/generated/P0086-tuula-sunbird-salt-lug-0001-VRZB8P.wav",
+        "mime": "audio/wav",
+        "bytes": 36908,
+        "duration_ms": 768,
+        "status": "pending",
+        "meta": {
+            "request_id": "95876f99384e4e86979a6a10161c78a7",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 5,
+            "request": 149
+        },
+        "generation_key": "65faf8f7df3c46c5197635462b76304e4c6a5e34"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Yimirira",
+            "english": "Stand up"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Yimirira",
+        "text_key": "yimirira",
+        "disk": "public",
+        "path": "audio/generated/P0087-yimirira-sunbird-salt-lug-0001-o5vV0I.wav",
+        "mime": "audio/wav",
+        "bytes": 57388,
+        "duration_ms": 1195,
+        "status": "pending",
+        "meta": {
+            "request_id": "30c44149567d4213973e20df0dd79d55",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 8,
+            "request": 150
+        },
+        "generation_key": "f8e6b08e11543234c4f16b3ac3f4e4790405726f"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Lya",
+            "english": "Eat"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Lya",
+        "text_key": "lya",
+        "disk": "public",
+        "path": "audio/generated/P0088-lya-sunbird-salt-lug-0001-lx7ckc.wav",
+        "mime": "audio/wav",
+        "bytes": 49196,
+        "duration_ms": 1024,
+        "status": "pending",
+        "meta": {
+            "request_id": "f129a53e9e914104b3dac06c05107457",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 3,
+            "request": 151
+        },
+        "generation_key": "c9839356abc813c23508b199e81e053fb55a4cc7"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nywa",
+            "english": "Drink"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nywa",
+        "text_key": "nywa",
+        "disk": "public",
+        "path": "audio/generated/P0089-nywa-sunbird-salt-lug-0001-doLV4n.wav",
+        "mime": "audio/wav",
+        "bytes": 41004,
+        "duration_ms": 853,
+        "status": "pending",
+        "meta": {
+            "request_id": "51ff9db08bf84ed19681d69dbc1b7de7",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 4,
+            "request": 152
+        },
+        "generation_key": "ac13b6f1484ee79c100f75a01dc4dc11ecf4c3ca"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nywa amazzi",
+            "english": "Drink water"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Nywa amazzi",
+        "text_key": "nywa amazzi",
+        "disk": "public",
+        "path": "audio/generated/P0090-nywa-amazzi-sunbird-salt-lug-0001-kFRPRO.wav",
+        "mime": "audio/wav",
+        "bytes": 98348,
+        "duration_ms": 2048,
+        "status": "pending",
+        "meta": {
+            "request_id": "2e966effae934046a04ac2454710d93a",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 11,
+            "request": 153
+        },
+        "generation_key": "cd5acaf05139a4d7deee88b5066109212b21df10"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Tuula ku ntebe",
+            "english": "Sit on the chair"
+        },
+        "slot": "normal",
+        "source": "generated",
+        "provider": "sunbird",
+        "voice": "salt_lug_0001",
+        "text_snapshot": "Tuula ku ntebe",
+        "text_key": "tuula ku ntebe",
+        "disk": "public",
+        "path": "audio/generated/P0091-tuula-ku-ntebe-sunbird-salt-lug-0001-VrDyi8.wav",
+        "mime": "audio/wav",
+        "bytes": 65580,
+        "duration_ms": 1365,
+        "status": "pending",
+        "meta": {
+            "request_id": "6c9197796325412b920839f7b11222d5",
+            "sample_rate": 24000,
+            "model": "sunbird-orpheus-tts",
+            "input_characters": 14,
+            "request": 154
+        },
+        "generation_key": "c4f22a0d95987c6dd55c0eef54d68228763c6258"
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nsuze bulungi",
+            "english": "I slept well"
+        },
+        "slot": "male",
+        "source": "human",
+        "provider": null,
+        "voice": "mukasa",
+        "text_snapshot": "Nsuze bulungi",
+        "text_key": "nsuze bulungi",
+        "disk": "public",
+        "path": "audio/phrases/P0008-nsuze-bulungi-mukasa-4HeyAp.webm",
+        "mime": "video/webm",
+        "bytes": 34106,
+        "duration_ms": null,
+        "status": "approved",
+        "meta": null,
+        "generation_key": null
+    },
+    {
+        "owner": {
+            "type": "phrase",
+            "luganda": "Nsuze bulungi",
+            "english": "I slept well"
+        },
+        "slot": "normal",
+        "source": "human",
+        "provider": null,
+        "voice": null,
+        "text_snapshot": "Nsuze bulungi",
+        "text_key": "nsuze bulungi",
+        "disk": "public",
+        "path": "audio/phrases/P0008-nsuze-bulungi-b7Olzq.webm",
+        "mime": "video/webm",
+        "bytes": 32174,
+        "duration_ms": null,
+        "status": "approved",
+        "meta": null,
+        "generation_key": null
+    }
+]
