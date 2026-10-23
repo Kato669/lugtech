@@ -20,4 +20,11 @@ class HttpsLinksTest extends TestCase
 
         URL::forceScheme(null);
     }
+
+    public function test_a_page_behind_an_https_proxy_knows_it_is_secure(): void
+    {
+        $this->get('/up', ['X-Forwarded-Proto' => 'https', 'X-Forwarded-Host' => 'luganda.onrender.com'])->assertOk();
+        $this->assertTrue(request()->secure(), 'X-Forwarded-Proto from Render is trusted');
+        $this->assertSame('luganda.onrender.com', request()->getHost());
+    }
 }

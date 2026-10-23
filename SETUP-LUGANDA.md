@@ -422,3 +422,42 @@ No migrations. After updating: `npm run build` (the offline app saves the built 
 - **Writing (admins only):** Admin → Blog → + New post. Markdown with a toolbar (headings, bold, lists, quotes, links, pictures) and a Preview tab. Put Luganda in double brackets, `[[Webale nnyo]]`, so readers can tap each word. Choose Draft, Published, or Schedule for later (Kampala time).
 - **Comments:** registered learners can comment (not guests). A comment shows only after an admin approves it on Admin → Blog → 💬 Comments, where admins can also reply (shown at once, marked "Team") or delete.
 - **The three starter posts** ("Why learn Luganda?", "How to use this app", "Greetings in Buganda") are drafts: read them, change anything you like, and set them to Published.
+
+## Hosting on Render (23 Oct 2026)
+
+The app is ready for Render. These files do the work:
+
+- `Dockerfile`: builds the site (PHP 8.3 and Apache, plus the CSS and JavaScript).
+- `docker/start.sh`: runs at every start. It sets up the database (migrations and the add-only seeders), makes the admin, starts the reminders and clean-up timer, then starts the website.
+- `render.yaml`: tells Render what to create: the website, a 1 GB disk for recordings and uploads, and a PostgreSQL database.
+
+### First time
+
+1. Push this repo to GitHub.
+2. On render.com: **New → Blueprint**, pick the repo. Render reads `render.yaml`.
+3. Render asks for two values:
+   - `ADMIN_EMAIL`: the email you will register with.
+   - `SUNBIRD_API_TOKEN`: your Sunbird token (leave empty if you have none; then automatic recordings stay off).
+4. Click **Apply**. The first build takes 5 to 10 minutes. Your site is at `https://luganda-xxxx.onrender.com`.
+5. Open the site and register with the `ADMIN_EMAIL` address.
+6. In Render, open the `luganda` service and click **Manual Deploy → Restart service** (or any redeploy). On start it makes that account the admin.
+
+### Costs
+
+- Website on the Starter plan: $7 a month. The free plan has no disk (recordings, blog pictures and instrument sounds disappear on every restart) and sleeps after 15 minutes.
+- Disk: 1 GB, about $0.25 a month.
+- Database `basic-256mb`: $6 a month. A free Render database is deleted after 30 days.
+
+To try it free for a short while, change `plan: starter` to `plan: free`, delete the `disk:` block, and change the database plan to `free` in `render.yaml`. Keep in mind what you lose.
+
+### Your recordings and accounts
+
+Render starts with an empty database and an empty disk. The seeders add all lessons, words and stories. Recordings you made on your computer are not copied. Either make them again with **Admin → Generate audio**, or copy your database with `pg_dump` / `pg_restore` using the "External Database URL" shown in Render.
+
+### Updating
+
+Push to GitHub. Render rebuilds and restarts by itself; new lessons from the seeders are added on start, nothing is overwritten.
+
+### Your own domain
+
+In the `luganda` service: **Settings → Custom Domains**. Add the domain, then add the DNS record Render shows. Render gives it https for free.

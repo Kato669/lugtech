@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append: [\App\Http\Middleware\SecurityHeaders::class]);
+        // Hosting (Render, a tunnel, a load balancer): HTTPS ends at the proxy in front of the app,
+        // which says so in X-Forwarded-* headers. Trusting them makes the app know the page is secure.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

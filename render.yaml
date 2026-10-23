@@ -1,0 +1,50 @@
+# Render Blueprint for the Luganda app: New → Blueprint → pick this repository.
+# It makes a web service (Docker, see Dockerfile) with a small disk for the app's files, and a
+# PostgreSQL database. Prices: see render.com/pricing. Details: SETUP-LUGANDA.md, "Hosting on Render".
+services:
+  - type: web
+    name: luganda
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter            # a persistent disk needs a paid plan; on "free" every upload is lost at each deploy
+    healthCheckPath: /up
+    disk:
+      name: luganda-files
+      mountPath: /var/www/html/storage/app   # recordings, blog pictures, instrument sounds, settings files
+      sizeGB: 1
+    envVars:
+      - key: APP_KEY
+        generateValue: true  # docker/start.sh turns it into Laravel's key format
+      - key: APP_NAME
+        value: Luganda
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        fromDatabase:
+          name: luganda-db
+          property: connectionString
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: LUGANDA_VOICE
+        value: "true"
+      - key: ADMIN_EMAIL     # your email: register in the app with it, then restart the service to become admin
+        sync: false
+      - key: SUNBIRD_API_TOKEN  # for generating Luganda recordings (Admin → Generate audio)
+        sync: false
+      - key: LUGANDA_TTS
+        value: sunbird
+      - key: LUGANDA_TTS_DAILY_LIMIT
+        value: "300"
+
+databases:
+  - name: luganda-db
+    plan: basic-256mb
+    databaseName: luganda
+    user: luganda
