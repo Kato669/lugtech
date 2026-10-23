@@ -76,5 +76,8 @@
         </template>
     </div>
 
+    {{-- Mukasa's recorded lines (Admin → Mukasa's lines); the rest are read by the built-in voice (resources/js/teacher-voice.js) --}}
+    <script>window.LUGANDA_TEACHER_VOICE = @js(\App\Support\TeacherLines::recordings('mukasa'));</script>
+
     {{-- The player itself: resources/js/lesson-player.js --}}
 </x-layouts.app>

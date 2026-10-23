@@ -163,6 +163,9 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
     Route::get('blog/{post:id}/edit', [Admin\BlogController::class, 'edit'])->whereNumber('post')->name('blog.edit');
     Route::put('blog/{post:id}', [Admin\BlogController::class, 'update'])->whereNumber('post')->name('blog.update');
     Route::delete('blog/{post:id}', [Admin\BlogController::class, 'destroy'])->whereNumber('post')->name('blog.destroy');
+    Route::get('mukasa-lines', [Admin\TeacherLineController::class, 'index'])->name('teacher-lines');
+    Route::post('mukasa-lines', [Admin\TeacherLineController::class, 'store'])->middleware('throttle:60,1')->name('teacher-lines.store');
+    Route::delete('mukasa-lines/{recording}', [Admin\TeacherLineController::class, 'destroy'])->whereNumber('recording')->name('teacher-lines.destroy');
     Route::get('instruments', [Admin\InstrumentSoundController::class, 'index'])->name('instruments');
     Route::post('instruments/{key}', [Admin\InstrumentSoundController::class, 'store'])->whereAlpha('key')->name('instruments.store');
     Route::delete('instruments/{key}', [Admin\InstrumentSoundController::class, 'destroy'])->whereAlpha('key')->name('instruments.destroy');

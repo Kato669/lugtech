@@ -34,16 +34,23 @@
         </form>
 
         {{-- Background music: kept on this device (resources/js/music.js) --}}
-        <section class="card" x-data x-show="$store.music.available" x-cloak>
+        <section class="card" x-data x-show="$store.music.available || $store.teacherVoice.available" x-cloak>
             <h2 class="font-display text-xl font-bold">Sound</h2>
-            <label class="mt-3 flex cursor-pointer items-center justify-between gap-4">
+            {{-- Mukasa reads his English lines aloud (resources/js/teacher-voice.js) --}}
+            <label class="mt-3 flex cursor-pointer items-center justify-between gap-4" x-show="$store.teacherVoice.available">
+                <span><span class="block font-semibold">🗣️ Mukasa speaks his lines</span>
+                    <span class="text-sm text-bark-800">In lessons, Mukasa says what's in his speech bubble out loud: in his own recorded voice, or your phone's voice for lines not recorded yet.</span></span>
+                <input type="checkbox" class="peer sr-only" :checked="$store.teacherVoice.on" @change="$store.teacherVoice.setOn($event.target.checked)">
+                <span aria-hidden="true" class="relative h-7 w-12 shrink-0 rounded-full bg-bark-100 transition peer-checked:bg-leaf-500 peer-focus-visible:ring-2 peer-focus-visible:ring-bark-500 after:absolute after:left-1 after:top-1 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5"></span>
+            </label>
+            <label class="mt-3 flex cursor-pointer items-center justify-between gap-4" x-show="$store.music.available">
                 <span><span class="block font-semibold">🎵 Background music</span>
                     <span class="text-sm text-bark-800">Kiganda music under your lessons. It goes quiet whenever Luganda is spoken, and stops while you record yourself.</span></span>
                 <input type="checkbox" class="peer sr-only" :checked="$store.music.on" @change="$store.music.setOn($event.target.checked)">
                 <span aria-hidden="true" class="relative h-7 w-12 shrink-0 rounded-full bg-bark-100 transition peer-checked:bg-leaf-500 peer-focus-visible:ring-2 peer-focus-visible:ring-bark-500 after:absolute after:left-1 after:top-1 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5"></span>
             </label>
             @if (count(config('luganda.music_tracks', [])) > 1)
-                <fieldset class="mt-4" x-show="$store.music.on">
+                <fieldset class="mt-4" x-show="$store.music.available && $store.music.on">
                     <legend class="text-sm font-semibold text-bark-800">Music</legend>
                     <div class="mt-2 grid gap-2 sm:grid-cols-2">
                         @foreach (config('luganda.music_tracks') as $key => $track)
@@ -58,7 +65,7 @@
                     </div>
                 </fieldset>
             @endif
-            <fieldset class="mt-4" x-show="$store.music.on">
+            <fieldset class="mt-4" x-show="$store.music.available && $store.music.on">
                 <legend class="text-sm font-semibold text-bark-800">Volume</legend>
                 <div class="mt-2 flex gap-2">
                     <template x-for="[level, label] in [['soft', 'Soft'], ['medium', 'Medium'], ['loud', 'Loud']]" :key="level">
