@@ -12,14 +12,14 @@
  * Progress made offline is not handled here: the page queues it (resources/js/offline.js).
  * Bump VERSION when this file changes in a way that needs old app files cleared.
  */
-const VERSION = 'v5'; // v2 (Phase 11): word and phrase pages; v3 (Phase 12): daily reminders; v4 (Phase 15): culture pages; v5: the blog
+const VERSION = 'v6'; // v6: the shield-and-spears logo icons; v2 (Phase 11): word and phrase pages; v3 (Phase 12): daily reminders; v4 (Phase 15): culture pages; v5: the blog
 const APP = `app-${VERSION}`;
 const PAGES = 'pages';
 const AUDIO = 'audio';
 const MAX_AUDIO = 600;      // recordings kept on the phone (oldest go first)
 const MAX_PAGES = 120;      // pages kept
 
-const SHELL = ['/offline', '/manifest.webmanifest', '/app-icons/icon-192.png', '/app-icons/icon-512.png', '/app-icons/maskable-512.png', '/favicon.ico'];
+const SHELL = ['/offline', '/manifest.webmanifest', '/app-icons/icon-192-shield.png', '/app-icons/icon-512-shield.png', '/app-icons/maskable-512-shield.png', '/favicon.ico'];
 const LEARNER_PAGES = [/^\/$/, /^\/learn(\/[^/]+)?$/, /^\/review$/, /^\/phrasebook$/, /^\/games(\/[^/]+)?$/, /^\/dictionary(\/[^/]+)?$/, /^\/say(\/[^/]+)?$/, /^\/culture(\/.*)?$/, /^\/blog(\/(?!feed\.xml$)[^/]+)?$/];
 const NEVER = [/^\/(admin|check|studio|login|register|logout|speak|sync)(\/|$)/];
 
@@ -189,8 +189,8 @@ async function save(urls, client, id) {
 self.addEventListener('push', (event) => {
     event.waitUntil(self.registration.showNotification('Time for a little Luganda 🥁', {
         body: 'A few minutes today keeps your streak going.',
-        icon: '/app-icons/icon-192.png',
-        badge: '/app-icons/icon-192.png',
+        icon: '/app-icons/icon-192-shield.png',
+        badge: '/app-icons/icon-192-shield.png',
         tag: 'daily-reminder',
         data: { url: '/learn' },
     }));

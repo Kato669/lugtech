@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#8b4a2b">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <title>Offline · {{ config('app.name') }}</title>
     <style>
         body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fbf6ec; color: #3b1f12;

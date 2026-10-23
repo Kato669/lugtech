@@ -9,7 +9,10 @@
     {{-- Installable, and works offline (Phase 9): public/manifest.webmanifest, public/sw.js, resources/js/offline.js --}}
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#8b4a2b">
-    <link rel="apple-touch-icon" href="/app-icons/apple-touch-icon.png">
+    {{-- The logo (23 Oct 2026): a Kiganda shield and spears. Icons get new names when they change (phones keep old ones). --}}
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/app-icons/apple-touch-icon-shield.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Luganda">
     @if ($me)<meta name="lug-user" content="{{ $me->id }}">@endif
@@ -33,10 +36,10 @@
         @if ($canonical)<meta property="og:url" content="{{ $canonical }}">@endif
     @endif
     {{-- Blog posts: the cover picture when a post is shared --}}
-    @if ($image)
-        <meta property="og:image" content="{{ str_starts_with($image, 'http') ? $image : url($image) }}">
-        <meta name="twitter:card" content="summary_large_image">
-    @endif
+    {{-- The picture shown when a link is shared: a blog post's cover, else the logo --}}
+    @php($shareImage = $image ?: '/images/logo-share.png')
+    <meta property="og:image" content="{{ str_starts_with($shareImage, 'http') ? $shareImage : url($shareImage) }}">
+    <meta name="twitter:card" content="summary_large_image">
     @if (request()->routeIs('blog.*'))<link rel="alternate" type="application/rss+xml" title="{{ config('app.name') }} blog" href="{{ route('blog.feed') }}">@endif
     @if ($robots)<meta name="robots" content="{{ $robots }}">@endif
     @if ($canonical)<link rel="canonical" href="{{ $canonical }}">@endif
@@ -46,7 +49,7 @@
     <header class="sticky top-0 z-40 border-b-2 border-bark-100 bg-white/90 backdrop-blur">
         <nav class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2.5">
             <a href="{{ route('home') }}" class="group flex items-center gap-2">
-                <x-art.ngoma class="h-10 w-10 transition group-hover:-rotate-6" />
+                <x-art.logo class="h-11 w-10 transition group-hover:-rotate-6" />
                 <span class="font-display text-xl font-bold text-bark-600">{{ config('app.name') }}</span>
             </a>
             <div class="order-last -mx-1 flex w-full flex-nowrap items-center gap-1 overflow-x-auto text-sm font-semibold whitespace-nowrap sm:order-none sm:mx-0 sm:w-auto sm:flex-1 sm:overflow-visible">

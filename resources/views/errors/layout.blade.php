@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <title>{{ $title }} · {{ config('app.name') }}</title>
     <style>
         body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fbf6ec; color: #3b1f12;
